@@ -313,7 +313,7 @@
         <div style="font-weight: 600; font-size: 15px; color: #f0f6fc;">Opción 1: Logueo Fácil con GitHub (Device Flow)</div>
         <div style="display: flex; flex-direction: column; gap: 6px; text-align: left;">
           <label style="font-size: 12px; color: var(--text-muted);">OAuth Client ID (opcional / configurable):</label>
-          <input type="text" id="input-client-id" placeholder="Copiá tu Client ID de GitHub OAuth App" style="font-size: 13px; padding: 6px 10px;" />
+          <input type="text" id="input-client-id" value="Ov23lisDXfhvBkCaiVYF" placeholder="Copiá tu Client ID de GitHub OAuth App" style="font-size: 13px; padding: 6px 10px;" />
         </div>
         <button id="btn-start-oauth" onclick="startDeviceFlow()" style="background: #238636; border-color: #238636; color: #fff; font-weight: 700; padding: 10px 18px; font-size: 14px;">
           🚀 Generar Código de Inicio de Sesión
@@ -426,7 +426,8 @@
 
     function startDeviceFlow() {
       const customClientId = document.getElementById('input-client-id').value.trim();
-      const CLIENT_ID = customClientId || localStorage.getItem('gh_oauth_client_id') || '';
+      const DEFAULT_CLIENT_ID = 'Ov23lisDXfhvBkCaiVYF';
+      const CLIENT_ID = customClientId || localStorage.getItem('gh_oauth_client_id') || DEFAULT_CLIENT_ID;
       
       const step2 = document.getElementById('oauth-step2');
       const btnStart = document.getElementById('btn-start-oauth');
