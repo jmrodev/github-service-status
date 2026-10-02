@@ -16,6 +16,7 @@
       --btn-active: #1f6feb;
       --badge-open: #238636;
       --badge-pr: #8957e5;
+      --badge-branch: #1f6feb;
     }
     * { box-sizing: border-box; }
     body {
@@ -58,7 +59,7 @@
     main {
       padding: 0 24px 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
       gap: 16px;
     }
     .card {
@@ -84,11 +85,23 @@
     }
     .pill.has-items { color: #f0f6fc; border-color: #484f58; }
     .section-title { font-weight: 600; font-size: 12px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .list-item { font-size: 13px; padding: 3px 0; display: flex; gap: 8px; align-items: baseline; }
+    .list-item { font-size: 13px; padding: 3px 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
     .list-item a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .list-item a:hover { text-decoration: underline; }
-    .item-title { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .item-title { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px; }
     .author-tag { color: var(--text-muted); font-size: 11px; font-weight: 500; }
+    .branches-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
+    .branch-link {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: monospace;
+      text-decoration: none;
+    }
+    .branch-link:hover { border-color: var(--accent); text-decoration: underline; }
     .badge {
       display: inline-block;
       padding: 1px 6px;
@@ -180,15 +193,26 @@
         const openIssues = (r.issues || []).filter(i => i.state && i.state.toUpperCase() === 'OPEN');
         const openPRs = (r.prs || []).filter(p => p.state && p.state.toUpperCase() === 'OPEN');
         const commits = (r.commits && Array.isArray(r.commits)) ? r.commits.filter(c => c && c.sha) : [];
+        const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
 
         card.innerHTML = `
           <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
           <div class="stats-row">
             <span class="pill ${openPRs.length ? 'has-items' : ''}">PRs ${openPRs.length}</span>
             <span class="pill ${openIssues.length ? 'has-items' : ''}">Issues ${openIssues.length}</span>
-            <span class="pill">Ramas ${(r.branches || []).length}</span>
+            <span class="pill ${branches.length ? 'has-items' : ''}">Ramas ${branches.length}</span>
             <span class="pill">Commits ${commits.length}</span>
           </div>
+
+          ${branches.length ? `
+            <div class="section-title">Ramas Activas (${branches.length})</div>
+            <div class="branches-wrap">
+              ${branches.slice(0, 10).map(b => `
+                <a href="${b.url}" target="_blank" rel="noopener" class="branch-link">🌿 ${escapeHtml(b.name)}</a>
+              `).join('')}
+              ${branches.length > 10 ? `<span class="empty-state">+${branches.length - 10} más</span>` : ''}
+            </div>
+          ` : ''}
 
           ${openPRs.length ? `
             <div class="section-title">Pull Requests</div>
@@ -208,10 +232,10 @@
                 <a href="${i.url}" target="_blank" rel="noopener" class="item-title">${escapeHtml(i.title || '')}</a>
               </div>
             `).join('')}
-          ` : '<div class="empty-state">Sin issues abiertos</div>'}
+          ` : ''}
 
           ${commits.length ? `
-            <div class="section-title">Últimos Commits</div>
+            <div class="section-title">Últimos Commits (Rama por defecto)</div>
             ${commits.slice(0, 5).map(c => `
               <div class="list-item">
                 <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
