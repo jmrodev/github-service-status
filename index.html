@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Vista por Sección</title>
+  <title>GitHub Service Status — Enlaces Directos</title>
   <style>
     :root {
       color-scheme: dark;
@@ -180,24 +180,23 @@
     
     .branches-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
     
-    .branch-btn {
+    .branch-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 14px;
       border-radius: 8px;
+      padding: 8px 14px;
       font-size: 13px;
       font-family: monospace;
-      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      user-select: none;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s, border-color 0.15s;
     }
-    .branch-btn:hover { background: #21262d; border-color: var(--accent); }
-    .branch-btn.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
-    .branch-btn.is-merged { border-color: #238636; }
-    .branch-btn.is-pending { border-color: #d97706; }
+    .branch-card:hover { background: #21262d; border-color: var(--accent); }
+    .branch-card.is-merged { border-color: #238636; }
+    .branch-card.is-pending { border-color: #d97706; }
     
     .branch-status-badge {
       font-size: 11px;
@@ -211,8 +210,6 @@
     .branch-status-pending { background: var(--badge-pending); color: #fff; }
 
     .branch-author { opacity: 0.85; font-size: 12px; font-weight: normal; margin-left: 2px; }
-    .branch-ext { color: var(--text-muted); font-size: 13px; text-decoration: none; margin-left: 4px; }
-    .branch-ext:hover { color: var(--accent); }
     
     .badge {
       display: inline-block;
@@ -232,6 +229,8 @@
     code { font-family: monospace; font-size: 13px; background: var(--card-bg); padding: 3px 8px; border-radius: 4px; }
     .comment-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; word-break: break-word; white-space: normal; line-height: 1.6; margin-bottom: 8px; }
     .comment-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .comment-link { color: var(--text); text-decoration: none; display: block; margin-top: 4px; }
+    .comment-link:hover { color: var(--accent); }
     .date-tag { color: var(--text-muted); font-size: 12px; }
   </style>
 </head>
@@ -259,7 +258,6 @@
     let rawData = null;
     let selectedOrg = 'all';
     let selectedRepo = 'all';
-    const activeBranchMap = {};
     const activeCategoryMap = {};
 
     fetch('./status.json')
@@ -345,7 +343,7 @@
           <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
           ${c.is_incorporated ? '<span class="badge badge-open">INCORPORADO</span>' : '<span class="badge badge-pending">PENDIENTE DE MERGE</span>'}
           ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
-          <span class="item-title">${escapeHtml(c.msg || '')}</span>
+          <a href="${c.html_url || '#'}" target="_blank" rel="noopener" class="item-title">${escapeHtml(c.msg || '')}</a>
         </div>
       `).join('');
     }
@@ -389,16 +387,9 @@
         const prs = (r.prs || []);
         const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
         const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
+        const commits = (r.commits || []);
 
-        // Active branch selection
-        if (!activeBranchMap[r.repo] && branches.length > 0) {
-          activeBranchMap[r.repo] = branches[0].name;
-        }
-        const currentBranchName = activeBranchMap[r.repo] || (branches[0] ? branches[0].name : '');
-        const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
-        const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
-
-        // Default active category (default 'branches')
+        // Default active category ('branches')
         if (!activeCategoryMap[r.repo] || activeCategoryMap[r.repo] === 'all') {
           activeCategoryMap[r.repo] = 'branches';
         }
@@ -419,7 +410,7 @@
         const branchPendingPct = Math.max(0, 100 - branchMergedPct);
 
         card.innerHTML = `
-          <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
+          <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)} ↗</a></h2>
           
           <!-- DASHBOARD GRÁFICO DE BARRAS DE PROGRESO -->
           <div class="graphic-dashboard">
@@ -481,9 +472,9 @@
           </div>
 
           <div class="sections-grid">
-            <!-- RAMAS -->
+            <!-- RAMAS (CADA RAMA ENLAZA DIRECTAMENTE A GITHUB) -->
             <div class="section ${activeCategory !== 'branches' ? 'hidden' : ''}" data-cat-section="branches">
-              <div class="section-title">Ramas del Repositorio (${branches.length}) — Seleccioná una rama para ver sus commits</div>
+              <div class="section-title">Ramas del Repositorio (${branches.length}) — Tocar para ir a la rama en GitHub</div>
               ${branches.length ? `
                 <div class="branches-wrap">
                   ${branches.map(b => {
@@ -499,11 +490,10 @@
                     const branchClass = b.is_merged ? 'is-merged' : 'is-pending';
 
                     return `
-                      <button class="branch-btn ${branchClass} ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
+                      <a href="${b.url}" target="_blank" rel="noopener" class="branch-card ${branchClass}">
                         <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
-                        ${statusBadge}
-                        <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
-                      </button>
+                        ${statusBadge} ↗
+                      </a>
                     `;
                   }).join('')}
                 </div>
@@ -513,7 +503,7 @@
             <!-- COMMITS -->
             <div class="section ${activeCategory !== 'commits' ? 'hidden' : ''}" data-cat-section="commits">
               <div class="section-title">
-                Historial de Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
+                Historial de Commits (${commits.length}) — Tocar para ir al commit en GitHub
               </div>
               <div class="commits-container">
                 ${renderCommitsList(commits)}
@@ -522,11 +512,11 @@
 
             <!-- PULL REQUESTS -->
             <div class="section ${activeCategory !== 'prs' ? 'hidden' : ''}" data-cat-section="prs">
-              <div class="section-title">Todos los Pull Requests (${prs.length})</div>
+              <div class="section-title">Todos los Pull Requests (${prs.length}) — Tocar para abrir el PR en GitHub</div>
               ${prs.length ? prs.map(p => `
                 <div class="list-item">
                   ${getBadge(p.state)}
-                  <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
+                  <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')} ↗</a>
                   ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
                 </div>
               `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
@@ -534,25 +524,25 @@
 
             <!-- COMENTARIOS -->
             <div class="section ${activeCategory !== 'comments' ? 'hidden' : ''}" data-cat-section="comments">
-              <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
+              <div class="section-title">Todos los Comentarios en PRs (${comments.length}) — Tocar para ir al comentario en GitHub</div>
               ${comments.length ? comments.map(c => `
                 <div class="comment-box">
                   <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                    <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>
+                    <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')} ↗</a>
                     ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
                   </div>
-                  <div>"${escapeHtml(c.body || '')}"</div>
+                  <a href="${c.html_url || '#'}" target="_blank" rel="noopener" class="comment-link">"${escapeHtml(c.body || '')}"</a>
                 </div>
               `).join('') : '<div class="empty-state">Sin comentarios registrados</div>'}
             </div>
 
             <!-- ISSUES -->
             <div class="section ${activeCategory !== 'issues' ? 'hidden' : ''}" data-cat-section="issues">
-              <div class="section-title">Todos los Issues (${issues.length})</div>
+              <div class="section-title">Todos los Issues (${issues.length}) — Tocar para abrir el issue en GitHub</div>
               ${issues.length ? issues.map(i => `
                 <div class="list-item">
                   ${getBadge(i.state)}
-                  <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
+                  <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')} ↗</a>
                   ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
                 </div>
               `).join('') : '<div class="empty-state">Sin issues registrados</div>'}
@@ -578,26 +568,6 @@
                 sec.classList.add('hidden');
               }
             });
-          });
-        });
-
-        // Branch selector click handler
-        card.querySelectorAll('.branch-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetBtn = e.currentTarget;
-            const branchName = targetBtn.dataset.branch;
-            if (!branchName) return;
-
-            activeBranchMap[r.repo] = branchName;
-
-            card.querySelectorAll('.branch-btn').forEach(b => b.classList.toggle('active', b === targetBtn));
-
-            const bObj = branches.find(b => b.name === branchName);
-            const bCommits = (bObj && bObj.commits) ? bObj.commits : [];
-
-            card.querySelectorAll('.branch-label').forEach(el => el.textContent = `[${branchName}]`);
-            card.querySelectorAll('.commits-container').forEach(el => el.innerHTML = renderCommitsList(bCommits));
           });
         });
 
