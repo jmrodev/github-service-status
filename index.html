@@ -88,6 +88,7 @@
     .list-item a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .list-item a:hover { text-decoration: underline; }
     .item-title { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .author-tag { color: var(--text-muted); font-size: 11px; font-weight: 500; }
     .badge {
       display: inline-block;
       padding: 1px 6px;
@@ -137,7 +138,6 @@
       const formattedDate = new Date(rawData.generated_at).toLocaleString();
       document.getElementById('meta-info').textContent = `Generado: ${formattedDate} (${rawData.mode || 'live'}) · Repos: ${rawData.total_repos || rawData.repos.length}`;
 
-      // Extract unique orgs / users from repos
       const orgs = new Set();
       (rawData.repos || []).forEach(r => {
         if (r.repo && r.repo.includes('/')) {
@@ -215,6 +215,7 @@
             ${commits.slice(0, 5).map(c => `
               <div class="list-item">
                 <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
+                ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
                 <span class="item-title">${escapeHtml(c.msg || '')}</span>
               </div>
             `).join('')}

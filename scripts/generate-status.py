@@ -32,7 +32,6 @@ def run_json(*args):
         return None
     try:
         data = json.loads(out)
-        # If output was wrapped in a raw string due to gh CLI multiline, extract first json object/array
         if isinstance(data, dict) and "raw" in data:
             return None
         return data
@@ -74,17 +73,14 @@ def repo_snapshot(repo):
     prs = run_json("gh", "pr", "list", "--repo", repo, "--limit", str(LIMITS.get("prs", 10)),
                     "--json", "number,title,url,state") or []
     
-    # Branches query using per_page parameter
     branch_limit = LIMITS.get("branches", 30)
     branches = run_json("gh", "api", f"repos/{repo}/branches?per_page={branch_limit}", "--jq",
                          f"[.[0:{branch_limit}][] | {{name: .name, url: \"https://github.com/{repo}/tree/\" + .name}}]") or []
     
-    # Commits query using per_page parameter
     commit_limit = LIMITS.get("commits", 5)
     commits = run_json("gh", "api", f"repos/{repo}/commits?per_page={commit_limit}", "--jq",
-                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), html_url: .html_url}}]") or []
+                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), html_url: .html_url}}]") or []
     
-    # Ensure lists are strictly lists
     if not isinstance(issues, list): issues = []
     if not isinstance(prs, list): prs = []
     if not isinstance(branches, list): branches = []
