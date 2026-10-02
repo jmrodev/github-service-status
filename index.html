@@ -252,8 +252,8 @@
             <span class="tab-pill ${activeTab === 'issues' ? 'active' : ''} ${openIssues.length ? 'has-items' : ''}" data-tab="issues">Issues (${openIssues.length})</span>
           </div>
 
-          <!-- BRANCHES & COMMITS TAB CONTENT -->
-          <div class="tab-content ${activeTab === 'branches' || activeTab === 'commits' ? 'active' : ''}" data-content="branches">
+          <!-- BRANCHES TAB CONTENT -->
+          <div class="tab-content ${activeTab === 'branches' ? 'active' : ''}" data-content="branches">
             ${branches.length ? `
               <div class="section-title">Seleccionar Rama</div>
               <div class="branches-wrap">
@@ -267,7 +267,17 @@
             ` : ''}
 
             <div class="section-title">
-              Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
+              Commits de la Rama <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
+            </div>
+            <div class="commits-container">
+              ${renderCommitsList(commits)}
+            </div>
+          </div>
+
+          <!-- COMMITS TAB CONTENT -->
+          <div class="tab-content ${activeTab === 'commits' ? 'active' : ''}" data-content="commits">
+            <div class="section-title">
+              Últimos Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
             </div>
             <div class="commits-container">
               ${renderCommitsList(commits)}
@@ -317,11 +327,7 @@
             card.querySelectorAll('.tab-pill').forEach(p => p.classList.toggle('active', p === pill));
 
             card.querySelectorAll('.tab-content').forEach(content => {
-              if (targetTab === 'branches' || targetTab === 'commits') {
-                content.classList.toggle('active', content.dataset.content === 'branches');
-              } else {
-                content.classList.toggle('active', content.dataset.content === targetTab);
-              }
+              content.classList.toggle('active', content.dataset.content === targetTab);
             });
           });
         });
@@ -341,11 +347,8 @@
             const bObj = branches.find(b => b.name === branchName);
             const bCommits = (bObj && bObj.commits) ? bObj.commits : [];
 
-            const labelEl = card.querySelector('.branch-label');
-            if (labelEl) labelEl.textContent = `[${branchName}]`;
-
-            const containerEl = card.querySelector('.commits-container');
-            if (containerEl) containerEl.innerHTML = renderCommitsList(bCommits);
+            card.querySelectorAll('.branch-label').forEach(el => el.textContent = `[${branchName}]`);
+            card.querySelectorAll('.commits-container').forEach(el => el.innerHTML = renderCommitsList(bCommits));
           });
         });
 
