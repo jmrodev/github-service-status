@@ -1,106 +1,8 @@
 {
-  "generated_at": "2026-10-02T02:12:09.023900+00:00",
-  "mode": "test-slice",
-  "total_repos": 4,
+  "generated_at": "2026-10-02T02:14:51.886015+00:00",
+  "mode": "full-scan",
+  "total_repos": 45,
   "repos": [
-    {
-      "repo": "3roTECDA2026/edu-track-front",
-      "url": "https://github.com/3roTECDA2026/edu-track-front",
-      "issues": [],
-      "prs": [
-        {
-          "number": 23,
-          "state": "OPEN",
-          "title": "[CRM-029] Estándar visual MUI: theme y componentes comunes",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/pull/23"
-        }
-      ],
-      "branches": [
-        {
-          "name": "Edu-track-componente-aside",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Edu-track-componente-aside"
-        },
-        {
-          "name": "Feature/setup-frontend-react-material-mui",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Feature/setup-frontend-react-material-mui"
-        },
-        {
-          "name": "chore/dep-patches",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/chore/dep-patches"
-        },
-        {
-          "name": "develop",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/develop"
-        },
-        {
-          "name": "docs/add-middlewares-guide-fix",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/add-middlewares-guide-fix"
-        },
-        {
-          "name": "docs/interactive-slide-manual-fix",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/interactive-slide-manual-fix"
-        },
-        {
-          "name": "docs/security-architecture",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/security-architecture"
-        },
-        {
-          "name": "feature/CRM009-grilla-de-calificacones",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM009-grilla-de-calificacones"
-        },
-        {
-          "name": "feature/CRM-006-crud-usuarios-panel-admin",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-006-crud-usuarios-panel-admin"
-        },
-        {
-          "name": "feature/CRM-029-estandar-mui",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-029-estandar-mui"
-        },
-        {
-          "name": "feature/FE-resumen-inasistencias-justificaciones",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/FE-resumen-inasistencias-justificaciones"
-        },
-        {
-          "name": "feature/attendance-quick-entry",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/attendance-quick-entry"
-        },
-        {
-          "name": "feature/cambio-de-alta",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/cambio-de-alta"
-        },
-        {
-          "name": "feature/carga-estudiantes",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/carga-estudiantes"
-        },
-        {
-          "name": "feature/lista-estudiantes",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lista-estudiantes"
-        },
-        {
-          "name": "feature/lucas",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lucas"
-        },
-        {
-          "name": "login-page",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/login-page"
-        },
-        {
-          "name": "luz-migracion-ts",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/luz-migracion-ts"
-        },
-        {
-          "name": "main",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/main"
-        },
-        {
-          "name": "marcelo/header",
-          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/marcelo/header"
-        }
-      ],
-      "commits": {
-        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/50da7a46d9a5ac50602cd2ec1da34c3880d2be0b\",\"msg\":\"Merge pull request #33 from 3roTECDA2026/docs/explain-express-basics-next\",\"sha\":\"50da7a4\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/1210b6c2be15dce386565a12a5e0431efb48e877\",\"msg\":\"docs(manual): detallar conceptos basicos de express (req, res, next y manejo de contexto)\",\"sha\":\"1210b6c\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/e1d235cc91e14bce060de3c883a4b6eaa9b09642\",\"msg\":\"Merge pull request #32 from 3roTECDA2026/docs/split-express-and-alternatives\",\"sha\":\"e1d235c\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/01ce10bf61baeaf2beabcd0ba9329ac3566d2989\",\"msg\":\"docs(manual): categorizar portal en modulo Express y modulo Alternativas con nueva guia\",\"sha\":\"01ce10b\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/de434f4a0e41e04d2afd253fb821a5296a437cb5\",\"msg\":\"Merge pull request #31 from 3roTECDA2026/docs/add-middlewares-guide\",\"sha\":\"de434f4\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/d656eec70f95f178f0f9131101715a95a91037fc\",\"msg\":\"Merge branch 'main' of https://github.com/3roTECDA2026/edu-track-front\",\"sha\":\"d656eec\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/aacbd97091e8389161f7e440679177601196249f\",\"msg\":\"fix\",\"sha\":\"aacbd97\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/f239ec7b7a0f79e4c51a57c951751bda1b0a4398\",\"msg\":\"armo pagina homepage y login\",\"sha\":\"f239ec7\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/cfd4be377a1b0b2f4004fa4d96b5d446802d0bab\",\"msg\":\"Merge pull request #1 from jmrodev/feat/setup-eslint-testing\",\"sha\":\"cfd4be3\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/57d713a7f764ad8099e0e010bb4ecb500b450dd3\",\"msg\":\"Merge branch 'main' into feat/setup-eslint-testing\",\"sha\":\"57d713a\"}]"
-      }
-    },
     {
       "repo": "3roTECDA2026/edu-track-back",
       "url": "https://github.com/3roTECDA2026/edu-track-back",
@@ -210,137 +112,101 @@
       ]
     },
     {
-      "repo": "3roTECDA2026/sababook-front-cont",
-      "url": "https://github.com/3roTECDA2026/sababook-front-cont",
+      "repo": "3roTECDA2026/edu-track-front",
+      "url": "https://github.com/3roTECDA2026/edu-track-front",
       "issues": [],
       "prs": [
         {
-          "number": 16,
+          "number": 23,
           "state": "OPEN",
-          "title": "Moderación: bandeja de incidencias con aceptar y rechazar",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/16"
-        },
-        {
-          "number": 15,
-          "state": "OPEN",
-          "title": "[La Gran Ocasión] trivia y evaluaciones: carga de docente + juego de alumno, con hooks",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/15"
-        },
-        {
-          "number": 14,
-          "state": "OPEN",
-          "title": "Agrego el nueva funcionalidad a BookDetailsPage y agrego archivo Read…",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/14"
-        },
-        {
-          "number": 11,
-          "state": "OPEN",
-          "title": "[FEATURE] Cafés Literarios: asistencia y votación — integrado con develop",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/11"
-        },
-        {
-          "number": 1,
-          "state": "OPEN",
-          "title": "feat(ui): agregar componente de racha de lectura ReadingStreak [REQ-03]",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/1"
+          "title": "[CRM-029] Estándar visual MUI: theme y componentes comunes",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/pull/23"
         }
       ],
       "branches": [
         {
-          "name": "BUG-001",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/BUG-001"
+          "name": "Edu-track-componente-aside",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Edu-track-componente-aside"
         },
         {
-          "name": "REQ-04",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-04"
+          "name": "Feature/setup-frontend-react-material-mui",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Feature/setup-frontend-react-material-mui"
         },
         {
-          "name": "REQ-06",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-06"
-        },
-        {
-          "name": "REQ-14-trivia-alumnos",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-alumnos"
-        },
-        {
-          "name": "REQ-14-trivia-preguntados",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-preguntados"
-        },
-        {
-          "name": "REQ-15-FE",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-15-FE"
+          "name": "chore/dep-patches",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/chore/dep-patches"
         },
         {
           "name": "develop",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/develop"
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/develop"
         },
         {
-          "name": "docs/add-toc-index",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/add-toc-index"
+          "name": "docs/add-middlewares-guide-fix",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/add-middlewares-guide-fix"
+        },
+        {
+          "name": "docs/interactive-slide-manual-fix",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/interactive-slide-manual-fix"
         },
         {
           "name": "docs/security-architecture",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/security-architecture"
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/security-architecture"
         },
         {
-          "name": "docs/unify-manual-single-page",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/unify-manual-single-page"
+          "name": "feature/CRM009-grilla-de-calificacones",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM009-grilla-de-calificacones"
         },
         {
-          "name": "feature/REQ-12-UI-insignias-automaticas-apl",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12-UI-insignias-automaticas-apl"
+          "name": "feature/CRM-006-crud-usuarios-panel-admin",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-006-crud-usuarios-panel-admin"
         },
         {
-          "name": "feature/REQ-12",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12"
+          "name": "feature/CRM-029-estandar-mui",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-029-estandar-mui"
         },
         {
-          "name": "feature/REQ-14-trivia-preguntados-alumnos",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-14-trivia-preguntados-alumnos"
+          "name": "feature/FE-resumen-inasistencias-justificaciones",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/FE-resumen-inasistencias-justificaciones"
         },
         {
-          "name": "feature/TECH-02-refactor-carpetas-front",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-02-refactor-carpetas-front"
+          "name": "feature/attendance-quick-entry",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/attendance-quick-entry"
         },
         {
-          "name": "feature/TECH-03-migracion-ts-front",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-03-migracion-ts-front"
+          "name": "feature/cambio-de-alta",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/cambio-de-alta"
         },
         {
-          "name": "feature/colour",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/colour"
+          "name": "feature/carga-estudiantes",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/carga-estudiantes"
         },
         {
-          "name": "feature/req-05-course-activity-feed-back",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/req-05-course-activity-feed-back"
+          "name": "feature/lista-estudiantes",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lista-estudiantes"
         },
         {
-          "name": "fernanda",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fernanda"
+          "name": "feature/lucas",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lucas"
         },
         {
-          "name": "fix/BUG-11-aria-hidden-drawer-modal",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fix/BUG-11-aria-hidden-drawer-modal"
+          "name": "login-page",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/login-page"
+        },
+        {
+          "name": "luz-migracion-ts",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/luz-migracion-ts"
         },
         {
           "name": "main",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/main"
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/main"
         },
         {
-          "name": "marcelo/REQ-08-panel-moderacion",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/marcelo/REQ-08-panel-moderacion"
-        },
-        {
-          "name": "meta-de-lectura",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/meta-de-lectura"
-        },
-        {
-          "name": "ornela",
-          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/ornela"
+          "name": "marcelo/header",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/marcelo/header"
         }
       ],
       "commits": {
-        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/e98bd002f3e7c2796ba7985990bac943c74cb262\",\"msg\":\"Merge pull request #3 from 3roTECDA2026/feature/TECH-02-refactor-carpetas-front\",\"sha\":\"e98bd00\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/44828691d0d962a24ddad916b92d5f3d4a9f4246\",\"msg\":\"Conflictos resueltos\",\"sha\":\"4482869\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/0db03d872e9d70add4c97b1c7b6f3e8648760ea4\",\"msg\":\"Merge pull request #9 from 3roTECDA2026/meta-de-lectura\",\"sha\":\"0db03d8\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/d617cff62fe66f4f2fc8980a2c0dc447f20d341f\",\"msg\":\"Merge remote-tracking branch 'origin/develop' into meta-de-lectura\",\"sha\":\"d617cff\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/588434ee72bc59da19e09e494ffc1dfb5d4d1ad2\",\"msg\":\"Volver a usar vite-tsconfig-paths\",\"sha\":\"588434e\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/98471f1281b062bd8172e786dfb462dd3d382a40\",\"msg\":\"subo correciones finales a la pagian Insignia\",\"sha\":\"98471f1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/ef54ed1812fb41255ec53d423f985b1e3a7b296b\",\"msg\":\"Merge branch 'main' of https://github.com/TurcoDev/sababook-front into flor\",\"sha\":\"ef54ed1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/cef8647ca8b5fb788f28df8918fe513e4500ac5a\",\"msg\":\"Merge pull request #24 from TurcoDev/revert-23-cristianModificacion\",\"sha\":\"cef8647\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/765093ba974208dd37b725701671b2d4767435a3\",\"msg\":\"Revert \\\"cambios arreglados\\\"\",\"sha\":\"765093b\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/7ec63a55e1e7c88460bcb0e9e635aecf97fe828d\",\"msg\":\"Merge pull request #23 from TurcoDev/cristianModificacion\",\"sha\":\"7ec63a5\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/846a5566b08662f2964107f149932672fa1a6dea\",\"msg\":\"Merge pull request #5 from TurcoDev/laura\",\"sha\":\"846a556\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/4ac5f259f72b92512f6c70fbcc4f9ac797195a20\",\"msg\":\"modifico coments de profile\",\"sha\":\"4ac5f25\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/6c5bdca8319f8c90eb2427ba0e1c4117370f5031\",\"msg\":\"Merge remote-tracking branch 'origin/main' into laura\",\"sha\":\"6c5bdca\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/c337ac1b0623dda57adb092a8e89f6cf4a6330a6\",\"msg\":\"Se corrigen datos obtenidos desde back para viaualizarlos en la vista de books\",\"sha\":\"c337ac1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/a5e8400bcdd780281d784a2c203d1b5a91dd61a6\",\"msg\":\"se crea pantalla mis comentarios\",\"sha\":\"a5e8400\"}]"
+        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/50da7a46d9a5ac50602cd2ec1da34c3880d2be0b\",\"msg\":\"Merge pull request #33 from 3roTECDA2026/docs/explain-express-basics-next\",\"sha\":\"50da7a4\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/1210b6c2be15dce386565a12a5e0431efb48e877\",\"msg\":\"docs(manual): detallar conceptos basicos de express (req, res, next y manejo de contexto)\",\"sha\":\"1210b6c\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/e1d235cc91e14bce060de3c883a4b6eaa9b09642\",\"msg\":\"Merge pull request #32 from 3roTECDA2026/docs/split-express-and-alternatives\",\"sha\":\"e1d235c\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/01ce10bf61baeaf2beabcd0ba9329ac3566d2989\",\"msg\":\"docs(manual): categorizar portal en modulo Express y modulo Alternativas con nueva guia\",\"sha\":\"01ce10b\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/de434f4a0e41e04d2afd253fb821a5296a437cb5\",\"msg\":\"Merge pull request #31 from 3roTECDA2026/docs/add-middlewares-guide\",\"sha\":\"de434f4\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/d656eec70f95f178f0f9131101715a95a91037fc\",\"msg\":\"Merge branch 'main' of https://github.com/3roTECDA2026/edu-track-front\",\"sha\":\"d656eec\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/aacbd97091e8389161f7e440679177601196249f\",\"msg\":\"fix\",\"sha\":\"aacbd97\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/f239ec7b7a0f79e4c51a57c951751bda1b0a4398\",\"msg\":\"armo pagina homepage y login\",\"sha\":\"f239ec7\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/cfd4be377a1b0b2f4004fa4d96b5d446802d0bab\",\"msg\":\"Merge pull request #1 from jmrodev/feat/setup-eslint-testing\",\"sha\":\"cfd4be3\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/57d713a7f764ad8099e0e010bb4ecb500b450dd3\",\"msg\":\"Merge branch 'main' into feat/setup-eslint-testing\",\"sha\":\"57d713a\"}]"
       }
     },
     {
@@ -504,6 +370,1819 @@
       "commits": {
         "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/900f7ffdacc41be242561addadd475c67f481c6a\",\"msg\":\"Merge pull request #10 from 3roTECDA2026/Bug_5_permiso_de_creacion\",\"sha\":\"900f7ff\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/a613d5325c596b393a2572e2db60e354a7dcb27a\",\"msg\":\"Merge branch 'develop' into Bug_5_permiso_de_creacion\",\"sha\":\"a613d53\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/e4047950fdea5530e340100634033c89e796a8eb\",\"msg\":\"Merge pull request #13 from 3roTECDA2026/feature/req-05-course-activity-feed\",\"sha\":\"e404795\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/a879cda853d38f564e62912ca1e4cd2708118453\",\"msg\":\"feed-radio-recomendar-libro\",\"sha\":\"a879cda\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/3e0106e6b627d0272cab11576a527cd14c31b1ec\",\"msg\":\"feat: implementar feed de actividades y backend de radio\",\"sha\":\"3e0106e\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/8ea96e282cb74901ab2b7f4701d504dae1229085\",\"msg\":\"se crea archivo de rutas de libros\",\"sha\":\"8ea96e2\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/ea0948d9559c1bdb20805f65d06d6f17afe01814\",\"msg\":\"se crea archivo modelo de libros\",\"sha\":\"ea0948d\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/7f26b1a5a40fec1bef53b6cc8a12ab8ab038ee47\",\"msg\":\"se crea archivo controlador de libros\",\"sha\":\"7f26b1a\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/6e6306c3efacfeac6391f3ccaacf28134f795fe7\",\"msg\":\"se acomoda a la estructura del main y queda funcionando.\",\"sha\":\"6e6306c\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/26ee4c5c24cb04d3ac02033d03c21bcd6865dda9\",\"msg\":\"Eliminado el prefijo 'user' de las rutas de usuario\",\"sha\":\"26ee4c5\"}]"
       }
+    },
+    {
+      "repo": "3roTECDA2026/sababook-front-cont",
+      "url": "https://github.com/3roTECDA2026/sababook-front-cont",
+      "issues": [],
+      "prs": [
+        {
+          "number": 16,
+          "state": "OPEN",
+          "title": "Moderación: bandeja de incidencias con aceptar y rechazar",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/16"
+        },
+        {
+          "number": 15,
+          "state": "OPEN",
+          "title": "[La Gran Ocasión] trivia y evaluaciones: carga de docente + juego de alumno, con hooks",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/15"
+        },
+        {
+          "number": 14,
+          "state": "OPEN",
+          "title": "Agrego el nueva funcionalidad a BookDetailsPage y agrego archivo Read…",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/14"
+        },
+        {
+          "number": 11,
+          "state": "OPEN",
+          "title": "[FEATURE] Cafés Literarios: asistencia y votación — integrado con develop",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/11"
+        },
+        {
+          "number": 1,
+          "state": "OPEN",
+          "title": "feat(ui): agregar componente de racha de lectura ReadingStreak [REQ-03]",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/1"
+        }
+      ],
+      "branches": [
+        {
+          "name": "BUG-001",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/BUG-001"
+        },
+        {
+          "name": "REQ-04",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-04"
+        },
+        {
+          "name": "REQ-06",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-06"
+        },
+        {
+          "name": "REQ-14-trivia-alumnos",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-alumnos"
+        },
+        {
+          "name": "REQ-14-trivia-preguntados",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-preguntados"
+        },
+        {
+          "name": "REQ-15-FE",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-15-FE"
+        },
+        {
+          "name": "develop",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/develop"
+        },
+        {
+          "name": "docs/add-toc-index",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/add-toc-index"
+        },
+        {
+          "name": "docs/security-architecture",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/security-architecture"
+        },
+        {
+          "name": "docs/unify-manual-single-page",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/unify-manual-single-page"
+        },
+        {
+          "name": "feature/REQ-12-UI-insignias-automaticas-apl",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12-UI-insignias-automaticas-apl"
+        },
+        {
+          "name": "feature/REQ-12",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12"
+        },
+        {
+          "name": "feature/REQ-14-trivia-preguntados-alumnos",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-14-trivia-preguntados-alumnos"
+        },
+        {
+          "name": "feature/TECH-02-refactor-carpetas-front",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-02-refactor-carpetas-front"
+        },
+        {
+          "name": "feature/TECH-03-migracion-ts-front",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-03-migracion-ts-front"
+        },
+        {
+          "name": "feature/colour",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/colour"
+        },
+        {
+          "name": "feature/req-05-course-activity-feed-back",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/req-05-course-activity-feed-back"
+        },
+        {
+          "name": "fernanda",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fernanda"
+        },
+        {
+          "name": "fix/BUG-11-aria-hidden-drawer-modal",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fix/BUG-11-aria-hidden-drawer-modal"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/main"
+        },
+        {
+          "name": "marcelo/REQ-08-panel-moderacion",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/marcelo/REQ-08-panel-moderacion"
+        },
+        {
+          "name": "meta-de-lectura",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/meta-de-lectura"
+        },
+        {
+          "name": "ornela",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/ornela"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/e98bd002f3e7c2796ba7985990bac943c74cb262\",\"msg\":\"Merge pull request #3 from 3roTECDA2026/feature/TECH-02-refactor-carpetas-front\",\"sha\":\"e98bd00\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/44828691d0d962a24ddad916b92d5f3d4a9f4246\",\"msg\":\"Conflictos resueltos\",\"sha\":\"4482869\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/0db03d872e9d70add4c97b1c7b6f3e8648760ea4\",\"msg\":\"Merge pull request #9 from 3roTECDA2026/meta-de-lectura\",\"sha\":\"0db03d8\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/d617cff62fe66f4f2fc8980a2c0dc447f20d341f\",\"msg\":\"Merge remote-tracking branch 'origin/develop' into meta-de-lectura\",\"sha\":\"d617cff\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/588434ee72bc59da19e09e494ffc1dfb5d4d1ad2\",\"msg\":\"Volver a usar vite-tsconfig-paths\",\"sha\":\"588434e\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/98471f1281b062bd8172e786dfb462dd3d382a40\",\"msg\":\"subo correciones finales a la pagian Insignia\",\"sha\":\"98471f1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/ef54ed1812fb41255ec53d423f985b1e3a7b296b\",\"msg\":\"Merge branch 'main' of https://github.com/TurcoDev/sababook-front into flor\",\"sha\":\"ef54ed1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/cef8647ca8b5fb788f28df8918fe513e4500ac5a\",\"msg\":\"Merge pull request #24 from TurcoDev/revert-23-cristianModificacion\",\"sha\":\"cef8647\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/765093ba974208dd37b725701671b2d4767435a3\",\"msg\":\"Revert \\\"cambios arreglados\\\"\",\"sha\":\"765093b\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/7ec63a55e1e7c88460bcb0e9e635aecf97fe828d\",\"msg\":\"Merge pull request #23 from TurcoDev/cristianModificacion\",\"sha\":\"7ec63a5\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/846a5566b08662f2964107f149932672fa1a6dea\",\"msg\":\"Merge pull request #5 from TurcoDev/laura\",\"sha\":\"846a556\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/4ac5f259f72b92512f6c70fbcc4f9ac797195a20\",\"msg\":\"modifico coments de profile\",\"sha\":\"4ac5f25\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/6c5bdca8319f8c90eb2427ba0e1c4117370f5031\",\"msg\":\"Merge remote-tracking branch 'origin/main' into laura\",\"sha\":\"6c5bdca\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/c337ac1b0623dda57adb092a8e89f6cf4a6330a6\",\"msg\":\"Se corrigen datos obtenidos desde back para viaualizarlos en la vista de books\",\"sha\":\"c337ac1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/a5e8400bcdd780281d784a2c203d1b5a91dd61a6\",\"msg\":\"se crea pantalla mis comentarios\",\"sha\":\"a5e8400\"}]"
+      }
+    },
+    {
+      "repo": "Tecdron/development",
+      "url": "https://github.com/Tecdron/development",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "copilot/implementar-ci-cd-para-aws",
+          "url": "https://github.com/Tecdron/development/tree/copilot/implementar-ci-cd-para-aws"
+        },
+        {
+          "name": "development",
+          "url": "https://github.com/Tecdron/development/tree/development"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/Tecdron/development/commit/dee028cbb77f40ec518d7670ac1a2022962f5bb5",
+          "msg": "feat: add wordpress source code and docker-compose from production",
+          "sha": "dee028c"
+        },
+        {
+          "html_url": "https://github.com/Tecdron/development/commit/399ec924a0c30cd578bed39aebe69f7956aefa70",
+          "msg": "docs: separate SSL implementation and Astra assistance manuals",
+          "sha": "399ec92"
+        },
+        {
+          "html_url": "https://github.com/Tecdron/development/commit/96924ccb2495e77338d2d35d97981b40f4844cb6",
+          "msg": "Backup completo desde AWS: Base de datos y archivos de WordPress (2026-05-22)",
+          "sha": "96924cc"
+        },
+        {
+          "html_url": "https://github.com/Tecdron/development/commit/495957f1cb2d1d086e58f68428b6f9f3f22392f3",
+          "msg": "Add CI/CD automation manual for GitHub and AWS",
+          "sha": "495957f"
+        },
+        {
+          "html_url": "https://github.com/Tecdron/development/commit/efa084c80fda4d5e2d003a33325c761aaa48a083",
+          "msg": "Update SSH manual with public key and config file instructions",
+          "sha": "efa084c"
+        }
+      ]
+    },
+    {
+      "repo": "Tecdron/main",
+      "url": "https://github.com/Tecdron/main",
+      "issues": [],
+      "prs": [],
+      "branches": [],
+      "commits": []
+    },
+    {
+      "repo": "ecommerce-economia-empresarial-tecda/juanfer",
+      "url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "master",
+          "url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/tree/master"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/commit/fe5c1f8f7b1628115be9eaa3579d57681434a2d8",
+          "msg": "Fix: renombrar compra.png (quitando espacio inicial)",
+          "sha": "fe5c1f8"
+        },
+        {
+          "html_url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/commit/1ade8e7680557da821544c881f7c60c17200327d",
+          "msg": "Vincular capturas reales de capturas/ en el informe",
+          "sha": "1ade8e7"
+        },
+        {
+          "html_url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/commit/291aa6b2d768e7d7a30a47fe0ccb45c818e28bbe",
+          "msg": "Agregar informe del TP3 en HTML",
+          "sha": "291aa6b"
+        },
+        {
+          "html_url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/commit/a3964ae3d37cab55dfeb05f963e6348e9a57f1d2",
+          "msg": "Mejorar titulo del sitio y favicon",
+          "sha": "a3964ae"
+        },
+        {
+          "html_url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/commit/c3a5a640a563184a9518f13c19981c694ba7f42f",
+          "msg": "Agregar pagina de contacto, hero banner y GitHub Actions deploy",
+          "sha": "c3a5a64"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/Carrera-TECDA",
+      "url": "https://github.com/jmrodev/Carrera-TECDA",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/Carrera-TECDA/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/Carrera-TECDA/commit/91d027c4f7837f3c773695a4108acf6f4869f2a5",
+          "msg": "Add 'SEGUNDO/repaso-front/' from commit '0033250d5dd2d36d8e4734d4b4e74b56e6c6bfad'",
+          "sha": "91d027c"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Carrera-TECDA/commit/1ac7a1cf57cc217e7208b369fa07890bbfaa8ac6",
+          "msg": "Add 'TERCERO/Practicas_profesionalizantes/' from commit '00ece5cfab7a3c40b8bab048edefdcae466501da'",
+          "sha": "1ac7a1c"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Carrera-TECDA/commit/284743f3deecb0a97e043a07e4b5974242084a84",
+          "msg": "Add 'TERCERO/ECONOMIA_EMPRESARIAL/' from commit '170491bced26a3443d1ebe9d11267d6d3c94fbfc'",
+          "sha": "284743f"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Carrera-TECDA/commit/27ef7f1cad8dea83faf74193f0f06d026a14d5b1",
+          "msg": "chore: preparar directorios para importación de subárboles con historial",
+          "sha": "27ef7f1"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Carrera-TECDA/commit/170491bced26a3443d1ebe9d11267d6d3c94fbfc",
+          "msg": "fix: remover repo anidado",
+          "sha": "170491b"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/CineApp",
+      "url": "https://github.com/jmrodev/CineApp",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/CineApp/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/CineApp/commit/088b8e331ba76e0fff8ea34f259bff0f88469722",
+          "msg": "add img and fix calc functions",
+          "sha": "088b8e3"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/CineApp/commit/0af79d8c5d164a4d5d6339e3e835bee6e300ee24",
+          "msg": "feat: Display all functions for each sala and ensure capacity is shown",
+          "sha": "0af79d8"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/CineApp/commit/d17cf71862454b002a693b7e4710ef6419e31934",
+          "msg": "feat: Implement seat capacity validation and display all sala functions",
+          "sha": "d17cf71"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/CineApp/commit/a48df078bcc0cb5482b01d9dda3cbe4dd71f0d8d",
+          "msg": "feat: Implement reservation seat management, replace alerts with modals, enhance Salas view, and fix client CRUD",
+          "sha": "a48df07"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/CineApp/commit/e15d56713f1af1de597e64fec423e001714091f4",
+          "msg": "feat: Implement full CRUD for all entities and relationship-based filtering",
+          "sha": "e15d567"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/Conversor-de-monedas-java-Swing",
+      "url": "https://github.com/jmrodev/Conversor-de-monedas-java-Swing",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/Conversor-de-monedas-java-Swing/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/Conversor-de-monedas-java-Swing/commit/166dc48a31d5f38f4350c11214529c60cb09f680",
+          "msg": "Se creó con Colab",
+          "sha": "166dc48"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Conversor-de-monedas-java-Swing/commit/2ffaba8945c6ce7adb9699f6ad5527af508d8ece",
+          "msg": "first commi-",
+          "sha": "2ffaba8"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Conversor-de-monedas-java-Swing/commit/918753ca31311fb1460e6281bede114b5f987355",
+          "msg": "Initial commit",
+          "sha": "918753c"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/Inst_166_Tecda_Tandil",
+      "url": "https://github.com/jmrodev/Inst_166_Tecda_Tandil",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/Inst_166_Tecda_Tandil/tree/main"
+        },
+        {
+          "name": "refactor/improve-site-structure-ui",
+          "url": "https://github.com/jmrodev/Inst_166_Tecda_Tandil/tree/refactor/improve-site-structure-ui"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/ecbb4591976f3dbd6be887f907dc1e727c4cdd97\",\"msg\":\"fix: restore modal position styles for calendar-modal\",\"sha\":\"ecbb459\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/99d68ce786c8e4d9ac2e64c39019d49b36b3caf4\",\"msg\":\"design: implement premium Dark Cyber-Academic theme for educational wiki\",\"sha\":\"99d68ce\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/c666ca7bf136dde8f67b54cbc54ddccc9c99a33d\",\"msg\":\"fix: resolve 404 navigation error by using rootPath relative links and customize dev port\",\"sha\":\"c666ca7\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/f8e5de92ddf35d8e05574c2132baf8189bd152b2\",\"msg\":\"add 8-9 audios\",\"sha\":\"f8e5de9\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/ba3ff0df1face83489b17c23b61b9959c3f269fb\",\"msg\":\"add 4-5 audios\",\"sha\":\"ba3ff0d\"}]\n[{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/a3390bb5ea2fff8615a10c37b89aca24a1efe1e8\",\"msg\":\"Update schedule times in index.html and generate-pages.js\",\"sha\":\"a3390bb\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/9bfe097051908ac1b0943c6ed0bd62dbe80f2211\",\"msg\":\"Add manual section and link in Segundo año POO content\",\"sha\":\"9bfe097\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/8ff76075d132596fdeacdd56c0e2b7aed9bad0e7\",\"msg\":\"Add link to \\\"Instancia\\\" PDF in Segundo año content\",\"sha\":\"8ff7607\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/e3833eec31b769cc5874879fbd7aaf7b82fae257\",\"msg\":\"add picture of whitboard\",\"sha\":\"e3833ee\"},{\"html_url\":\"https://github.com/jmrodev/Inst_166_Tecda_Tandil/commit/e3f2410ff48785d6a479dbbab127befe03c8ec75\",\"msg\":\"Add introductory content on encapsulation and functions in JavaScript and PHP\",\"sha\":\"e3f2410\"}]"
+      }
+    },
+    {
+      "repo": "jmrodev/Nexocard-fixed",
+      "url": "https://github.com/jmrodev/Nexocard-fixed",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/Nexocard-fixed/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/Nexocard-fixed/commit/efee69409d5c441590c35ce704fc4cf85625f197",
+          "msg": "fix: extract embedded base64 logo to logo.png",
+          "sha": "efee694"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/Nexocard-fixed/commit/b73a5ad2bd5a7809e01d950f9866557f78d0b34b",
+          "msg": "hola",
+          "sha": "b73a5ad"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/POO-PHP",
+      "url": "https://github.com/jmrodev/POO-PHP",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "feature/auth-refactor",
+          "url": "https://github.com/jmrodev/POO-PHP/tree/feature/auth-refactor"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/POO-PHP/tree/main"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/jmrodev/POO-PHP/commit/4d2d9f5fee8079061f1f57736d1f1ed1631fbf8d\",\"msg\":\"Implementar registro automático de ventas al completar pedidos\",\"sha\":\"4d2d9f5\"},{\"html_url\":\"https://github.com/jmrodev/POO-PHP/commit/0b377f865a65d0850a3501bfda037c0450b8ec11\",\"msg\":\"Mejorar vista de listado de ventas legacy\",\"sha\":\"0b377f8\"},{\"html_url\":\"https://github.com/jmrodev/POO-PHP/commit/66835aa1703f7c658b3ad9e6411ae0257d7329ac\",\"msg\":\"Agregar limpieza de mensajes en página home\",\"sha\":\"66835aa\"},{\"html_url\":\"https://github.com/jmrodev/POO-PHP/commit/38cdb37256e5a63ec6b3d1c6e602c7a16aba067e\",\"msg\":\"Corregir middleware de ventas: cambiar onlysupervisor a supervisor\",\"sha\":\"38cdb37\"},{\"html_url\":\"https://github.com/jmrodev/POO-PHP/commit/a117d991a4ee126adc6ee1541db66a47505f0fbe\",\"msg\":\"Adaptar vista de detalle según rol de usuario\",\"sha\":\"a117d99\"}]\n[]"
+      }
+    },
+    {
+      "repo": "jmrodev/ScreenShare",
+      "url": "https://github.com/jmrodev/ScreenShare",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/ScreenShare/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/ScreenShare/commit/601d616c2fc34796936a2997c733e427005c9f33",
+          "msg": "refactor: implement graceful server shutdown with timeout and support for SIGTERM signals",
+          "sha": "601d616"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/ScreenShare/commit/35e1540de699f8046e3ec720b25289f45806e917",
+          "msg": "feat: implement HTTPS support with self-signed certificates to enable screen sharing and microphone access across local networks",
+          "sha": "35e1540"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/ScreenShare/commit/af8686ed08bbceb02682b706b4362699081a4ee5",
+          "msg": "docs: add README.md with project features, installation instructions, and keyboard shortcuts",
+          "sha": "af8686e"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/ScreenShare/commit/4efeb6447534568efe75c950495352e92c7744d1",
+          "msg": "refactor: migrate to HTTP, implement graceful shutdown, and add interactive zoom controls for video playback",
+          "sha": "4efeb64"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/ScreenShare/commit/afc3862bd6c0fd7e2706ef5618aa4d13f36227b8",
+          "msg": "chore: add .gitignore and remove node_modules and certs from index",
+          "sha": "afc3862"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/TECDA-3-GestionBBDD",
+      "url": "https://github.com/jmrodev/TECDA-3-GestionBBDD",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/TECDA-3-GestionBBDD/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/TECDA-3-GestionBBDD/commit/3508acef14f68ecd5bf426eb5a18ec3a1a49a0de",
+          "msg": "feat: inicializar repositorio de materia",
+          "sha": "3508ace"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/blog",
+      "url": "https://github.com/jmrodev/blog",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/blog/tree/main"
+        },
+        {
+          "name": "testnewstyle",
+          "url": "https://github.com/jmrodev/blog/tree/testnewstyle"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/blog/commit/461abf1d197a0b49db3f4ca3d323a9fe0b4c3921",
+          "msg": "Actualiza los colores en `style.css` para el modo claro y oscuro, mejorando la estética visual del sitio. Se modifican los colores de fondo, texto y bloques de código para una mejor legibilidad y presentación.",
+          "sha": "461abf1"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/blog/commit/85e90ffc0d39618a673abed1aef020d912d0b4eb",
+          "msg": "Actualiza el color de fondo en `style.css` de `#f4f5f7` a `#b7bcc5` para mejorar la estética visual del sitio.",
+          "sha": "85e90ff"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/blog/commit/fa7887c941ceff31eb578358bb07a6a09801e21f",
+          "msg": "Actualiza los identificadores de las carpetas en la navegación de \"index.html\" para mejorar la estructura del contenido. Se eliminan proyectos destacados de las secciones \"About me\" en inglés y español, optimizando la presentación de la información.",
+          "sha": "fa7887c"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/blog/commit/5f9fcd638ab76b216cf451067c5fb506d15d37c7",
+          "msg": "Elimina las páginas \"english.html\" y \"spanish.html\" para simplificar la estructura del contenido. Se actualiza \"article-list.json\" para reflejar estos cambios y se ajusta la navegación en \"index.html\" eliminando los enlaces a estas secciones. Mejora la claridad y organización del contenido del sitio.",
+          "sha": "5f9fcd6"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/blog/commit/54cbdf2ccc597c7808668613a5c6284e093d076a",
+          "msg": "Actualiza el título de la página principal a \"JmroDev Blog\" y modifica los identificadores de las carpetas en la navegación para mejorar la estructura del contenido. Se elimina un encabezado duplicado en la página de Neovim y se ajusta el formato del contenido.",
+          "sha": "54cbdf2"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/brujula",
+      "url": "https://github.com/jmrodev/brujula",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "testobsidian",
+          "url": "https://github.com/jmrodev/brujula/tree/testobsidian"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/brujula/commit/47e4d097d12a563f56bcb395c4b630b0942a9018",
+          "msg": "vault backup: 2026-07-08 07:26:44",
+          "sha": "47e4d09"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/brujula/commit/4635a534831bddb915a9e161d2f212a716512d77",
+          "msg": "jmro-hp240 2026-7-8:7:25:41",
+          "sha": "4635a53"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/brujula/commit/0d25c9b3367f9eed33a19b1c622603b0f5b26945",
+          "msg": "jmro-hp240 2026-7-8:7:10:35",
+          "sha": "0d25c9b"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/brujula/commit/30ccd3a39d35addf8e7159b559f65c81274396db",
+          "msg": "first commit",
+          "sha": "30ccd3a"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/certificados",
+      "url": "https://github.com/jmrodev/certificados",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "master",
+          "url": "https://github.com/jmrodev/certificados/tree/master"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/certificados/commit/1657f983a0233aa697394582e9e083c8ad1dc7ea",
+          "msg": "Titulo y certificados",
+          "sha": "1657f98"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/cheatsheet",
+      "url": "https://github.com/jmrodev/cheatsheet",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "master",
+          "url": "https://github.com/jmrodev/cheatsheet/tree/master"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/cheatsheet/commit/3230543d094b0741d5a102c2ac92b1c55462c546",
+          "msg": "cheatsheet",
+          "sha": "3230543"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/chrome-bookmarks",
+      "url": "https://github.com/jmrodev/chrome-bookmarks",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/chrome-bookmarks/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/chrome-bookmarks/commit/a052cdbb468d170c5944a4680ca3daf2dd12d843",
+          "msg": "fix(privacy): filter out wake server key and NSFW bookmarks, leaving 498 clean bookmarks",
+          "sha": "a052cdb"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/chrome-bookmarks/commit/f03efe8c16236a2980fe896496c94e776e631131",
+          "msg": "feat: initial commit with 501 organized bookmarks, test suite, and dead link audit report",
+          "sha": "f03efe8"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/daily-scrum-serverless",
+      "url": "https://github.com/jmrodev/daily-scrum-serverless",
+      "issues": [
+        {
+          "number": 1,
+          "state": "OPEN",
+          "title": "revisar el backend si tiene todos los endpoints",
+          "url": "https://github.com/jmrodev/daily-scrum-serverless/issues/1"
+        }
+      ],
+      "prs": [],
+      "branches": [
+        {
+          "name": "feat/atomic-front-auth-gate",
+          "url": "https://github.com/jmrodev/daily-scrum-serverless/tree/feat/atomic-front-auth-gate"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/daily-scrum-serverless/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/daily-scrum-serverless/commit/f9400bce17838d5aea7b566a4e613ed84438b2dd",
+          "msg": "feat(sync): track kanban snapshot ids in dailies for exact reconcile",
+          "sha": "f9400bc"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/daily-scrum-serverless/commit/2f0eb7a0408b10881d89e6b6940f19a9357e1383",
+          "msg": "fix(sync): reconcile daily answers with live kanban state",
+          "sha": "2f0eb7a"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/daily-scrum-serverless/commit/e2ca036997618c417fbc9aedfe520eedbacfa172",
+          "msg": "feat(ux): undo/redo curved-arrow buttons in header with live state",
+          "sha": "e2ca036"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/daily-scrum-serverless/commit/2ac277991b5fea17e8e17aab22b2bb0a8f801c44",
+          "msg": "fix(kanban): reset drag flag and optimistic move with rollback",
+          "sha": "2ac2779"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/daily-scrum-serverless/commit/546f7ee4cbfae756d9978602dbc23868f8026901",
+          "msg": "feat(auth): login-first gate without tabs, drop identify endpoint",
+          "sha": "546f7ee"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/dotfiles",
+      "url": "https://github.com/jmrodev/dotfiles",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "fix-pnpm-setup",
+          "url": "https://github.com/jmrodev/dotfiles/tree/fix-pnpm-setup"
+        },
+        {
+          "name": "i3wm",
+          "url": "https://github.com/jmrodev/dotfiles/tree/i3wm"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/dotfiles/tree/main"
+        },
+        {
+          "name": "sway",
+          "url": "https://github.com/jmrodev/dotfiles/tree/sway"
+        },
+        {
+          "name": "update-readme",
+          "url": "https://github.com/jmrodev/dotfiles/tree/update-readme"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/fa88bef64d3c93e14cfaabc4eee4daa8076934ec\",\"msg\":\"style(tmux): remove redundant mouse click bindings\",\"sha\":\"fa88bef\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/fd6322c786f8cf10bb2d7482ab35bffdde254ec4\",\"msg\":\"feat(tmux): enable explicit mouse click focus for panes and window tabs\",\"sha\":\"fd6322c\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/f23d02fdc676febcbdd4624ea6782e6f279db44d\",\"msg\":\"feat(sway): add agycode command and Super+c shortcut for coding workflow\",\"sha\":\"f23d02f\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/426d88200ef0aa308a41ae88202e82bcc8ddc8d3\",\"msg\":\"feat(sway): add Super+o shortcut for OpenCode workspace switcher\",\"sha\":\"426d882\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/5ce46eaa462e4f6f3bcaadf027e1ac1e7140a1df\",\"msg\":\"feat(sway): add Super+g shortcut for AGY workspace switcher\",\"sha\":\"5ce46ea\"}]\n[{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/cab9c64c57211279a74487154dddbc6956b8ce38\",\"msg\":\"Merge pull request #3 from jmrodev/fix/git-function-conflicts\",\"sha\":\"cab9c64\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/9fcd5fade9e6bde83812cb913c027a8bd0090c72\",\"msg\":\"Fix: Correct errors in custom Git functions\",\"sha\":\"9fcd5fa\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/e3716318c4a29e3b9a00503d35546d61d2c1445f\",\"msg\":\"Merge pull request #2 from jmrodev/fix/git-function-conflicts\",\"sha\":\"e371631\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/623f133f8873bf75eb85bab776e30c773fe48bdd\",\"msg\":\"Fix: Ensure custom Git functions do not conflict with system Git\",\"sha\":\"623f133\"},{\"html_url\":\"https://github.com/jmrodev/dotfiles/commit/6ec9ba32a7167c025cfe347aaaed69a6dfe934f2\",\"msg\":\"zsh folders\",\"sha\":\"6ec9ba3\"}]"
+      }
+    },
+    {
+      "repo": "jmrodev/fgp-google-sheet-app",
+      "url": "https://github.com/jmrodev/fgp-google-sheet-app",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/fgp-google-sheet-app/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/fgp-google-sheet-app/commit/8cbd1183382d8617521f6f24075acfb75af96385",
+          "msg": "last",
+          "sha": "8cbd118"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/fgp-google-sheet-app/commit/bcb78388bbef1b251038841e9ad4dd1d4f122a43",
+          "msg": "last",
+          "sha": "bcb7838"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/fgp-google-sheet-app/commit/e2312f3f767e3953bac2596c8cd1ce36cbb1a37f",
+          "msg": "last",
+          "sha": "e2312f3"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/fgp-google-sheet-app/commit/5268fcd2c2f10c185386db4794a1dbc03322c259",
+          "msg": "feat: Add Gmail API integration",
+          "sha": "5268fcd"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/fgp-google-sheet-app/commit/2982c3442bbd1314fd3b43b2ae5f0b05284a9ca6",
+          "msg": "feat: Add Google Calendar integration",
+          "sha": "2982c34"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/jardin-zarini",
+      "url": "https://github.com/jmrodev/jardin-zarini",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/jardin-zarini/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/jardin-zarini/commit/a1e328166faa3d3d30c8d88c84505177d32c79ee",
+          "msg": "feat: complete implementation of core features, docs and cleanup",
+          "sha": "a1e3281"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jardin-zarini/commit/96f0577836d695ea7cf554a6e2f152688c9e3eb4",
+          "msg": "feat(enrollment): inscripcion temporal por ciclo, registro completo y confirmacion con clave",
+          "sha": "96f0577"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jardin-zarini/commit/c5a403ea338222ba4bfd75eb854b3d2c345626f7",
+          "msg": "fix(auth, rbac): close gaps, add demo logins and document views",
+          "sha": "c5a403e"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jardin-zarini/commit/2a6bbffda14c61c6cc4b8eb71cc9a226a40b85fe",
+          "msg": "docs: add technical patterns, conventions, and anti-patterns reference",
+          "sha": "2a6bbff"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jardin-zarini/commit/dcf183fa20c482d93e2fb3e8be369a4f06e93586",
+          "msg": "fix(academic-year): rewrite repository and routes to match project patterns (query/pool, parseJsonBody, verifyToken)",
+          "sha": "dcf183f"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/jmro",
+      "url": "https://github.com/jmrodev/jmro",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "copilot/corregir-problemas-en-repo",
+          "url": "https://github.com/jmrodev/jmro/tree/copilot/corregir-problemas-en-repo"
+        },
+        {
+          "name": "copilot/update-cv-bio-for-development",
+          "url": "https://github.com/jmrodev/jmro/tree/copilot/update-cv-bio-for-development"
+        },
+        {
+          "name": "copilot/update-resume-html",
+          "url": "https://github.com/jmrodev/jmro/tree/copilot/update-resume-html"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/jmro/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/jmro/commit/aa47c85ad593535145dad08ff4bb4b3679fd0a7c",
+          "msg": "Merge pull request #3 from jmrodev/copilot/corregir-problemas-en-repo",
+          "sha": "aa47c85"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmro/commit/a7cfed063d740fd3a1a371be6f095fc441160653",
+          "msg": "Fix index.html to align with updated README.md profile",
+          "sha": "a7cfed0"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmro/commit/6143cf4ea21d604369191040ad750e7a3ba40ff2",
+          "msg": "Initial plan",
+          "sha": "6143cf4"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmro/commit/122faf1ca0bc871b857ef5355d332121c87c0509",
+          "msg": "Merge pull request #1 from jmrodev/copilot/update-resume-html",
+          "sha": "122faf1"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmro/commit/ada52af9ce8ade956725c67ceb1b0464da9ea1a2",
+          "msg": "Merge pull request #2 from jmrodev/copilot/update-cv-bio-for-development",
+          "sha": "ada52af"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/jmrodev",
+      "url": "https://github.com/jmrodev/jmrodev",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/jmrodev/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/jmrodev/commit/e5b238610178e7f0e8c57493b6c38954e3baaf08",
+          "msg": "Update README.md",
+          "sha": "e5b2386"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmrodev/commit/67f871af299ea22a249d25a5b96cb5ec84d7ceab",
+          "msg": "Updated README.md with new content",
+          "sha": "67f871a"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmrodev/commit/6e959af52b960a3a6d23c6daefe3e1f7202124fa",
+          "msg": "Update README.md",
+          "sha": "6e959af"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmrodev/commit/e7074473c757bddb2669c1b3ebeb4b53c8e12c7e",
+          "msg": "Remove language links from README",
+          "sha": "e707447"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/jmrodev/commit/b439e741f2c522080871c74d5688744371f85bc2",
+          "msg": "Update README.md",
+          "sha": "b439e74"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/kindergarten_management",
+      "url": "https://github.com/jmrodev/kindergarten_management",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/kindergarten_management/tree/main"
+        },
+        {
+          "name": "rescue-server-files",
+          "url": "https://github.com/jmrodev/kindergarten_management/tree/rescue-server-files"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/2b7b99d16265c0ec0827ee5a8fc33546ac7f7c98\",\"msg\":\"Guardar avances locales: nuevos hooks, componentes y modales\",\"sha\":\"2b7b99d\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/5a936e08a059f4697a72ca3401932983d69f40af\",\"msg\":\"Delete INSCRIPCION 2026 directory\",\"sha\":\"5a936e0\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/f940c66d554de80b9125c53457120988131fa646\",\"msg\":\"style: Standardize status badge colors with CSS variables, refactor guardian detail modal styling, and introduce a modal size alias.\",\"sha\":\"f940c66\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/9a544c1b1b79ffc23b50851cbb588f604cb83841\",\"msg\":\"feat: Implement PWA features and refactor frontend architecture with new pages, components, and styling.\",\"sha\":\"9a544c1\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/beae7b388de5b3ab95a9869560ed059f7774e333\",\"msg\":\"refactor: Streamline sidebar functionality by removing hidden state, delete the permissions page, and refine UI spacing and sizing.\",\"sha\":\"beae7b3\"}]\n[{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/0fc41fbd969b118d295bff38b1839a1190781873\",\"msg\":\"Docs: Remove outdated generated HTML documentation files\",\"sha\":\"0fc41fb\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/ffc9d88d304198d234b1ff49b74ee796d917415a\",\"msg\":\"Docs: Update .mmd documentation files to reflect current system state\",\"sha\":\"ffc9d88\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/dcb49cda836b93520ea1a9165825d3b0b13f1918\",\"msg\":\"Docs: Remove outdated documentation files\",\"sha\":\"dcb49cd\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/f0722b0055b6e33385a3413a65adb16576790673\",\"msg\":\"Refactor: Consolidate database initialization into init_db_full_schema.js\",\"sha\":\"f0722b0\"},{\"html_url\":\"https://github.com/jmrodev/kindergarten_management/commit/233b15e0bd981c726a77d18d5f243bbae97bc96c\",\"msg\":\"Feature: Add init_db_full_schema.js and update migration for staff auth\",\"sha\":\"233b15e\"}]"
+      }
+    },
+    {
+      "repo": "jmrodev/media-stack",
+      "url": "https://github.com/jmrodev/media-stack",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "fix/caddyfile-bind-mount",
+          "url": "https://github.com/jmrodev/media-stack/tree/fix/caddyfile-bind-mount"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/media-stack/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/media-stack/commit/0be255e6cd6e71cbc4e2e85dc8c6102812446c21",
+          "msg": "docs: agregar seccion de operacion completa para IA (servicios, comandos, flujo, checklist)",
+          "sha": "0be255e"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/media-stack/commit/6cca89ebc695b77c75c3620b46a786180db2890a",
+          "msg": "docs: detallar formatos de request por API (JSON vs form-data) y endpoints utiles",
+          "sha": "6cca89e"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/media-stack/commit/4fab7a9d31c1ad7f00f466153c1f2483835612f9",
+          "msg": "docs: agregar seccion de indexers y separacion series/peliculas",
+          "sha": "4fab7a9"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/media-stack/commit/67610549abe85593bb023bb2c88679043377b6c5",
+          "msg": "docs: agregar guia de Custom Formats y perfiles para audio/subs en espanol latino",
+          "sha": "6761054"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/media-stack/commit/20f067b4bdb0f52296817d3f783fdb5564e8a5fd",
+          "msg": "fix: mover Jellyseerr (Seerr) a :5055 directo para liberar la raiz para Homarr",
+          "sha": "20f067b"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/mysqlconfig",
+      "url": "https://github.com/jmrodev/mysqlconfig",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/mysqlconfig/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/mysqlconfig/commit/a28c2fd1f79f13b699cac041f840cf9f7224cd99",
+          "msg": "Docs: Clarify SQL script location in README",
+          "sha": "a28c2fd"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/mysqlconfig/commit/df37d9f04740b288699a357d3e4931e03f790206",
+          "msg": "Initial commit: Add phpMyAdmin configuration files",
+          "sha": "df37d9f"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/portafolio",
+      "url": "https://github.com/jmrodev/portafolio",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/portafolio/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/portafolio/commit/3566866afa0c843347a5d2479e7b9fe407c0a8ce",
+          "msg": "FILTROS CARCTERES MAYUSCULAS",
+          "sha": "3566866"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/portafolio/commit/ad465656c3f695ae7bfc1eb1c59a93b9e633cb00",
+          "msg": "match upercase and special caracter filter",
+          "sha": "ad46565"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/portafolio/commit/56047a24cf769e08218b48a379a57c956d798ec9",
+          "msg": "Update README.md",
+          "sha": "56047a2"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/portafolio/commit/b95388d1820b018ccc1d97acc6a0cf0b33c4afd8",
+          "msg": "Function decrypter and documentation",
+          "sha": "b95388d"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/portafolio/commit/51bec49d45336137074156cc4f12af7950263e16",
+          "msg": "create encrypt javascript",
+          "sha": "51bec49"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/radio-logbook-app",
+      "url": "https://github.com/jmrodev/radio-logbook-app",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/radio-logbook-app/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/radio-logbook-app/commit/e092a8577e4546fd121b13b93b724a883fde1fc3",
+          "msg": "first commit",
+          "sha": "e092a85"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/scripts",
+      "url": "https://github.com/jmrodev/scripts",
+      "issues": [],
+      "prs": [
+        {
+          "number": 2,
+          "state": "OPEN",
+          "title": "Implementing scripts for Arch Linux functionality",
+          "url": "https://github.com/jmrodev/scripts/pull/2"
+        }
+      ],
+      "branches": [
+        {
+          "name": "copilot/add-scripts-for-archlinux",
+          "url": "https://github.com/jmrodev/scripts/tree/copilot/add-scripts-for-archlinux"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/scripts/tree/main"
+        },
+        {
+          "name": "scripts_v2",
+          "url": "https://github.com/jmrodev/scripts/tree/scripts_v2"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/scripts/commit/2da50ca9714cf1601e8d536a2b0555bcec1ff9eb",
+          "msg": "eliminacion de scripts",
+          "sha": "2da50ca"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/scripts/commit/c56bd0a8f72a8ea12862c02b35544cbc6d374d42",
+          "msg": "Add professional README documentation",
+          "sha": "c56bd0a"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/scripts/commit/db6e31e4fc9831de7b6b8dc5ad6ea7d716cfd5d6",
+          "msg": "Refactor configura.sh into a professional system/edit_configs.sh",
+          "sha": "db6e31e"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/scripts/commit/d26f3ac0134f1f98f67bc8935735e866f8aa8eb7",
+          "msg": "Move remote access scripts to remote/ folder",
+          "sha": "d26f3ac"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/scripts/commit/097a0d89adaa57dbc46fd409b341ba8c5a978551",
+          "msg": "Consolidated best of all branches: modular architecture, improved LAMP management, and updated main menu",
+          "sha": "097a0d8"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/secretary-app",
+      "url": "https://github.com/jmrodev/secretary-app",
+      "issues": [],
+      "prs": [
+        {
+          "number": 537,
+          "state": "OPEN",
+          "title": "chore(deps): bump multer from 2.2.0 to 2.3.0 in the npm_and_yarn group across 1 directory",
+          "url": "https://github.com/jmrodev/secretary-app/pull/537"
+        },
+        {
+          "number": 536,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump eslint-plugin-react-refresh from 0.5.5 to 0.5.6",
+          "url": "https://github.com/jmrodev/secretary-app/pull/536"
+        },
+        {
+          "number": 535,
+          "state": "OPEN",
+          "title": "chore(deps): bump mariadb from 3.5.3 to 3.5.4",
+          "url": "https://github.com/jmrodev/secretary-app/pull/535"
+        },
+        {
+          "number": 534,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump globals from 17.11.0 to 17.12.0",
+          "url": "https://github.com/jmrodev/secretary-app/pull/534"
+        },
+        {
+          "number": 533,
+          "state": "OPEN",
+          "title": "chore(deps): bump mysql2 from 3.24.2 to 3.24.3",
+          "url": "https://github.com/jmrodev/secretary-app/pull/533"
+        },
+        {
+          "number": 532,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump oxlint from 1.80.0 to 1.81.0",
+          "url": "https://github.com/jmrodev/secretary-app/pull/532"
+        },
+        {
+          "number": 531,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump jest from 30.4.2 to 30.5.1",
+          "url": "https://github.com/jmrodev/secretary-app/pull/531"
+        },
+        {
+          "number": 530,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump @vitejs/plugin-react from 6.1.0 to 6.1.1",
+          "url": "https://github.com/jmrodev/secretary-app/pull/530"
+        },
+        {
+          "number": 529,
+          "state": "OPEN",
+          "title": "chore(deps): bump express-rate-limit from 8.6.2 to 8.7.0",
+          "url": "https://github.com/jmrodev/secretary-app/pull/529"
+        },
+        {
+          "number": 528,
+          "state": "OPEN",
+          "title": "chore(deps): bump morgan from 1.11.0 to 1.12.0",
+          "url": "https://github.com/jmrodev/secretary-app/pull/528"
+        }
+      ],
+      "branches": [
+        {
+          "name": "dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.6",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.6"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/express-rate-limit-8.7.0",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/express-rate-limit-8.7.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/globals-17.12.0",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/globals-17.12.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/jest-30.5.1",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/jest-30.5.1"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/mariadb-3.5.4",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/mariadb-3.5.4"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/mobile/npm_and_yarn-8b1833f05c",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/mobile/npm_and_yarn-8b1833f05c"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/morgan-1.12.0",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/morgan-1.12.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/mysql2-3.24.3",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/mysql2-3.24.3"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/npm_and_yarn-c500e3dd85",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/npm_and_yarn-c500e3dd85"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/oxlint-1.81.0",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/oxlint-1.81.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/vitejs/plugin-react-6.1.1",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/vitejs/plugin-react-6.1.1"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/wrangler-4.128.0",
+          "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/wrangler-4.128.0"
+        },
+        {
+          "name": "development",
+          "url": "https://github.com/jmrodev/secretary-app/tree/development"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/secretary-app/tree/main"
+        },
+        {
+          "name": "release-v1.0-cima",
+          "url": "https://github.com/jmrodev/secretary-app/tree/release-v1.0-cima"
+        },
+        {
+          "name": "staging",
+          "url": "https://github.com/jmrodev/secretary-app/tree/staging"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/94b387fcfaccf946265da05405884eddb91d3dd1\",\"msg\":\"feat(patients): modernize patient details view, behavior ratings, and url navigation (#559)\",\"sha\":\"94b387f\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/0d9b06195e7b8581082c9c55fcdcb5214090fe1d\",\"msg\":\"refactor(appointments): unify admin panel tabs with inline phone and consistent card heights (#556)\",\"sha\":\"0d9b061\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/3de96f192a03f9b64297007fe70be195240eb62b\",\"msg\":\"fix(appointments): validate slot collision, sync calendar, and fix reschedule flow (#553)\",\"sha\":\"3de96f1\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/a1aceef07923c048d2179265fc3e4530ed8d8bbf\",\"msg\":\"fix(patients): support targeted initial step navigation and unify form styles (#550)\",\"sha\":\"a1aceef\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/77623068b77aa9447026285fb39b591c28cfe5f0\",\"msg\":\"fix(appointments): unify appointment modal layout, patient-phone pairing, and input heights (#547)\",\"sha\":\"7762306\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/2ad6643d962cf8c777cf58b22878dec12c57421a\",\"msg\":\"feat: convert Button hover colors to tokens (hover audit PR2) (#423)\",\"sha\":\"2ad6643\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/90b1ee0fbf848fce03e32eb3a4d5c4cea2d8caed\",\"msg\":\"feat: hover audit foundation — tokens + lint guard (PR1/4) (#422)\",\"sha\":\"90b1ee0\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/48ae41287dc49d8c748313f40321553999c72333\",\"msg\":\"Merge pull request #419 from jmrodev/fix/roleguard-config-users-fallback\",\"sha\":\"48ae412\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/f666cd834176aa40cdeed6bf680a2c2dc79735ef\",\"msg\":\"fix(auth): redirect unauthorized admins to config users tab\",\"sha\":\"f666cd8\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/713799db8319d112105ee966a63467b6b1113eda\",\"msg\":\"Merge pull request #418 from jmrodev/chore/security-updates\",\"sha\":\"713799d\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/7f87869ca10ff71fa1732a759459c3f2026c4457\",\"msg\":\"fix(ui): insurance cards now respect theme variables (#336)\",\"sha\":\"7f87869\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/da7951fcf288211dbb39ba5ef8d7c06043f78d29\",\"msg\":\"fix(ui): reports page tables respecting theme (#332)\",\"sha\":\"da7951f\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/76ed104902c11f92358610beaffc53ee4516df8f\",\"msg\":\"fix(ui): navbar dropdown respecting theme (#331)\",\"sha\":\"76ed104\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/e33d8598abbc32d33e51807e611215da8165b539\",\"msg\":\"fix(ui): tabs respecting theme (#330)\",\"sha\":\"e33d859\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/d90eacfb93558066ed15fab8063fa807cb0debb4\",\"msg\":\"fix(ui): inputs, selects, and buttons respecting theme (#329)\",\"sha\":\"d90eacf\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/a08b8033e3e7243b4ad9f040363ad6856ad9fa52\",\"msg\":\"feat(whatsapp): add pending-state response template to config page\",\"sha\":\"a08b803\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/0594ea82e7573972ffb4ca5f575860c02784ceb9\",\"msg\":\"feat(whatsapp): mount pending approval queue globally in MainLayout\",\"sha\":\"0594ea8\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/8736344c5090383dda9c42e5a757d5cc6e7e7072\",\"msg\":\"feat(whatsapp): add pending approval queue banner and collapsible list\",\"sha\":\"8736344\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/9e8708411f073ae9286707572641530b088264e4\",\"msg\":\"feat(whatsapp): add pending booking API module and polling approval context\",\"sha\":\"9e87084\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/5ffe90e46ff5e98893874026f555686344711d8f\",\"msg\":\"docs: mark Phase 1-2 tasks complete in swab tasks.md\",\"sha\":\"5ffe90e\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/df5105950debc0d7c547efcb61bbe4657d20feb0\",\"msg\":\"fix: resolve prescription patient_id isolation, mobile navigation and web detail rendering\",\"sha\":\"df51059\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/01223b497466c5eadb5e6facf6c6a625756ef62c\",\"msg\":\"Merge pull request #201 from jmrodev/feat/mobile-doctor-appointments\",\"sha\":\"01223b4\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/c438d63dff98472ac130b184fa71cbe8e4e857cc\",\"msg\":\"style: fix stylelint errors — replace #ffffff with #fff and rgba with rgb\",\"sha\":\"c438d63\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/07134d7cf0cca6f1b1c0498a882f98fc41fa1ea2\",\"msg\":\"feat(mobile): update appointments screen, login, api service and dependencies\",\"sha\":\"07134d7\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/c4226dd9a114d45208c2fc1e9919435eac65b3d1\",\"msg\":\"fix: minor fixes across appointment search, medical documents, users and prescription flow\",\"sha\":\"c4226dd\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/06742e6c52f5276a2795376482c5a70328b16b5f\",\"msg\":\"Merge pull request #132 from jmrodev/feat/premium-insurance-ui\",\"sha\":\"06742e6\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/1e1c2fb2aeafd280032f3eec82e4c190d78212fd\",\"msg\":\"feat: standardize insurance UI to premium bento-box standards and unify loading atom\",\"sha\":\"1e1c2fb\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/f6d0003e428b093e990a78545410d76ec9e6b9fd\",\"msg\":\"Merge pull request #131 from jmrodev/feat/architectural-reorganization\",\"sha\":\"f6d0003\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/d22d586aa2118a3d18477a345e7502b1dcdc6e36\",\"msg\":\"fix: resolve unresolved imports and circular re-exports in client build\",\"sha\":\"d22d586\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/5a8352898ede38112adbf1d068f822cdf267a2c3\",\"msg\":\"chore: cleanup investigation files and obsolete maintenance scripts\",\"sha\":\"5a83528\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/382e7b4de7de934cde5c00a4a8b06fbc4606b051\",\"msg\":\"ci: migrate workflows to pnpm to fix dependency caching and installation\",\"sha\":\"382e7b4\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/8511aed494c5add3056c43d0d9390d7d021803c6\",\"msg\":\"chore: modernization cleanup and exhaustive lint fixes for PR stabilization\",\"sha\":\"8511aed\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/4d4882e9a00003d7caae43b3095427b4dfcf6b2b\",\"msg\":\"fix: remove duplicate language keys to resolve lint and build failures\",\"sha\":\"4d4882e\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/225437bd829749a05cc2184d4e9415c5f9596bcd\",\"msg\":\"chore: add workspace configuration and migration scripts\",\"sha\":\"225437b\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/b9704eea2d5c1727c27eaf22ce0f19ca18b66945\",\"msg\":\"feat: modernize system config UI, add IA tab, and refactor doctor editor to premium standards\",\"sha\":\"b9704ee\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/3c6c978ebe9be0415fc3bfe52ee7876390e31e86\",\"msg\":\"Merge pull request #71 from jmrodev/feat/global-doctor-selector\",\"sha\":\"3c6c978\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/a4071b432b4f992342fe0e616d2f9b65ae387a8b\",\"msg\":\"feat: implement global DoctorContext and replace local filters with a unified DoctorSelector component\",\"sha\":\"a4071b4\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/386ce959954dc44e275a2ed96be2a18895f8f0b3\",\"msg\":\"Merge pull request #69 from jmrodev/feature/revert-and-enhance-next-slot-list\",\"sha\":\"386ce95\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/cf49aea8c1e45cd66e9e26d165127a296f403001\",\"msg\":\"merge(feature): resolve final conflicts and stabilize with development 6.4.2 versions\",\"sha\":\"cf49aea\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/94bfbcf69dfcab22f36d89d2d02f9bb56898aa08\",\"msg\":\"merge(feature): resolve conflicts with development and stabilize dependencies\",\"sha\":\"94bfbcf\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/ed9429b4861330b026dd7460a4b0b1830c1d8a99\",\"msg\":\"Initial plan\",\"sha\":\"ed9429b\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/fc4cd830b6962e2f9f4f56a04c9888f92427bac8\",\"msg\":\"refactor: enforce strict frontend architecture imports buttons and emoji cleanup\",\"sha\":\"fc4cd83\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/30a607bf56583e883d4f6eb8ae0134a7785d6951\",\"msg\":\"Merge pull request #46 from jmrodev/copilot/add-github-actions-lint-workflow\",\"sha\":\"30a607b\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/90a366e8e9324f98a6a788a21212a18445605ad5\",\"msg\":\"Initial plan\",\"sha\":\"90a366e\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/cfd44757ef761ff2f34ac692312bf78dd66511bc\",\"msg\":\"Harden lint workflow permissions\",\"sha\":\"cfd4475\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/28fd602bd7b3c4fd4351a2c55072ac54bcfce6c3\",\"msg\":\"Merge: refactor googleSyncService to use centralized logger\",\"sha\":\"28fd602\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/cfd462910634d3d29aa59662b2615b54618cb216\",\"msg\":\"Merge pull request #33 from jmrodev/fix-hardcoded-caps-translations-15981075240783074310\",\"sha\":\"cfd4629\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/8156bbb0cc509e6d7e5b62d8a331f3797df3f62d\",\"msg\":\"Merge pull request #32 from jmrodev/jules-12260913659138684483-42fd5460\",\"sha\":\"8156bbb\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/8de586c2080f8b0eb598ededd96f56a5e269bcbc\",\"msg\":\"Merge pull request #31 from jmrodev/perf/pay-debt-optimization-6803731969640848799\",\"sha\":\"8de586c\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/fa7b561e25bf2cd8fc902e36e98182e1d80a32be\",\"msg\":\"Merge pull request #34 from jmrodev/🧹-code-health-improvement-description-1866323497392927472\",\"sha\":\"fa7b561\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/f90496cebdfe22febd4b4c8eec97c249590bb0cb\",\"msg\":\"refactor: migrate PatientHistoryModal to patients feature and update architectural documentation\",\"sha\":\"f90496c\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/0449fc4bc2e918364c0fa203bc45a9000dd1f22a\",\"msg\":\"refactor: remove legacy patient management modules and associated hooks\",\"sha\":\"0449fc4\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/f67ceaf2486dc84ecd4ce5875226117ea727a723\",\"msg\":\"feat: implement comprehensive patient management module including CRUD, history, and recycle bin features\",\"sha\":\"f67ceaf\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/f8cc3a2c5f9e89b29e4e92d5d5b6adfe06a85889\",\"msg\":\"docs: update architectural guidelines to formalize feature-based directory structure and component organization\",\"sha\":\"f8cc3a2\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/55e633ccb865ab9f83109cc462326ac85d959434\",\"msg\":\"refactor: consolidate appointment logic into useAppointments hook and remove redundant legacy hooks\",\"sha\":\"55e633c\"}]\n[{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/1a297a6f5dfbfe716729462f6c404856bd7b05d1\",\"msg\":\"Fix double booking error, improve date handling and error messages\",\"sha\":\"1a297a6\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/b2019b5127d5effbc7e245d955b5d73a35992cde\",\"msg\":\"fix: resolve ReferenceError by moving duration initialization before usage in DaySchedule\",\"sha\":\"b2019b5\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/3b67ae02a3ef3010e31e2b01314ce46add2c2bb3\",\"msg\":\"fix: agenda now snaps precisely to overturn start minutes (e.g. 08:15) when out-of-hours is enabled\",\"sha\":\"3b67ae0\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/467a7c81c96972584f0a06bff6dc537534f22cae\",\"msg\":\"fix: resolve state corruption in doctor schedule by handling functional updates correctly\",\"sha\":\"467a7c8\"},{\"html_url\":\"https://github.com/jmrodev/secretary-app/commit/9329572e20aa7cf20acc52f521c1ebbb0347953f\",\"msg\":\"fix: total stability for schedule editor with persistent keys and deferred sorting\",\"sha\":\"9329572\"}]"
+      }
+    },
+    {
+      "repo": "jmrodev/tandillabs",
+      "url": "https://github.com/jmrodev/tandillabs",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/tandillabs/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/tandillabs/commit/4a95f634c3a3f9eee57c4457cd06c337e5a70689",
+          "msg": "Corregir rutas de imágenes en editor-portadas.html para carga correcta en web y local",
+          "sha": "4a95f63"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/tandillabs/commit/8d1f2966c7fcf083dc9c662f5b301c7fc78223eb",
+          "msg": "Agregar portadas para redes sociales con sierras de Tandil, plantillas SVG, script Python y editor web interactivo",
+          "sha": "8d1f296"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/tandillabs/commit/3e1f375997b0a315df6ff05a352055f5f7c528a6",
+          "msg": "Corregir textos comerciales: costos claros y previsibles en lugar de afirmar inexistencia de cuotas",
+          "sha": "3e1f375"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/tandillabs/commit/f08258563f2eb2844fcfe2b4e23a7de098cfa600",
+          "msg": "Ajustar scroll reveal y retraso visual de contadores para que sean perceptibles al hacer scroll",
+          "sha": "f082585"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/tandillabs/commit/7121cd49815ada3f5d7120cc0f8ade27919f718c",
+          "msg": "Reemplazar Bento Grid y simulaciones por 4 pilares de resultados concretos para empresas",
+          "sha": "7121cd4"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/tandillabs-brand",
+      "url": "https://github.com/jmrodev/tandillabs-brand",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/tandillabs-brand/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/tandillabs-brand/commit/0e2e5d1e67571500e57e2202946fbf8af090d7d4",
+          "msg": "Identidad visual oficial de Tandil Labs: logotipo, isotipo, vectores SVG editables y assets en alta resolución",
+          "sha": "0e2e5d1"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/testia",
+      "url": "https://github.com/jmrodev/testia",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/testia/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/testia/commit/49343aa49fdeb7f18bfcf70abe8126e9f692f6a5",
+          "msg": "first commit",
+          "sha": "49343aa"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/thinkPython",
+      "url": "https://github.com/jmrodev/thinkPython",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/thinkPython/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/thinkPython/commit/e316783d8393895e0ff8ba92b396edd731939a51",
+          "msg": "Se creó con Colab",
+          "sha": "e316783"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/thinkPython/commit/525c04d92904496acc57f245ad0a4a7e6ee924e6",
+          "msg": "Se creó con Colab",
+          "sha": "525c04d"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/thinkPython/commit/bbc37369707eafce7f681785f6ba7b2c599dcafc",
+          "msg": "Initial commit",
+          "sha": "bbc3736"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/timetracker-unicen-zarini",
+      "url": "https://github.com/jmrodev/timetracker-unicen-zarini",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/timetracker-unicen-zarini/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/timetracker-unicen-zarini/commit/4ebe8e316fa71ec36918ce0600bec8642bfcd0e1",
+          "msg": "feat: Implement worker leave management, Dockerization, Nginx proxy setup, and attendance record enhancements.",
+          "sha": "4ebe8e3"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/timetracker-unicen-zarini/commit/963df47837521ee99c917a6f7cc1899ea27381c4",
+          "msg": "Initial commit",
+          "sha": "963df47"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/unknown-collation-utf8mb4_0900_ai_ci",
+      "url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/commit/7498dbcc13996537c2b2b31f1680efcb9a92f782",
+          "msg": "Update README.md",
+          "sha": "7498dbc"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/commit/88a5d124af5287fd63241efadcb93dd75658e15e",
+          "msg": "Update README.md",
+          "sha": "88a5d12"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/commit/c3431347021beeb79fb992d905ac28dfe6d9ab34",
+          "msg": "Update README.md",
+          "sha": "c343134"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/commit/5ea15a8b218c6fdbcb8aadb49df296306a9ba2ec",
+          "msg": "Update README.md",
+          "sha": "5ea15a8"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/commit/6dbd1e48ee8192b5ae324785336269535d0ad188",
+          "msg": "Initial commit",
+          "sha": "6dbd1e4"
+        }
+      ]
+    },
+    {
+      "repo": "jmrodev/web1",
+      "url": "https://github.com/jmrodev/web1",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/jmrodev/web1/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/jmrodev/web1/commit/073b1d53daa1e39ad85eb11c1481db264e5863cd",
+          "msg": "fix change folder and files permissio",
+          "sha": "073b1d5"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/web1/commit/e914f13a448e49944da9f3e159e059be37125305",
+          "msg": "new data",
+          "sha": "e914f13"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/web1/commit/7caa0bb02e992d93ede6f1cc37ce2e442f5aa442",
+          "msg": "fix(etapa_6): update API_BASE_URL with actual endpoint",
+          "sha": "7caa0bb"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/web1/commit/e8681488422b53658013cc145ee30833d42178be",
+          "msg": "feat(etapa_6): implement AJAX functionality for logbook",
+          "sha": "e868148"
+        },
+        {
+          "html_url": "https://github.com/jmrodev/web1/commit/35533c198698e33e1834389a08f20a98cee1a8d4",
+          "msg": "feat: add etapa_6 and new styles",
+          "sha": "35533c1"
+        }
+      ]
+    },
+    {
+      "repo": "tecda-maniqui-factory/.github",
+      "url": "https://github.com/tecda-maniqui-factory/.github",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/tecda-maniqui-factory/.github/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/.github/commit/84f915f1218935c3e332634901eea6a4c4678019",
+          "msg": "docs: restructure and improve clarity of startup guide in profile README",
+          "sha": "84f915f"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/.github/commit/249580dedf94532b3e18bee22077ad4e29c7c938",
+          "msg": "docs: correct and enhance repo documentation links in profile README",
+          "sha": "249580d"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/.github/commit/d06e4dc250d30b3c27190743619023fb3ca01b88",
+          "msg": "refactor: remove admin_pablo user reference from credentials table in profile README",
+          "sha": "d06e4dc"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/.github/commit/f9398eb1752610b88dcdec1905199c3bee2c2528",
+          "msg": "docs: clarify role relationships for admin users in profile README",
+          "sha": "f9398eb"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/.github/commit/33aeb6551cbdcbb03edb1b0b192d84e04512b241",
+          "msg": "docs: add testing credentials table to profile README",
+          "sha": "33aeb65"
+        }
+      ]
+    },
+    {
+      "repo": "tecda-maniqui-factory/demo-repository",
+      "url": "https://github.com/tecda-maniqui-factory/demo-repository",
+      "issues": [],
+      "prs": [],
+      "branches": [
+        {
+          "name": "main",
+          "url": "https://github.com/tecda-maniqui-factory/demo-repository/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/demo-repository/commit/47b4b86f07272e7cd94baf670a4a394bd478e149",
+          "msg": "Merge pull request #1 from tecda-maniqui-factory/add-badges-to-readme",
+          "sha": "47b4b86"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/demo-repository/commit/2336d64438ad8278a1492cf49224fe0971c87028",
+          "msg": "Add workflow badges to README",
+          "sha": "2336d64"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/demo-repository/commit/724a07aa407f2a4bf28defd35ecd9366773c4cb9",
+          "msg": "Initial commit",
+          "sha": "724a07a"
+        }
+      ]
+    },
+    {
+      "repo": "tecda-maniqui-factory/tp-maniqui-backend",
+      "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend",
+      "issues": [],
+      "prs": [
+        {
+          "number": 33,
+          "state": "OPEN",
+          "title": "build(deps): bump pnpm/action-setup from 3 to 6.0.9",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/33"
+        },
+        {
+          "number": 32,
+          "state": "OPEN",
+          "title": "build(deps): bump actions/setup-node from 4 to 7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/32"
+        },
+        {
+          "number": 31,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump prettier from 3.8.3 to 3.9.5",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/31"
+        },
+        {
+          "number": 30,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump tsx from 4.22.4 to 4.23.1",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/30"
+        },
+        {
+          "number": 29,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump @types/node from 25.9.2 to 26.1.1",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/29"
+        },
+        {
+          "number": 28,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump eslint from 10.4.1 to 10.7.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/28"
+        },
+        {
+          "number": 27,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump @redocly/cli from 2.31.6 to 2.39.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/27"
+        },
+        {
+          "number": 26,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump typescript from 6.0.3 to 7.0.2",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/26"
+        },
+        {
+          "number": 25,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump @typescript-eslint/parser from 8.61.0 to 8.64.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/25"
+        },
+        {
+          "number": 24,
+          "state": "OPEN",
+          "title": "build(deps-dev): bump @typescript-eslint/eslint-plugin from 8.61.0 to 8.64.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/pull/24"
+        }
+      ],
+      "branches": [
+        {
+          "name": "dependabot/github_actions/actions/checkout-7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/github_actions/actions/checkout-7"
+        },
+        {
+          "name": "dependabot/github_actions/actions/setup-node-7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/github_actions/actions/setup-node-7"
+        },
+        {
+          "name": "dependabot/github_actions/pnpm/action-setup-6.0.9",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/github_actions/pnpm/action-setup-6.0.9"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/body-parser-2.3.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/body-parser-2.3.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/eslint-10.7.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/eslint-10.7.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/prettier-3.9.5",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/prettier-3.9.5"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/redocly/cli-2.39.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/redocly/cli-2.39.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/tsx-4.23.1",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/tsx-4.23.1"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/typedoc-0.28.20",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typedoc-0.28.20"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/types/node-26.1.1",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/types/node-26.1.1"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/typescript-7.0.2",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typescript-7.0.2"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/typescript-eslint/eslint-plugin-8.64.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typescript-eslint/eslint-plugin-8.64.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/typescript-eslint/parser-8.64.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typescript-eslint/parser-8.64.0"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/commit/47e96859f2050253c299238a6ecb04e89b6a7270",
+          "msg": "refactor: simplify user seeds and update tests in backend",
+          "sha": "47e9685"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/commit/ecb6eddc3662a04354fdf2a586113f6af6cf392f",
+          "msg": "refactor: remove admin_pablo user and replace with gerente in all backend tests and scripts",
+          "sha": "ecb6edd"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/commit/436a9b6bd61a409ce31d3957ba2e8eb0cd2c7edb",
+          "msg": "docs: clarify role relationships for admin users in backend README",
+          "sha": "436a9b6"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/commit/77777ad9bceb1cb349d13ff19a3fce972a8c965e",
+          "msg": "docs: add testing credentials table to backend README",
+          "sha": "77777ad"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/commit/ceb9ed8e3c4949fba4f6000b9bec0f36d771fa27",
+          "msg": "docs: explain copying .env from .env.example with default port",
+          "sha": "ceb9ed8"
+        }
+      ]
+    },
+    {
+      "repo": "tecda-maniqui-factory/tp-maniqui-db",
+      "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db",
+      "issues": [],
+      "prs": [
+        {
+          "number": 4,
+          "state": "OPEN",
+          "title": "build(deps): bump actions/setup-node from 4 to 7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/pull/4"
+        },
+        {
+          "number": 3,
+          "state": "OPEN",
+          "title": "build(deps): bump actions/checkout from 4 to 7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/pull/3"
+        }
+      ],
+      "branches": [
+        {
+          "name": "dependabot/github_actions/actions/checkout-7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/tree/dependabot/github_actions/actions/checkout-7"
+        },
+        {
+          "name": "dependabot/github_actions/actions/setup-node-7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/tree/dependabot/github_actions/actions/setup-node-7"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/commit/25cbfcbabaf5e54899bc27e50a6d12b1c35fd37c",
+          "msg": "refactor: simplify user seeds and remove all test/heritage accounts",
+          "sha": "25cbfcb"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/commit/5cb194efd850bc4dc9f1d86f8c0f365a91f852f2",
+          "msg": "docs: expand credentials table in Docker docs with roles, passwords, and simplified users",
+          "sha": "5cb194e"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/commit/498e09ff771105921f5c7a0385b39ae881eee840",
+          "msg": "refactor: configure Docker compose files to initialize database directly as tecda_maniqui",
+          "sha": "498e09f"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/commit/5894d7584b746a9ed6f1248416fc9795dfb905d3",
+          "msg": "docs: correct database name references and CLI command user target in Docker docs",
+          "sha": "5894d75"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/commit/a91279992fa974df4449cb0e986dc89879d76011",
+          "msg": "Update tp-maniqui-docker.md",
+          "sha": "a912799"
+        }
+      ]
+    },
+    {
+      "repo": "tecda-maniqui-factory/tp-maniqui-frontend",
+      "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend",
+      "issues": [],
+      "prs": [
+        {
+          "number": 24,
+          "state": "OPEN",
+          "title": "chore(deps): bump pnpm/action-setup from 3 to 6.0.9",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/24"
+        },
+        {
+          "number": 23,
+          "state": "OPEN",
+          "title": "chore(deps): bump actions/setup-node from 4 to 7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/23"
+        },
+        {
+          "number": 22,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump typedoc from 0.28.19 to 0.28.20",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/22"
+        },
+        {
+          "number": 21,
+          "state": "OPEN",
+          "title": "chore(deps): bump lucide-react from 1.17.0 to 1.23.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/21"
+        },
+        {
+          "number": 20,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump vite from 8.0.16 to 8.1.3",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/20"
+        },
+        {
+          "number": 19,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump @types/node from 25.9.2 to 26.1.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/19"
+        },
+        {
+          "number": 18,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump typescript-eslint from 8.61.0 to 8.63.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/18"
+        },
+        {
+          "number": 15,
+          "state": "OPEN",
+          "title": "chore(deps): bump react-router-dom from 7.17.0 to 7.18.1",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/15"
+        },
+        {
+          "number": 13,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump @vitejs/plugin-react from 6.0.2 to 6.0.3",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/13"
+        },
+        {
+          "number": 12,
+          "state": "OPEN",
+          "title": "chore(deps-dev): bump globals from 17.6.0 to 17.7.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/pull/12"
+        }
+      ],
+      "branches": [
+        {
+          "name": "dependabot/github_actions/actions/checkout-7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/github_actions/actions/checkout-7"
+        },
+        {
+          "name": "dependabot/github_actions/actions/setup-node-7",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/github_actions/actions/setup-node-7"
+        },
+        {
+          "name": "dependabot/github_actions/pnpm/action-setup-6.0.9",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/github_actions/pnpm/action-setup-6.0.9"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/eslint-10.6.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/eslint-10.6.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.3",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.3"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/globals-17.7.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/globals-17.7.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/lucide-react-1.23.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/lucide-react-1.23.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/react-router-dom-7.18.1",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/react-router-dom-7.18.1"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/typedoc-0.28.20",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/typedoc-0.28.20"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/types/node-26.1.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/types/node-26.1.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/typescript-eslint-8.63.0",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/typescript-eslint-8.63.0"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/vite-8.1.3",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/vite-8.1.3"
+        },
+        {
+          "name": "dependabot/npm_and_yarn/vitejs/plugin-react-6.0.3",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/vitejs/plugin-react-6.0.3"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/main"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/commit/ad4e04a9d927cef2d3c7cda2ce274f0f57204d48",
+          "msg": "refactor: remove admin_pablo user reference from credentials table in frontend README",
+          "sha": "ad4e04a"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/commit/5febdcfd70f28372e8a23d86df3135ddf75c20a1",
+          "msg": "docs: clarify role relationships for admin users in frontend README",
+          "sha": "5febdcf"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/commit/0156421add501c83d7037583be500b2abb27abcb",
+          "msg": "docs: add testing credentials table to frontend README",
+          "sha": "0156421"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/commit/a6be95e98de6854872e4d7e2fe791cd025a3afa7",
+          "msg": "docs: explain copying .env from .env.example with default API port",
+          "sha": "a6be95e"
+        },
+        {
+          "html_url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/commit/af85c0a8d1a070aa80faf6388e23dcba54eee6ad",
+          "msg": "refactor: estandarizar puerto de la API del backend por defecto a 8082 en código y documentación",
+          "sha": "af85c0a"
+        }
+      ]
     }
   ]
 }
