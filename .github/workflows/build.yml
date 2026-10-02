@@ -90,8 +90,8 @@ jobs:
 
       - name: build APK
         env:
-          NDK_HOME: ${{ steps.setup-android.outputs.sdk-path }}/ndk/25.2.9519653
-          ANDROID_NDK_ROOT: ${{ steps.setup-android.outputs.sdk-path }}/ndk/25.2.9519653
+          NDK_HOME: ${{ env.ANDROID_HOME }}/ndk/25.2.9519653
+          ANDROID_NDK_ROOT: ${{ env.ANDROID_HOME }}/ndk/25.2.9519653
         run: |
           npx tauri android init || true
           npx tauri android build --apk
