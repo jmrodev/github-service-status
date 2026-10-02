@@ -47,9 +47,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: v0.1.0
-          releaseName: 'v0.1.0'
+          tagName: app-v__VERSION__
+          releaseName: 'GitHub Service Status v__VERSION__'
           releaseBody: 'Automatic build of GitHub Service Status Desktop App'
+          releaseDraft: true
 
   build-android:
     runs-on: ubuntu-latest
@@ -73,6 +74,7 @@ jobs:
           java-version: '17'
 
       - name: setup Android SDK & NDK
+        id: setup-android
         uses: android-actions/setup-android@v3
         with:
           packages: 'platform-tools ndk;25.2.9519653'
@@ -87,6 +89,9 @@ jobs:
           cp status.json dist/
 
       - name: build APK
+        env:
+          NDK_HOME: ${{ steps.setup-android.outputs.sdk-path }}/ndk/25.2.9519653
+          ANDROID_NDK_ROOT: ${{ steps.setup-android.outputs.sdk-path }}/ndk/25.2.9519653
         run: |
           npx tauri android init || true
           npx tauri android build --apk

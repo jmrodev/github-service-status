@@ -32,13 +32,18 @@ jobs:
         run: |
           python3 scripts/generate-status.py
 
+      - name: Prepare Dist Directory
+        run: |
+          mkdir -p dist
+          cp index.html status.json dist/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: 'dist'
 
   deploy-pages:
     environment:
