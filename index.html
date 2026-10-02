@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Vista Detallada</title>
+  <title>GitHub Service Status — Vista Completa y Detallada</title>
   <style>
     :root {
       color-scheme: dark;
@@ -15,7 +15,8 @@
       --accent: #58a6ff;
       --btn-active: #1f6feb;
       --badge-open: #238636;
-      --badge-pr: #8957e5;
+      --badge-closed: #da3633;
+      --badge-merged: #8957e5;
     }
     * { box-sizing: border-box; }
     body {
@@ -37,28 +38,47 @@
     }
     .brand { font-size: 20px; font-weight: 700; color: #f0f6fc; }
     .meta { color: var(--text-muted); font-size: 13px; }
-    .filters {
+    .filter-container {
       padding: 18px 28px;
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: #161b22;
     }
+    .filters-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-label { font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-right: 4px; }
     button {
-      background: var(--card-bg);
+      background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 8px 16px;
-      font-size: 14px;
+      padding: 7px 14px;
+      font-size: 13px;
       cursor: pointer;
       transition: background 0.15s, border-color 0.15s;
     }
     button:hover { background: #21262d; }
     button.on { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
+    .repo-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .repo-pill.on { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
     main {
-      padding: 0 28px 50px;
+      padding: 28px 28px 50px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
       gap: 24px;
     }
     .card {
@@ -68,24 +88,24 @@
       padding: 22px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
     .card h2 { margin: 0; font-size: 19px; word-break: break-word; }
     .card h2 a { color: var(--accent); text-decoration: none; }
     .card h2 a:hover { text-decoration: underline; }
-    .pills-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .pill-counter {
+    .counters-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .counter-pill {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 4px 12px;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
     }
-    .pill-counter.has-items { color: #f0f6fc; border-color: #484f58; }
-    .section { border-top: 1px solid #21262d; pt: 12px; margin-top: 4px; display: flex; flex-direction: column; gap: 8px; }
+    .counter-pill.has-items { color: #f0f6fc; border-color: #484f58; }
+    .section { border-top: 1px solid #21262d; pt: 14px; margin-top: 2px; display: flex; flex-direction: column; gap: 10px; }
     .section-title { font-weight: 700; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; }
-    .list-item { font-size: 14px; padding: 6px 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px dashed #21262d; }
+    .list-item { font-size: 14px; padding: 8px 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px dashed #21262d; }
     .list-item:last-child { border-bottom: none; }
     .list-item a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .list-item a:hover { text-decoration: underline; }
@@ -115,35 +135,46 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
       color: #fff;
+      text-transform: uppercase;
     }
     .badge-open { background: var(--badge-open); }
-    .badge-pr { background: var(--badge-pr); }
+    .badge-closed { background: var(--badge-closed); }
+    .badge-merged { background: var(--badge-merged); }
     .empty-state { color: var(--text-muted); font-style: italic; font-size: 13px; padding: 4px 0; }
     code { font-family: monospace; font-size: 13px; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
-    .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 13px; word-break: break-word; white-space: normal; line-height: 1.5; }
+    .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 13px; word-break: break-word; white-space: normal; line-height: 1.5; margin-bottom: 6px; }
     .comment-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .date-tag { color: var(--text-muted); font-size: 11px; }
   </style>
 </head>
 <body>
   <header>
     <div>
-      <span class="brand">GitHub Service Status — Vista Detallada</span>
+      <span class="brand">GitHub Service Status — Vista Completa y Detallada</span>
     </div>
     <div class="meta" id="meta-info">Cargando...</div>
   </header>
 
-  <div class="filters" id="filter-bar">
-    <button data-filter="all" class="on">Todos</button>
+  <div class="filter-container">
+    <div class="filters-row" id="org-filter-row">
+      <span class="filter-label">Organización / Usuario:</span>
+      <button data-org="all" class="on">Todos</button>
+    </div>
+    <div class="filters-row" id="repo-filter-row" style="display: none;">
+      <span class="filter-label">Repositorios:</span>
+      <div id="repo-pills" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+    </div>
   </div>
 
   <main id="main-content"></main>
 
   <script>
     let rawData = null;
-    let activeFilter = 'all';
+    let selectedOrg = 'all';
+    let selectedRepo = 'all';
     const activeBranchMap = {};
 
     fetch('./status.json')
@@ -159,7 +190,7 @@
       });
 
     function initFilters() {
-      const filterBar = document.getElementById('filter-bar');
+      const orgRow = document.getElementById('org-filter-row');
       const formattedDate = new Date(rawData.generated_at).toLocaleString();
       document.getElementById('meta-info').textContent = `Generado: ${formattedDate} (${rawData.mode || 'live'}) · Repos: ${rawData.total_repos || rawData.repos.length}`;
 
@@ -173,17 +204,57 @@
 
       orgs.forEach(org => {
         const btn = document.createElement('button');
-        btn.dataset.filter = org;
+        btn.dataset.org = org;
         btn.textContent = org;
-        filterBar.appendChild(btn);
+        orgRow.appendChild(btn);
       });
 
-      filterBar.querySelectorAll('button').forEach(btn => {
+      orgRow.querySelectorAll('button').forEach(btn => {
         btn.onclick = () => {
-          activeFilter = btn.dataset.filter;
-          filterBar.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === btn));
+          selectedOrg = btn.dataset.org;
+          selectedRepo = 'all';
+          orgRow.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === btn));
+          updateRepoPills();
           render();
         };
+      });
+    }
+
+    function updateRepoPills() {
+      const repoRow = document.getElementById('repo-filter-row');
+      const repoPillsContainer = document.getElementById('repo-pills');
+      repoPillsContainer.innerHTML = '';
+
+      if (selectedOrg === 'all') {
+        repoRow.style.display = 'none';
+        return;
+      }
+
+      repoRow.style.display = 'flex';
+
+      const availableRepos = (rawData.repos || []).filter(r => r.repo.startsWith(selectedOrg + '/'));
+
+      const allBtn = document.createElement('button');
+      allBtn.className = 'repo-pill ' + (selectedRepo === 'all' ? 'on' : '');
+      allBtn.textContent = `Todos en ${selectedOrg} (${availableRepos.length})`;
+      allBtn.onclick = () => {
+        selectedRepo = 'all';
+        repoPillsContainer.querySelectorAll('.repo-pill').forEach(p => p.classList.toggle('on', p === allBtn));
+        render();
+      };
+      repoPillsContainer.appendChild(allBtn);
+
+      availableRepos.forEach(r => {
+        const repoName = r.repo.split('/')[1];
+        const btn = document.createElement('button');
+        btn.className = 'repo-pill ' + (selectedRepo === r.repo ? 'on' : '');
+        btn.textContent = repoName;
+        btn.onclick = () => {
+          selectedRepo = r.repo;
+          repoPillsContainer.querySelectorAll('.repo-pill').forEach(p => p.classList.toggle('on', p === btn));
+          render();
+        };
+        repoPillsContainer.appendChild(btn);
       });
     }
 
@@ -191,13 +262,30 @@
       if (!commits || !commits.length) {
         return '<div class="empty-state">Sin commits registrados</div>';
       }
-      return commits.slice(0, 5).map(c => `
+      return commits.map(c => `
         <div class="list-item">
           <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
           ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
           <span class="item-title">${escapeHtml(c.msg || '')}</span>
         </div>
       `).join('');
+    }
+
+    function getBadge(state) {
+      if (!state) return '<span class="badge badge-open">ABIERTO</span>';
+      const st = String(state).toUpperCase();
+      if (st === 'MERGED') return '<span class="badge badge-merged">FUSIONADO</span>';
+      if (st === 'CLOSED') return '<span class="badge badge-closed">RESUELTO</span>';
+      return '<span class="badge badge-open">ABIERTO</span>';
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      try {
+        return new Date(dateStr).toLocaleDateString();
+      } catch (e) {
+        return '';
+      }
     }
 
     function render() {
@@ -207,8 +295,9 @@
       if (!rawData || !rawData.repos) return;
 
       const filtered = rawData.repos.filter(r => {
-        if (activeFilter === 'all') return true;
-        return r.repo.startsWith(activeFilter + '/');
+        if (selectedOrg !== 'all' && !r.repo.startsWith(selectedOrg + '/')) return false;
+        if (selectedRepo !== 'all' && r.repo !== selectedRepo) return false;
+        return true;
       });
 
       filtered.forEach(r => {
@@ -216,8 +305,8 @@
         card.className = 'card';
         card.dataset.repo = r.repo;
 
-        const openIssues = (r.issues || []).filter(i => i.state && i.state.toUpperCase() === 'OPEN');
-        const openPRs = (r.prs || []).filter(p => p.state && p.state.toUpperCase() === 'OPEN');
+        const issues = (r.issues || []);
+        const prs = (r.prs || []);
         const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
         const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
 
@@ -232,12 +321,12 @@
         card.innerHTML = `
           <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
           
-          <div class="pills-row">
-            <span class="pill-counter ${branches.length ? 'has-items' : ''}">Ramas (${branches.length})</span>
-            <span class="pill-counter ${commits.length ? 'has-items' : ''}">Commits (${commits.length})</span>
-            <span class="pill-counter ${openPRs.length ? 'has-items' : ''}">PRs (${openPRs.length})</span>
-            <span class="pill-counter ${comments.length ? 'has-items' : ''}">Comentarios (${comments.length})</span>
-            <span class="pill-counter ${openIssues.length ? 'has-items' : ''}">Issues (${openIssues.length})</span>
+          <div class="counters-row">
+            <span class="counter-pill ${branches.length ? 'has-items' : ''}">Ramas (${branches.length})</span>
+            <span class="counter-pill ${commits.length ? 'has-items' : ''}">Commits (${commits.length})</span>
+            <span class="counter-pill ${prs.length ? 'has-items' : ''}">PRs (${prs.length})</span>
+            <span class="counter-pill ${comments.length ? 'has-items' : ''}">Comentarios (${comments.length})</span>
+            <span class="counter-pill ${issues.length ? 'has-items' : ''}">Issues (${issues.length})</span>
           </div>
 
           <!-- SECCIÓN: RAMAS ACTIVAS -->
@@ -258,44 +347,49 @@
           <!-- SECCIÓN: COMMITS -->
           <div class="section">
             <div class="section-title">
-              Últimos Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
+              Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
             </div>
             <div class="commits-container">
               ${renderCommitsList(commits)}
             </div>
           </div>
 
-          <!-- SECCIÓN: PULL REQUESTS -->
+          <!-- SECCIÓN: PULL REQUESTS (TODOS) -->
           <div class="section">
-            <div class="section-title">Pull Requests Abiertos (${openPRs.length})</div>
-            ${openPRs.length ? openPRs.map(p => `
+            <div class="section-title">Todos los Pull Requests (${prs.length})</div>
+            ${prs.length ? prs.map(p => `
               <div class="list-item">
-                <span class="badge badge-pr">PR #${p.number}</span>
-                <a href="${p.url}" target="_blank" rel="noopener" class="item-title">${escapeHtml(p.title || '')}</a>
+                ${getBadge(p.state)}
+                <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
+                ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
               </div>
-            `).join('') : '<div class="empty-state">Sin pull requests abiertos</div>'}
+            `).join('') : '<div class="empty-state">Sin pull requests</div>'}
           </div>
 
-          <!-- SECCIÓN: COMENTARIOS -->
+          <!-- SECCIÓN: COMENTARIOS (TODOS) -->
           <div class="section">
-            <div class="section-title">Últimos Comentarios en PRs (${comments.length})</div>
-            ${comments.length ? comments.slice(0, 5).map(c => `
+            <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
+            ${comments.length ? comments.map(c => `
               <div class="comment-box">
-                <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>: 
-                <span>"${escapeHtml(c.body || '')}"</span>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                  <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>
+                  ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
+                </div>
+                <div>"${escapeHtml(c.body || '')}"</div>
               </div>
-            `).join('') : '<div class="empty-state">Sin comentarios recientes</div>'}
+            `).join('') : '<div class="empty-state">Sin comentarios</div>'}
           </div>
 
-          <!-- SECCIÓN: ISSUES -->
+          <!-- SECCIÓN: ISSUES (TODOS) -->
           <div class="section">
-            <div class="section-title">Issues Abiertos (${openIssues.length})</div>
-            ${openIssues.length ? openIssues.map(i => `
+            <div class="section-title">Todos los Issues (${issues.length})</div>
+            ${issues.length ? issues.map(i => `
               <div class="list-item">
-                <span class="badge badge-open">#${i.number}</span>
-                <a href="${i.url}" target="_blank" rel="noopener" class="item-title">${escapeHtml(i.title || '')}</a>
+                ${getBadge(i.state)}
+                <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
+                ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
               </div>
-            `).join('') : '<div class="empty-state">Sin issues abiertos</div>'}
+            `).join('') : '<div class="empty-state">Sin issues</div>'}
           </div>
         `;
 

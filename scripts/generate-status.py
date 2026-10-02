@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 GitHub Service Status Generator
-Fetches issues, PRs, branches (with per-branch commits and branch author), and PR comments across configured user and org repositories using gh CLI.
-Outputs materialized status.json for the static SPA.
+Fetches ALL issues, PRs (open/closed/merged), branches (with per-branch commits and author),
+and PR comments across configured user and org repositories using gh CLI.
+Outputs materialized status.json ordered newest-first.
 """
 import sys
 import json
@@ -66,21 +67,23 @@ def discover_repositories(test_slice_only=False):
     return sorted(list(repos))
 
 def fetch_branch_commits(repo, branch_name):
-    """Fetches latest commits for a specific branch."""
-    commit_limit = LIMITS.get("commits", 5)
+    """Fetches latest commits for a specific branch sorted newest first."""
+    commit_limit = LIMITS.get("commits", 30)
     commits = run_json("gh", "api", f"repos/{repo}/commits?sha={branch_name}&per_page={commit_limit}", "--jq",
-                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), html_url: .html_url}}]") or []
+                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), date: .commit.author.date, html_url: .html_url}}]") or []
     return commits if isinstance(commits, list) else []
 
 def repo_snapshot(repo):
-    """Fetches details for a single repository."""
-    issues = run_json("gh", "issue", "list", "--repo", repo, "--limit", str(LIMITS.get("issues", 10)),
-                      "--json", "number,title,url,state") or []
+    """Fetches details for a single repository, capturing both open and closed states."""
+    # Issues: ALL states (OPEN / CLOSED)
+    issues = run_json("gh", "issue", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("issues", 50)),
+                      "--json", "number,title,url,state,createdAt") or []
     
-    prs = run_json("gh", "pr", "list", "--repo", repo, "--limit", str(LIMITS.get("prs", 10)),
-                    "--json", "number,title,url,state") or []
+    # PRs: ALL states (OPEN / CLOSED / MERGED)
+    prs = run_json("gh", "pr", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("prs", 50)),
+                    "--json", "number,title,url,state,createdAt") or []
     
-    branch_limit = LIMITS.get("branches", 10)
+    branch_limit = LIMITS.get("branches", 50)
     raw_branches = run_json("gh", "api", f"repos/{repo}/branches?per_page={branch_limit}", "--jq",
                             f"[.[0:{branch_limit}][] | {{name: .name, url: \"https://github.com/{repo}/tree/\" + .name}}]") or []
     
@@ -101,13 +104,16 @@ def repo_snapshot(repo):
 
     default_commits = branches[0]["commits"] if branches else []
     
-    comment_limit = LIMITS.get("comments", 5)
+    comment_limit = LIMITS.get("comments", 50)
     comments = run_json("gh", "api", f"repos/{repo}/pulls/comments?per_page={comment_limit}", "--jq",
                          f"[.[0:{comment_limit}][] | {{user: .user.login, body: (.body | split(\"\\n\")[0]), html_url: .html_url, created_at: .created_at}}]") or []
 
     if not isinstance(issues, list): issues = []
     if not isinstance(prs, list): prs = []
     if not isinstance(comments, list): comments = []
+
+    # Sort comments newest first
+    comments.sort(key=lambda c: c.get("created_at", ""), reverse=True)
 
     return {
         "repo": repo,

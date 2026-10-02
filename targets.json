@@ -15,11 +15,11 @@
     "3roTECDA2026/sababook-back-cont"
   ],
   "limits": {
-    "issues": 10,
-    "prs": 10,
-    "commits": 5,
-    "comments": 5,
-    "branches": 30
+    "issues": 50,
+    "prs": 50,
+    "commits": 30,
+    "comments": 50,
+    "branches": 50
   },
   "excludeArchived": true,
   "projectsOptIn": false
