@@ -1,0 +1,26 @@
+{
+  "users": [
+    "jmrodev"
+  ],
+  "orgs": [
+    "3roTECDA2026",
+    "Tecdron",
+    "tecda-maniqui-factory",
+    "ecommerce-economia-empresarial-tecda"
+  ],
+  "testSlice": [
+    "3roTECDA2026/edu-track-front",
+    "3roTECDA2026/edu-track-back",
+    "3roTECDA2026/sababook-front-cont",
+    "3roTECDA2026/sababook-back-cont"
+  ],
+  "limits": {
+    "issues": 10,
+    "prs": 10,
+    "commits": 5,
+    "comments": 5,
+    "branches": 30
+  },
+  "excludeArchived": true,
+  "projectsOptIn": false
+}

@@ -1,0 +1,509 @@
+{
+  "generated_at": "2026-10-02T02:12:09.023900+00:00",
+  "mode": "test-slice",
+  "total_repos": 4,
+  "repos": [
+    {
+      "repo": "3roTECDA2026/edu-track-front",
+      "url": "https://github.com/3roTECDA2026/edu-track-front",
+      "issues": [],
+      "prs": [
+        {
+          "number": 23,
+          "state": "OPEN",
+          "title": "[CRM-029] Estándar visual MUI: theme y componentes comunes",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/pull/23"
+        }
+      ],
+      "branches": [
+        {
+          "name": "Edu-track-componente-aside",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Edu-track-componente-aside"
+        },
+        {
+          "name": "Feature/setup-frontend-react-material-mui",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Feature/setup-frontend-react-material-mui"
+        },
+        {
+          "name": "chore/dep-patches",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/chore/dep-patches"
+        },
+        {
+          "name": "develop",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/develop"
+        },
+        {
+          "name": "docs/add-middlewares-guide-fix",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/add-middlewares-guide-fix"
+        },
+        {
+          "name": "docs/interactive-slide-manual-fix",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/interactive-slide-manual-fix"
+        },
+        {
+          "name": "docs/security-architecture",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/security-architecture"
+        },
+        {
+          "name": "feature/CRM009-grilla-de-calificacones",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM009-grilla-de-calificacones"
+        },
+        {
+          "name": "feature/CRM-006-crud-usuarios-panel-admin",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-006-crud-usuarios-panel-admin"
+        },
+        {
+          "name": "feature/CRM-029-estandar-mui",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-029-estandar-mui"
+        },
+        {
+          "name": "feature/FE-resumen-inasistencias-justificaciones",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/FE-resumen-inasistencias-justificaciones"
+        },
+        {
+          "name": "feature/attendance-quick-entry",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/attendance-quick-entry"
+        },
+        {
+          "name": "feature/cambio-de-alta",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/cambio-de-alta"
+        },
+        {
+          "name": "feature/carga-estudiantes",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/carga-estudiantes"
+        },
+        {
+          "name": "feature/lista-estudiantes",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lista-estudiantes"
+        },
+        {
+          "name": "feature/lucas",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lucas"
+        },
+        {
+          "name": "login-page",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/login-page"
+        },
+        {
+          "name": "luz-migracion-ts",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/luz-migracion-ts"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/main"
+        },
+        {
+          "name": "marcelo/header",
+          "url": "https://github.com/3roTECDA2026/edu-track-front/tree/marcelo/header"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/50da7a46d9a5ac50602cd2ec1da34c3880d2be0b\",\"msg\":\"Merge pull request #33 from 3roTECDA2026/docs/explain-express-basics-next\",\"sha\":\"50da7a4\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/1210b6c2be15dce386565a12a5e0431efb48e877\",\"msg\":\"docs(manual): detallar conceptos basicos de express (req, res, next y manejo de contexto)\",\"sha\":\"1210b6c\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/e1d235cc91e14bce060de3c883a4b6eaa9b09642\",\"msg\":\"Merge pull request #32 from 3roTECDA2026/docs/split-express-and-alternatives\",\"sha\":\"e1d235c\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/01ce10bf61baeaf2beabcd0ba9329ac3566d2989\",\"msg\":\"docs(manual): categorizar portal en modulo Express y modulo Alternativas con nueva guia\",\"sha\":\"01ce10b\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/de434f4a0e41e04d2afd253fb821a5296a437cb5\",\"msg\":\"Merge pull request #31 from 3roTECDA2026/docs/add-middlewares-guide\",\"sha\":\"de434f4\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/d656eec70f95f178f0f9131101715a95a91037fc\",\"msg\":\"Merge branch 'main' of https://github.com/3roTECDA2026/edu-track-front\",\"sha\":\"d656eec\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/aacbd97091e8389161f7e440679177601196249f\",\"msg\":\"fix\",\"sha\":\"aacbd97\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/f239ec7b7a0f79e4c51a57c951751bda1b0a4398\",\"msg\":\"armo pagina homepage y login\",\"sha\":\"f239ec7\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/cfd4be377a1b0b2f4004fa4d96b5d446802d0bab\",\"msg\":\"Merge pull request #1 from jmrodev/feat/setup-eslint-testing\",\"sha\":\"cfd4be3\"},{\"html_url\":\"https://github.com/3roTECDA2026/edu-track-front/commit/57d713a7f764ad8099e0e010bb4ecb500b450dd3\",\"msg\":\"Merge branch 'main' into feat/setup-eslint-testing\",\"sha\":\"57d713a\"}]"
+      }
+    },
+    {
+      "repo": "3roTECDA2026/edu-track-back",
+      "url": "https://github.com/3roTECDA2026/edu-track-back",
+      "issues": [],
+      "prs": [
+        {
+          "number": 13,
+          "state": "OPEN",
+          "title": "Registro/login con jwt + bcrypt",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/pull/13"
+        },
+        {
+          "number": 12,
+          "state": "OPEN",
+          "title": "feat(teacher-assignment): Asignación de materias a docentes (N:M)",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/pull/12"
+        }
+      ],
+      "branches": [
+        {
+          "name": "chore/dep-patches",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/chore/dep-patches"
+        },
+        {
+          "name": "develop",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/develop"
+        },
+        {
+          "name": "docs/explain-express-basics-next",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/docs/explain-express-basics-next"
+        },
+        {
+          "name": "docs/security-architecture",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/docs/security-architecture"
+        },
+        {
+          "name": "feat/setup-eslint-testing",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feat/setup-eslint-testing"
+        },
+        {
+          "name": "feature/BE-attendance-endpoints",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/BE-attendance-endpoints"
+        },
+        {
+          "name": "feature/CRM010-grades-endpoints-carga-notas",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/CRM010-grades-endpoints-carga-notas"
+        },
+        {
+          "name": "feature/CRM015-BE-asignacion-materias-docentes",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/CRM015-BE-asignacion-materias-docentes"
+        },
+        {
+          "name": "feature/auth-jwt",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/auth-jwt"
+        },
+        {
+          "name": "feature/carga-estudiantes",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/carga-estudiantes"
+        },
+        {
+          "name": "feature/lucas",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/lucas"
+        },
+        {
+          "name": "feature/students-endpoints",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/students-endpoints"
+        },
+        {
+          "name": "lucas",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/lucas"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/main"
+        },
+        {
+          "name": "ornela",
+          "url": "https://github.com/3roTECDA2026/edu-track-back/tree/ornela"
+        }
+      ],
+      "commits": [
+        {
+          "html_url": "https://github.com/3roTECDA2026/edu-track-back/commit/aa4d62a165fcc4eb042feb008b64b23d4d392731",
+          "msg": "Merge pull request #25 from 3roTECDA2026/docs/explain-express-basics-next",
+          "sha": "aa4d62a"
+        },
+        {
+          "html_url": "https://github.com/3roTECDA2026/edu-track-back/commit/110208cea249f4a08427cadfb78db90fb000eebf",
+          "msg": "docs(manual): detallar conceptos basicos de express (req, res, next y manejo de contexto)",
+          "sha": "110208c"
+        },
+        {
+          "html_url": "https://github.com/3roTECDA2026/edu-track-back/commit/dd45a1bc4b9f867914e603a7c4b409ad199f2e94",
+          "msg": "Merge pull request #24 from 3roTECDA2026/docs/split-express-and-alternatives",
+          "sha": "dd45a1b"
+        },
+        {
+          "html_url": "https://github.com/3roTECDA2026/edu-track-back/commit/9f88ee05316c1a6e88f072027411284286d90f0f",
+          "msg": "docs(manual): categorizar portal en modulo Express y modulo Alternativas con nueva guia",
+          "sha": "9f88ee0"
+        },
+        {
+          "html_url": "https://github.com/3roTECDA2026/edu-track-back/commit/76deba689bb02cce2273257cb0e6c5a735835aec",
+          "msg": "Merge pull request #23 from 3roTECDA2026/docs/add-middlewares-guide",
+          "sha": "76deba6"
+        }
+      ]
+    },
+    {
+      "repo": "3roTECDA2026/sababook-front-cont",
+      "url": "https://github.com/3roTECDA2026/sababook-front-cont",
+      "issues": [],
+      "prs": [
+        {
+          "number": 16,
+          "state": "OPEN",
+          "title": "Moderación: bandeja de incidencias con aceptar y rechazar",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/16"
+        },
+        {
+          "number": 15,
+          "state": "OPEN",
+          "title": "[La Gran Ocasión] trivia y evaluaciones: carga de docente + juego de alumno, con hooks",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/15"
+        },
+        {
+          "number": 14,
+          "state": "OPEN",
+          "title": "Agrego el nueva funcionalidad a BookDetailsPage y agrego archivo Read…",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/14"
+        },
+        {
+          "number": 11,
+          "state": "OPEN",
+          "title": "[FEATURE] Cafés Literarios: asistencia y votación — integrado con develop",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/11"
+        },
+        {
+          "number": 1,
+          "state": "OPEN",
+          "title": "feat(ui): agregar componente de racha de lectura ReadingStreak [REQ-03]",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/pull/1"
+        }
+      ],
+      "branches": [
+        {
+          "name": "BUG-001",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/BUG-001"
+        },
+        {
+          "name": "REQ-04",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-04"
+        },
+        {
+          "name": "REQ-06",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-06"
+        },
+        {
+          "name": "REQ-14-trivia-alumnos",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-alumnos"
+        },
+        {
+          "name": "REQ-14-trivia-preguntados",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-preguntados"
+        },
+        {
+          "name": "REQ-15-FE",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-15-FE"
+        },
+        {
+          "name": "develop",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/develop"
+        },
+        {
+          "name": "docs/add-toc-index",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/add-toc-index"
+        },
+        {
+          "name": "docs/security-architecture",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/security-architecture"
+        },
+        {
+          "name": "docs/unify-manual-single-page",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/unify-manual-single-page"
+        },
+        {
+          "name": "feature/REQ-12-UI-insignias-automaticas-apl",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12-UI-insignias-automaticas-apl"
+        },
+        {
+          "name": "feature/REQ-12",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12"
+        },
+        {
+          "name": "feature/REQ-14-trivia-preguntados-alumnos",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-14-trivia-preguntados-alumnos"
+        },
+        {
+          "name": "feature/TECH-02-refactor-carpetas-front",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-02-refactor-carpetas-front"
+        },
+        {
+          "name": "feature/TECH-03-migracion-ts-front",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-03-migracion-ts-front"
+        },
+        {
+          "name": "feature/colour",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/colour"
+        },
+        {
+          "name": "feature/req-05-course-activity-feed-back",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/req-05-course-activity-feed-back"
+        },
+        {
+          "name": "fernanda",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fernanda"
+        },
+        {
+          "name": "fix/BUG-11-aria-hidden-drawer-modal",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fix/BUG-11-aria-hidden-drawer-modal"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/main"
+        },
+        {
+          "name": "marcelo/REQ-08-panel-moderacion",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/marcelo/REQ-08-panel-moderacion"
+        },
+        {
+          "name": "meta-de-lectura",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/meta-de-lectura"
+        },
+        {
+          "name": "ornela",
+          "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/ornela"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/e98bd002f3e7c2796ba7985990bac943c74cb262\",\"msg\":\"Merge pull request #3 from 3roTECDA2026/feature/TECH-02-refactor-carpetas-front\",\"sha\":\"e98bd00\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/44828691d0d962a24ddad916b92d5f3d4a9f4246\",\"msg\":\"Conflictos resueltos\",\"sha\":\"4482869\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/0db03d872e9d70add4c97b1c7b6f3e8648760ea4\",\"msg\":\"Merge pull request #9 from 3roTECDA2026/meta-de-lectura\",\"sha\":\"0db03d8\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/d617cff62fe66f4f2fc8980a2c0dc447f20d341f\",\"msg\":\"Merge remote-tracking branch 'origin/develop' into meta-de-lectura\",\"sha\":\"d617cff\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/588434ee72bc59da19e09e494ffc1dfb5d4d1ad2\",\"msg\":\"Volver a usar vite-tsconfig-paths\",\"sha\":\"588434e\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/98471f1281b062bd8172e786dfb462dd3d382a40\",\"msg\":\"subo correciones finales a la pagian Insignia\",\"sha\":\"98471f1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/ef54ed1812fb41255ec53d423f985b1e3a7b296b\",\"msg\":\"Merge branch 'main' of https://github.com/TurcoDev/sababook-front into flor\",\"sha\":\"ef54ed1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/cef8647ca8b5fb788f28df8918fe513e4500ac5a\",\"msg\":\"Merge pull request #24 from TurcoDev/revert-23-cristianModificacion\",\"sha\":\"cef8647\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/765093ba974208dd37b725701671b2d4767435a3\",\"msg\":\"Revert \\\"cambios arreglados\\\"\",\"sha\":\"765093b\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/7ec63a55e1e7c88460bcb0e9e635aecf97fe828d\",\"msg\":\"Merge pull request #23 from TurcoDev/cristianModificacion\",\"sha\":\"7ec63a5\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/846a5566b08662f2964107f149932672fa1a6dea\",\"msg\":\"Merge pull request #5 from TurcoDev/laura\",\"sha\":\"846a556\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/4ac5f259f72b92512f6c70fbcc4f9ac797195a20\",\"msg\":\"modifico coments de profile\",\"sha\":\"4ac5f25\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/6c5bdca8319f8c90eb2427ba0e1c4117370f5031\",\"msg\":\"Merge remote-tracking branch 'origin/main' into laura\",\"sha\":\"6c5bdca\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/c337ac1b0623dda57adb092a8e89f6cf4a6330a6\",\"msg\":\"Se corrigen datos obtenidos desde back para viaualizarlos en la vista de books\",\"sha\":\"c337ac1\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-front-cont/commit/a5e8400bcdd780281d784a2c203d1b5a91dd61a6\",\"msg\":\"se crea pantalla mis comentarios\",\"sha\":\"a5e8400\"}]"
+      }
+    },
+    {
+      "repo": "3roTECDA2026/sababook-back-cont",
+      "url": "https://github.com/3roTECDA2026/sababook-back-cont",
+      "issues": [],
+      "prs": [
+        {
+          "number": 16,
+          "state": "OPEN",
+          "title": "Moderación: cola de revisión manual con estados y fail-closed",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/pull/16"
+        },
+        {
+          "number": 15,
+          "state": "OPEN",
+          "title": "[La Gran Ocasión] versiona el esquema del ORM con Prisma Migrate",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/pull/15"
+        },
+        {
+          "number": 14,
+          "state": "OPEN",
+          "title": "agregar paginas_totales y pagina_actual al modelo de prisma",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/pull/14"
+        },
+        {
+          "number": 12,
+          "state": "OPEN",
+          "title": "[FEATURE] Cafés Literarios: asistencia y votación, integrado con TS/Prisma y .gitignore",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/pull/12"
+        },
+        {
+          "number": 4,
+          "state": "OPEN",
+          "title": "fix(back): configurar ON DELETE CASCADE y limpiar controlador de libr…",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/pull/4"
+        }
+      ],
+      "branches": [
+        {
+          "name": "Bug_5_permiso_de_creacion",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/Bug_5_permiso_de_creacion"
+        },
+        {
+          "name": "REQ-04",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-04"
+        },
+        {
+          "name": "REQ-06",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-06"
+        },
+        {
+          "name": "REQ-14-trivia-alumnos",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-14-trivia-alumnos"
+        },
+        {
+          "name": "REQ-14-trivia-preguntados",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-14-trivia-preguntados"
+        },
+        {
+          "name": "REQ-15-BE",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-15-BE"
+        },
+        {
+          "name": "cambioForo",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/cambioForo"
+        },
+        {
+          "name": "connectDB",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/connectDB"
+        },
+        {
+          "name": "cristianBook",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/cristianBook"
+        },
+        {
+          "name": "develop",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/develop"
+        },
+        {
+          "name": "docs/security-architecture",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/docs/security-architecture"
+        },
+        {
+          "name": "favoritos",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/favoritos"
+        },
+        {
+          "name": "feat/auth",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feat/auth"
+        },
+        {
+          "name": "feature/REQ-12-BE-catalogo-insignias",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/REQ-12-BE-catalogo-insignias"
+        },
+        {
+          "name": "feature/REQ-12",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/REQ-12"
+        },
+        {
+          "name": "feature/TECH-01-Migrar-Prisma-ORM",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-01-Migrar-Prisma-ORM"
+        },
+        {
+          "name": "feature/TECH-02-Refactor-API-English",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-02-Refactor-API-English"
+        },
+        {
+          "name": "feature/TECH-03-ajuste-imports-ts",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-03-ajuste-imports-ts"
+        },
+        {
+          "name": "feature/TECH-03-migracion-backend-ts",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-03-migracion-backend-ts"
+        },
+        {
+          "name": "feature/req-05-course-activity-feed",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/req-05-course-activity-feed"
+        },
+        {
+          "name": "fernanda",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/fernanda"
+        },
+        {
+          "name": "flor",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/flor"
+        },
+        {
+          "name": "flor-2",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/flor-2"
+        },
+        {
+          "name": "juanc",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/juanc"
+        },
+        {
+          "name": "laura",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/laura"
+        },
+        {
+          "name": "lucia",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/lucia"
+        },
+        {
+          "name": "main",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/main"
+        },
+        {
+          "name": "marcelo/REQ-08-moderacion-ia",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/marcelo/REQ-08-moderacion-ia"
+        },
+        {
+          "name": "master",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/master"
+        },
+        {
+          "name": "nicodiaz",
+          "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/nicodiaz"
+        }
+      ],
+      "commits": {
+        "raw": "[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/900f7ffdacc41be242561addadd475c67f481c6a\",\"msg\":\"Merge pull request #10 from 3roTECDA2026/Bug_5_permiso_de_creacion\",\"sha\":\"900f7ff\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/a613d5325c596b393a2572e2db60e354a7dcb27a\",\"msg\":\"Merge branch 'develop' into Bug_5_permiso_de_creacion\",\"sha\":\"a613d53\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/e4047950fdea5530e340100634033c89e796a8eb\",\"msg\":\"Merge pull request #13 from 3roTECDA2026/feature/req-05-course-activity-feed\",\"sha\":\"e404795\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/a879cda853d38f564e62912ca1e4cd2708118453\",\"msg\":\"feed-radio-recomendar-libro\",\"sha\":\"a879cda\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/3e0106e6b627d0272cab11576a527cd14c31b1ec\",\"msg\":\"feat: implementar feed de actividades y backend de radio\",\"sha\":\"3e0106e\"}]\n[{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/8ea96e282cb74901ab2b7f4701d504dae1229085\",\"msg\":\"se crea archivo de rutas de libros\",\"sha\":\"8ea96e2\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/ea0948d9559c1bdb20805f65d06d6f17afe01814\",\"msg\":\"se crea archivo modelo de libros\",\"sha\":\"ea0948d\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/7f26b1a5a40fec1bef53b6cc8a12ab8ab038ee47\",\"msg\":\"se crea archivo controlador de libros\",\"sha\":\"7f26b1a\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/6e6306c3efacfeac6391f3ccaacf28134f795fe7\",\"msg\":\"se acomoda a la estructura del main y queda funcionando.\",\"sha\":\"6e6306c\"},{\"html_url\":\"https://github.com/3roTECDA2026/sababook-back-cont/commit/26ee4c5c24cb04d3ac02033d03c21bcd6865dda9\",\"msg\":\"Eliminado el prefijo 'user' de las rutas de usuario\",\"sha\":\"26ee4c5\"}]"
+      }
+    }
+  ]
+}

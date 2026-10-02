@@ -1,0 +1,7 @@
+# Cache & OS files
+.DS_Store
+__pycache__/
+*.pyc
+
+# Local env
+.env
