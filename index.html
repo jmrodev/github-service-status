@@ -21,6 +21,7 @@
       --badge-default: #1f6feb;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
@@ -137,6 +138,22 @@
     .chart-legend { display: flex; gap: 12px; font-size: 12px; flex-wrap: wrap; color: var(--text-muted); }
     .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
 
+    .counters-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .counter-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+    .counter-pill:hover { border-color: var(--accent); color: #fff; }
+    .counter-pill.has-items { color: #f0f6fc; border-color: #484f58; font-weight: 600; }
+    .counter-pill.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 700; }
+
     .sections-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -151,6 +168,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      scroll-margin-top: 180px;
     }
     .section-title { font-weight: 700; font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
     
@@ -349,6 +367,13 @@
       }
     }
 
+    function scrollToSection(card, sectionClass) {
+      const targetEl = card.querySelector('.' + sectionClass);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     function render() {
       const main = document.getElementById('main-content');
       main.innerHTML = '';
@@ -399,7 +424,6 @@
           
           <!-- DASHBOARD GRÁFICO DE BARRAS DE PROGRESO -->
           <div class="graphic-dashboard">
-            <!-- GRÁFICO PRs -->
             <div class="chart-box">
               <div class="chart-title">
                 <span>Pull Requests (${prs.length})</span>
@@ -417,7 +441,6 @@
               </div>
             </div>
 
-            <!-- GRÁFICO ISSUES -->
             <div class="chart-box">
               <div class="chart-title">
                 <span>Issues (${issues.length})</span>
@@ -433,7 +456,6 @@
               </div>
             </div>
 
-            <!-- GRÁFICO RAMAS -->
             <div class="chart-box">
               <div class="chart-title">
                 <span>Ramas (${branches.length})</span>
@@ -450,8 +472,17 @@
             </div>
           </div>
 
-          <!-- SECCIÓN DE RAMAS (ANCHO COMPLETO) -->
-          <div class="section">
+          <!-- PASTILLAS INTERACTIVAS (NAVEGACIÓN DIRECTA A SECCIÓN) -->
+          <div class="counters-row">
+            <span class="counter-pill ${branches.length ? 'has-items' : ''}" data-nav="sec-branches">Ramas (${branches.length})</span>
+            <span class="counter-pill ${commits.length ? 'has-items' : ''}" data-nav="sec-commits">Commits (${commits.length})</span>
+            <span class="counter-pill ${prs.length ? 'has-items' : ''}" data-nav="sec-prs">PRs (${prs.length})</span>
+            <span class="counter-pill ${comments.length ? 'has-items' : ''}" data-nav="sec-comments">Comentarios (${comments.length})</span>
+            <span class="counter-pill ${issues.length ? 'has-items' : ''}" data-nav="sec-issues">Issues (${issues.length})</span>
+          </div>
+
+          <!-- SECCIÓN DE RAMAS -->
+          <div class="section sec-branches">
             <div class="section-title">Ramas del Repositorio (${branches.length}) — Seleccioná una para explorar sus commits</div>
             ${branches.length ? `
               <div class="branches-wrap">
@@ -484,7 +515,7 @@
             <!-- COLUMNA IZQUIERDA: COMMITS & PRS -->
             <div style="display: flex; flex-direction: column; gap: 24px;">
               <!-- COMMITS -->
-              <div class="section">
+              <div class="section sec-commits">
                 <div class="section-title">
                   Historial de Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
                 </div>
@@ -494,7 +525,7 @@
               </div>
 
               <!-- PULL REQUESTS -->
-              <div class="section">
+              <div class="section sec-prs">
                 <div class="section-title">Historial de Pull Requests (${prs.length})</div>
                 ${prs.length ? prs.map(p => `
                   <div class="list-item">
@@ -509,7 +540,7 @@
             <!-- COLUMNA DERECHA: COMENTARIOS & ISSUES -->
             <div style="display: flex; flex-direction: column; gap: 24px;">
               <!-- COMENTARIOS -->
-              <div class="section">
+              <div class="section sec-comments">
                 <div class="section-title">Historial de Comentarios en PRs (${comments.length})</div>
                 ${comments.length ? comments.map(c => `
                   <div class="comment-box">
@@ -523,7 +554,7 @@
               </div>
 
               <!-- ISSUES -->
-              <div class="section">
+              <div class="section sec-issues">
                 <div class="section-title">Historial de Issues (${issues.length})</div>
                 ${issues.length ? issues.map(i => `
                   <div class="list-item">
@@ -536,6 +567,17 @@
             </div>
           </div>
         `;
+
+        // Interactive counter pills click navigation
+        card.querySelectorAll('.counter-pill').forEach(pill => {
+          pill.addEventListener('click', () => {
+            const secNav = pill.dataset.nav;
+            if (secNav) {
+              card.querySelectorAll('.counter-pill').forEach(p => p.classList.toggle('active', p === pill));
+              scrollToSection(card, secNav);
+            }
+          });
+        });
 
         // Branch selector click handler
         card.querySelectorAll('.branch-btn').forEach(btn => {
