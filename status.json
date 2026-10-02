@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T02:47:36.490259+00:00",
+  "generated_at": "2026-10-02T02:54:35.716216+00:00",
   "mode": "full-scan",
   "total_repos": 45,
   "repos": [
@@ -210,6 +210,7 @@
         {
           "name": "chore/dep-patches",
           "author": "jmrodev",
+          "date": "2026-10-01T23:29:38Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/chore/dep-patches",
           "is_default": false,
           "is_merged": true,
@@ -460,6 +461,7 @@
         {
           "name": "develop",
           "author": "jmrodev",
+          "date": "2026-10-02T01:02:29Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/develop",
           "is_default": true,
           "is_merged": true,
@@ -710,6 +712,7 @@
         {
           "name": "docs/explain-express-basics-next",
           "author": "jmrodev",
+          "date": "2026-10-02T01:02:22Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/docs/explain-express-basics-next",
           "is_default": false,
           "is_merged": true,
@@ -960,6 +963,7 @@
         {
           "name": "docs/security-architecture",
           "author": "jmrodev",
+          "date": "2026-09-30T14:11:02Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/docs/security-architecture",
           "is_default": false,
           "is_merged": false,
@@ -1210,6 +1214,7 @@
         {
           "name": "feat/setup-eslint-testing",
           "author": "jmrodev",
+          "date": "2026-09-19T00:21:30Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feat/setup-eslint-testing",
           "is_default": false,
           "is_merged": false,
@@ -1348,6 +1353,7 @@
         {
           "name": "feature/BE-attendance-endpoints",
           "author": "danpinn24",
+          "date": "2026-09-23T23:27:39Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/BE-attendance-endpoints",
           "is_default": false,
           "is_merged": true,
@@ -1582,6 +1588,7 @@
         {
           "name": "feature/CRM010-grades-endpoints-carga-notas",
           "author": "Paz Rodriguez",
+          "date": "2026-09-21T23:13:11Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/CRM010-grades-endpoints-carga-notas",
           "is_default": false,
           "is_merged": true,
@@ -1776,6 +1783,7 @@
         {
           "name": "feature/CRM015-BE-asignacion-materias-docentes",
           "author": "TurcoDev",
+          "date": "2026-10-01T01:17:45Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/CRM015-BE-asignacion-materias-docentes",
           "is_default": false,
           "is_merged": false,
@@ -2026,6 +2034,7 @@
         {
           "name": "feature/auth-jwt",
           "author": "CeciliaRodr",
+          "date": "2026-10-01T20:20:44Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/auth-jwt",
           "is_default": false,
           "is_merged": false,
@@ -2276,6 +2285,7 @@
         {
           "name": "feature/carga-estudiantes",
           "author": "TurcoDev",
+          "date": "2026-09-24T00:32:03Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/carga-estudiantes",
           "is_default": false,
           "is_merged": true,
@@ -2526,6 +2536,7 @@
         {
           "name": "feature/lucas",
           "author": "Lucas Viera",
+          "date": "2026-09-28T16:53:59Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/lucas",
           "is_default": false,
           "is_merged": true,
@@ -2776,6 +2787,7 @@
         {
           "name": "feature/students-endpoints",
           "author": "Agustinaqq",
+          "date": "2026-09-21T17:04:07Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/feature/students-endpoints",
           "is_default": false,
           "is_merged": true,
@@ -2946,6 +2958,7 @@
         {
           "name": "lucas",
           "author": "TurcoDev",
+          "date": "2026-09-02T22:01:56Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/lucas",
           "is_default": false,
           "is_merged": false,
@@ -2996,6 +3009,7 @@
         {
           "name": "main",
           "author": "David-Balbi",
+          "date": "2026-09-10T23:52:21Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/main",
           "is_default": false,
           "is_merged": true,
@@ -3102,6 +3116,7 @@
         {
           "name": "ornela",
           "author": "OrnelaNochetti",
+          "date": "2026-09-25T19:20:11Z",
           "url": "https://github.com/3roTECDA2026/edu-track-back/tree/ornela",
           "is_default": false,
           "is_merged": false,
@@ -3967,6 +3982,7 @@
         {
           "name": "Edu-track-componente-aside",
           "author": "TurcoDev",
+          "date": "2026-09-24T01:23:34Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Edu-track-componente-aside",
           "is_default": false,
           "is_merged": true,
@@ -4217,6 +4233,7 @@
         {
           "name": "Feature/setup-frontend-react-material-mui",
           "author": "David-Balbi",
+          "date": "2026-09-12T23:58:21Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/Feature/setup-frontend-react-material-mui",
           "is_default": false,
           "is_merged": false,
@@ -4315,6 +4332,7 @@
         {
           "name": "chore/dep-patches",
           "author": "jmrodev",
+          "date": "2026-10-01T23:29:40Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/chore/dep-patches",
           "is_default": false,
           "is_merged": true,
@@ -4565,6 +4583,7 @@
         {
           "name": "develop",
           "author": "jmrodev",
+          "date": "2026-10-02T01:02:39Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/develop",
           "is_default": true,
           "is_merged": true,
@@ -4815,6 +4834,7 @@
         {
           "name": "docs/add-middlewares-guide-fix",
           "author": "jmrodev",
+          "date": "2026-10-02T00:59:58Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/add-middlewares-guide-fix",
           "is_default": false,
           "is_merged": true,
@@ -5065,6 +5085,7 @@
         {
           "name": "docs/interactive-slide-manual-fix",
           "author": "jmrodev",
+          "date": "2026-10-02T00:49:29Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/interactive-slide-manual-fix",
           "is_default": false,
           "is_merged": true,
@@ -5315,6 +5336,7 @@
         {
           "name": "docs/security-architecture",
           "author": "jmrodev",
+          "date": "2026-09-30T14:13:02Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/docs/security-architecture",
           "is_default": false,
           "is_merged": false,
@@ -5565,6 +5587,7 @@
         {
           "name": "feature/CRM009-grilla-de-calificacones",
           "author": "Paz Rodriguez",
+          "date": "2026-09-21T23:06:05Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM009-grilla-de-calificacones",
           "is_default": false,
           "is_merged": true,
@@ -5711,6 +5734,7 @@
         {
           "name": "feature/CRM-006-crud-usuarios-panel-admin",
           "author": "TurcoDev",
+          "date": "2026-09-24T01:29:31Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-006-crud-usuarios-panel-admin",
           "is_default": false,
           "is_merged": true,
@@ -5961,6 +5985,7 @@
         {
           "name": "feature/CRM-029-estandar-mui",
           "author": "Paz Rodriguez",
+          "date": "2026-10-01T23:40:34Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/CRM-029-estandar-mui",
           "is_default": false,
           "is_merged": false,
@@ -6211,6 +6236,7 @@
         {
           "name": "feature/FE-resumen-inasistencias-justificaciones",
           "author": "TurcoDev",
+          "date": "2026-09-24T01:00:17Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/FE-resumen-inasistencias-justificaciones",
           "is_default": false,
           "is_merged": true,
@@ -6461,6 +6487,7 @@
         {
           "name": "feature/attendance-quick-entry",
           "author": "luzlomba",
+          "date": "2026-09-17T01:28:39Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/attendance-quick-entry",
           "is_default": false,
           "is_merged": false,
@@ -6623,6 +6650,7 @@
         {
           "name": "feature/cambio-de-alta",
           "author": "franolbeyra",
+          "date": "2026-09-27T15:27:47Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/cambio-de-alta",
           "is_default": false,
           "is_merged": true,
@@ -6873,6 +6901,7 @@
         {
           "name": "feature/carga-estudiantes",
           "author": "franolbeyra",
+          "date": "2026-09-23T16:43:48Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/carga-estudiantes",
           "is_default": false,
           "is_merged": true,
@@ -7059,6 +7088,7 @@
         {
           "name": "feature/lista-estudiantes",
           "author": "Agustinaqq",
+          "date": "2026-09-22T01:41:56Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lista-estudiantes",
           "is_default": false,
           "is_merged": true,
@@ -7229,6 +7259,7 @@
         {
           "name": "feature/lucas",
           "author": "Lucas Viera",
+          "date": "2026-09-23T14:44:39Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/feature/lucas",
           "is_default": false,
           "is_merged": true,
@@ -7479,6 +7510,7 @@
         {
           "name": "login-page",
           "author": "CeciliaRodr",
+          "date": "2026-09-23T19:49:18Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/login-page",
           "is_default": false,
           "is_merged": true,
@@ -7641,6 +7673,7 @@
         {
           "name": "luz-migracion-ts",
           "author": "luzlomba",
+          "date": "2026-09-05T14:04:19Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/luz-migracion-ts",
           "is_default": false,
           "is_merged": false,
@@ -7675,6 +7708,7 @@
         {
           "name": "main",
           "author": "David-Balbi",
+          "date": "2026-09-13T00:00:02Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/main",
           "is_default": false,
           "is_merged": true,
@@ -7829,6 +7863,7 @@
         {
           "name": "marcelo/header",
           "author": "jmrodev",
+          "date": "2026-09-24T03:16:54Z",
           "url": "https://github.com/3roTECDA2026/edu-track-front/tree/marcelo/header",
           "is_default": false,
           "is_merged": true,
@@ -8653,6 +8688,7 @@
         {
           "name": "Bug_5_permiso_de_creacion",
           "author": "franolbeyra",
+          "date": "2026-09-30T22:35:03Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/Bug_5_permiso_de_creacion",
           "is_default": false,
           "is_merged": true,
@@ -8903,6 +8939,7 @@
         {
           "name": "REQ-04",
           "author": "TurcoDev",
+          "date": "2026-09-03T22:40:31Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-04",
           "is_default": false,
           "is_merged": true,
@@ -9153,6 +9190,7 @@
         {
           "name": "REQ-06",
           "author": "danpinn24",
+          "date": "2026-09-12T16:33:39Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-06",
           "is_default": false,
           "is_merged": false,
@@ -9403,6 +9441,7 @@
         {
           "name": "REQ-14-trivia-alumnos",
           "author": "JuanIRodri",
+          "date": "2026-09-28T22:12:43Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-14-trivia-alumnos",
           "is_default": false,
           "is_merged": false,
@@ -9653,6 +9692,7 @@
         {
           "name": "REQ-14-trivia-preguntados",
           "author": "TurcoDev",
+          "date": "2026-09-20T21:10:31Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-14-trivia-preguntados",
           "is_default": false,
           "is_merged": false,
@@ -9903,6 +9943,7 @@
         {
           "name": "REQ-15-BE",
           "author": "CeciliaRodr",
+          "date": "2026-09-21T11:35:21Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/REQ-15-BE",
           "is_default": false,
           "is_merged": false,
@@ -10153,6 +10194,7 @@
         {
           "name": "cambioForo",
           "author": "cristiantommasi",
+          "date": "2025-11-21T03:26:57Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/cambioForo",
           "is_default": false,
           "is_merged": true,
@@ -10403,6 +10445,7 @@
         {
           "name": "connectDB",
           "author": "Lucas Salvatori",
+          "date": "2025-10-18T01:29:05Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/connectDB",
           "is_default": false,
           "is_merged": true,
@@ -10653,6 +10696,7 @@
         {
           "name": "cristianBook",
           "author": "cristiantommasi",
+          "date": "2025-10-18T00:15:14Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/cristianBook",
           "is_default": false,
           "is_merged": false,
@@ -10903,6 +10947,7 @@
         {
           "name": "develop",
           "author": "franolbeyra",
+          "date": "2026-09-30T22:53:39Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/develop",
           "is_default": true,
           "is_merged": true,
@@ -11153,6 +11198,7 @@
         {
           "name": "docs/security-architecture",
           "author": "jmrodev",
+          "date": "2026-10-01T23:29:35Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/docs/security-architecture",
           "is_default": false,
           "is_merged": false,
@@ -11403,6 +11449,7 @@
         {
           "name": "favoritos",
           "author": "cristiantommasi",
+          "date": "2025-11-12T22:10:34Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/favoritos",
           "is_default": false,
           "is_merged": false,
@@ -11653,6 +11700,7 @@
         {
           "name": "feat/auth",
           "author": "nicodiaz00",
+          "date": "2025-10-16T21:58:53Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feat/auth",
           "is_default": false,
           "is_merged": true,
@@ -11903,6 +11951,7 @@
         {
           "name": "feature/REQ-12-BE-catalogo-insignias",
           "author": "Paz Rodriguez",
+          "date": "2026-09-14T19:22:21Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/REQ-12-BE-catalogo-insignias",
           "is_default": false,
           "is_merged": false,
@@ -12153,6 +12202,7 @@
         {
           "name": "feature/REQ-12",
           "author": "TurcoDev",
+          "date": "2026-09-07T13:50:44Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/REQ-12",
           "is_default": false,
           "is_merged": true,
@@ -12403,6 +12453,7 @@
         {
           "name": "feature/TECH-01-Migrar-Prisma-ORM",
           "author": "David-Balbi",
+          "date": "2026-09-08T12:49:10Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-01-Migrar-Prisma-ORM",
           "is_default": false,
           "is_merged": true,
@@ -12653,6 +12704,7 @@
         {
           "name": "feature/TECH-02-Refactor-API-English",
           "author": "David-Balbi",
+          "date": "2026-09-07T23:33:10Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-02-Refactor-API-English",
           "is_default": false,
           "is_merged": false,
@@ -12903,6 +12955,7 @@
         {
           "name": "feature/TECH-03-ajuste-imports-ts",
           "author": "David-Balbi",
+          "date": "2026-09-08T12:49:10Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-03-ajuste-imports-ts",
           "is_default": false,
           "is_merged": true,
@@ -13153,6 +13206,7 @@
         {
           "name": "feature/TECH-03-migracion-backend-ts",
           "author": "Agustinaqq",
+          "date": "2026-09-03T17:26:18Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/TECH-03-migracion-backend-ts",
           "is_default": false,
           "is_merged": true,
@@ -13403,6 +13457,7 @@
         {
           "name": "feature/req-05-course-activity-feed",
           "author": "David-Balbi",
+          "date": "2026-09-19T15:25:37Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/feature/req-05-course-activity-feed",
           "is_default": false,
           "is_merged": true,
@@ -13653,6 +13708,7 @@
         {
           "name": "fernanda",
           "author": "fer0809",
+          "date": "2026-09-30T23:38:17Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/fernanda",
           "is_default": false,
           "is_merged": false,
@@ -13903,6 +13959,7 @@
         {
           "name": "flor",
           "author": "florencialarreategui",
+          "date": "2025-10-16T22:23:06Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/flor",
           "is_default": false,
           "is_merged": true,
@@ -14153,6 +14210,7 @@
         {
           "name": "flor-2",
           "author": "florencialarreategui",
+          "date": "2025-10-30T22:09:45Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/flor-2",
           "is_default": false,
           "is_merged": true,
@@ -14403,6 +14461,7 @@
         {
           "name": "juanc",
           "author": "pincelarte",
+          "date": "2025-11-13T21:35:41Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/juanc",
           "is_default": false,
           "is_merged": false,
@@ -14653,6 +14712,7 @@
         {
           "name": "laura",
           "author": "LauraAlvarezZunino",
+          "date": "2025-10-23T21:02:18Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/laura",
           "is_default": false,
           "is_merged": true,
@@ -14903,6 +14963,7 @@
         {
           "name": "lucia",
           "author": "LuciaRomeoGago",
+          "date": "2025-09-18T01:25:35Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/lucia",
           "is_default": false,
           "is_merged": true,
@@ -14929,6 +14990,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-10-02T01:02:06Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/main",
           "is_default": false,
           "is_merged": false,
@@ -15179,6 +15241,7 @@
         {
           "name": "marcelo/REQ-08-moderacion-ia",
           "author": "jmrodev",
+          "date": "2026-09-30T17:54:03Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/marcelo/REQ-08-moderacion-ia",
           "is_default": false,
           "is_merged": false,
@@ -15429,6 +15492,7 @@
         {
           "name": "master",
           "author": "nicodiaz00",
+          "date": "2025-10-03T23:50:28Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/master",
           "is_default": false,
           "is_merged": false,
@@ -15679,6 +15743,7 @@
         {
           "name": "nicodiaz",
           "author": "nicodiaz00",
+          "date": "2025-10-03T15:10:17Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/nicodiaz",
           "is_default": false,
           "is_merged": true,
@@ -15929,6 +15994,7 @@
         {
           "name": "ornela",
           "author": "OrnelaNochetti",
+          "date": "2026-09-05T16:16:48Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/ornela",
           "is_default": false,
           "is_merged": false,
@@ -16179,6 +16245,7 @@
         {
           "name": "sil",
           "author": "bertrandsilvana",
+          "date": "2025-09-26T23:43:06Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/sil",
           "is_default": false,
           "is_merged": true,
@@ -16229,6 +16296,7 @@
         {
           "name": "sil2",
           "author": "bertrandsilvana",
+          "date": "2025-11-18T20:58:16Z",
           "url": "https://github.com/3roTECDA2026/sababook-back-cont/tree/sil2",
           "is_default": false,
           "is_merged": true,
@@ -17095,6 +17163,7 @@
         {
           "name": "BUG-001",
           "author": "CeciliaRodr",
+          "date": "2026-09-14T00:15:14Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/BUG-001",
           "is_default": false,
           "is_merged": true,
@@ -17345,6 +17414,7 @@
         {
           "name": "REQ-04",
           "author": "luzlomba",
+          "date": "2026-09-05T16:32:56Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-04",
           "is_default": false,
           "is_merged": false,
@@ -17595,6 +17665,7 @@
         {
           "name": "REQ-06",
           "author": "danpinn24",
+          "date": "2026-09-12T16:31:33Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-06",
           "is_default": false,
           "is_merged": true,
@@ -17845,6 +17916,7 @@
         {
           "name": "REQ-14-trivia-alumnos",
           "author": "JuanIRodri",
+          "date": "2026-09-16T22:44:19Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-alumnos",
           "is_default": false,
           "is_merged": false,
@@ -18095,6 +18167,7 @@
         {
           "name": "REQ-14-trivia-preguntados",
           "author": "JuanIRodri",
+          "date": "2026-09-16T21:51:57Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-14-trivia-preguntados",
           "is_default": false,
           "is_merged": false,
@@ -18345,6 +18418,7 @@
         {
           "name": "REQ-15-FE",
           "author": "CeciliaRodr",
+          "date": "2026-09-22T02:21:57Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/REQ-15-FE",
           "is_default": false,
           "is_merged": false,
@@ -18595,6 +18669,7 @@
         {
           "name": "develop",
           "author": "TurcoDev",
+          "date": "2026-09-22T00:53:24Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/develop",
           "is_default": true,
           "is_merged": true,
@@ -18845,6 +18920,7 @@
         {
           "name": "docs/add-toc-index",
           "author": "jmrodev",
+          "date": "2026-10-02T00:46:42Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/add-toc-index",
           "is_default": false,
           "is_merged": false,
@@ -19095,6 +19171,7 @@
         {
           "name": "docs/security-architecture",
           "author": "jmrodev",
+          "date": "2026-10-01T23:29:37Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/security-architecture",
           "is_default": false,
           "is_merged": false,
@@ -19345,6 +19422,7 @@
         {
           "name": "docs/unify-manual-single-page",
           "author": "jmrodev",
+          "date": "2026-10-02T00:44:46Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/docs/unify-manual-single-page",
           "is_default": false,
           "is_merged": false,
@@ -19595,6 +19673,7 @@
         {
           "name": "feature/REQ-12-UI-insignias-automaticas-apl",
           "author": "Paz Rodriguez",
+          "date": "2026-09-14T22:59:39Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12-UI-insignias-automaticas-apl",
           "is_default": false,
           "is_merged": true,
@@ -19845,6 +19924,7 @@
         {
           "name": "feature/REQ-12",
           "author": "TurcoDev",
+          "date": "2026-09-07T13:54:57Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-12",
           "is_default": false,
           "is_merged": true,
@@ -20095,6 +20175,7 @@
         {
           "name": "feature/REQ-14-trivia-preguntados-alumnos",
           "author": "JuanIRodri",
+          "date": "2026-09-28T21:50:13Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/REQ-14-trivia-preguntados-alumnos",
           "is_default": false,
           "is_merged": false,
@@ -20345,6 +20426,7 @@
         {
           "name": "feature/TECH-02-refactor-carpetas-front",
           "author": "Agustinaqq",
+          "date": "2026-09-21T02:03:34Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-02-refactor-carpetas-front",
           "is_default": false,
           "is_merged": true,
@@ -20595,6 +20677,7 @@
         {
           "name": "feature/TECH-03-migracion-ts-front",
           "author": "Agustinaqq",
+          "date": "2026-09-02T03:22:58Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/TECH-03-migracion-ts-front",
           "is_default": false,
           "is_merged": true,
@@ -20845,6 +20928,7 @@
         {
           "name": "feature/colour",
           "author": "David-Balbi",
+          "date": "2026-08-29T23:57:08Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/colour",
           "is_default": false,
           "is_merged": false,
@@ -21095,6 +21179,7 @@
         {
           "name": "feature/req-05-course-activity-feed-back",
           "author": "David-Balbi",
+          "date": "2026-09-20T21:15:57Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/feature/req-05-course-activity-feed-back",
           "is_default": false,
           "is_merged": true,
@@ -21345,6 +21430,7 @@
         {
           "name": "fernanda",
           "author": "fer0809",
+          "date": "2026-09-18T23:13:46Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fernanda",
           "is_default": false,
           "is_merged": false,
@@ -21595,6 +21681,7 @@
         {
           "name": "fix/BUG-11-aria-hidden-drawer-modal",
           "author": "NataliaVillanueva13",
+          "date": "2026-09-18T19:18:43Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/fix/BUG-11-aria-hidden-drawer-modal",
           "is_default": false,
           "is_merged": true,
@@ -21845,6 +21932,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-10-02T01:02:18Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/main",
           "is_default": false,
           "is_merged": false,
@@ -22095,6 +22183,7 @@
         {
           "name": "marcelo/REQ-08-panel-moderacion",
           "author": "jmrodev",
+          "date": "2026-10-01T22:20:42Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/marcelo/REQ-08-panel-moderacion",
           "is_default": false,
           "is_merged": false,
@@ -22345,6 +22434,7 @@
         {
           "name": "meta-de-lectura",
           "author": "franolbeyra",
+          "date": "2026-09-20T22:34:27Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/meta-de-lectura",
           "is_default": false,
           "is_merged": true,
@@ -22595,6 +22685,7 @@
         {
           "name": "ornela",
           "author": "OrnelaNochetti",
+          "date": "2026-09-05T23:42:45Z",
           "url": "https://github.com/3roTECDA2026/sababook-front-cont/tree/ornela",
           "is_default": false,
           "is_merged": false,
@@ -23323,6 +23414,7 @@
         {
           "name": "copilot/implementar-ci-cd-para-aws",
           "author": "Copilot",
+          "date": "2026-06-10T13:02:13Z",
           "url": "https://github.com/Tecdron/development/tree/copilot/implementar-ci-cd-para-aws",
           "is_default": false,
           "is_merged": false,
@@ -23421,6 +23513,7 @@
         {
           "name": "development",
           "author": "jmrodev",
+          "date": "2026-06-11T15:31:51Z",
           "url": "https://github.com/Tecdron/development/tree/development",
           "is_default": true,
           "is_merged": true,
@@ -23663,6 +23756,7 @@
         {
           "name": "master",
           "author": "jmrodev",
+          "date": "2026-07-21T19:24:08Z",
           "url": "https://github.com/ecommerce-economia-empresarial-tecda/juanfer/tree/master",
           "is_default": true,
           "is_merged": true,
@@ -24186,6 +24280,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-27T13:24:54Z",
           "url": "https://github.com/jmrodev/Carrera-TECDA/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -24709,6 +24804,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-11-25T22:18:23Z",
           "url": "https://github.com/jmrodev/CineApp/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -25232,6 +25328,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-07-25T12:31:41Z",
           "url": "https://github.com/jmrodev/Conversor-de-monedas-java-Swing/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -25338,6 +25435,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-07-28T23:09:44Z",
           "url": "https://github.com/jmrodev/Inst_166_Tecda_Tandil/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -25588,6 +25686,7 @@
         {
           "name": "refactor/improve-site-structure-ui",
           "author": "google-labs-jules[bot]",
+          "date": "2025-05-23T21:11:45Z",
           "url": "https://github.com/jmrodev/Inst_166_Tecda_Tandil/tree/refactor/improve-site-structure-ui",
           "is_default": false,
           "is_merged": false,
@@ -26111,6 +26210,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-24T22:23:53Z",
           "url": "https://github.com/jmrodev/Nexocard-fixed/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -26186,6 +26286,7 @@
         {
           "name": "feature/auth-refactor",
           "author": "jmrodev",
+          "date": "2025-11-13T20:05:56Z",
           "url": "https://github.com/jmrodev/POO-PHP/tree/feature/auth-refactor",
           "is_default": false,
           "is_merged": true,
@@ -26436,6 +26537,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-11-13T22:27:48Z",
           "url": "https://github.com/jmrodev/POO-PHP/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -26959,6 +27061,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-04-15T23:10:36Z",
           "url": "https://github.com/jmrodev/ScreenShare/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -27098,6 +27201,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-05-28T20:04:24Z",
           "url": "https://github.com/jmrodev/TECDA-3-GestionBBDD/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -27165,6 +27269,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-07-25T20:26:27Z",
           "url": "https://github.com/jmrodev/blog/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -27415,6 +27520,7 @@
         {
           "name": "testnewstyle",
           "author": "jmrodev",
+          "date": "2025-07-26T21:52:09Z",
           "url": "https://github.com/jmrodev/blog/tree/testnewstyle",
           "is_default": false,
           "is_merged": false,
@@ -27938,6 +28044,7 @@
         {
           "name": "testobsidian",
           "author": "jmrodev",
+          "date": "2026-07-08T10:26:44Z",
           "url": "https://github.com/jmrodev/brujula/tree/testobsidian",
           "is_default": true,
           "is_merged": true,
@@ -28045,6 +28152,7 @@
         {
           "name": "master",
           "author": "chello1975",
+          "date": "2022-04-14T20:09:26Z",
           "url": "https://github.com/jmrodev/certificados/tree/master",
           "is_default": true,
           "is_merged": true,
@@ -28104,6 +28212,7 @@
         {
           "name": "master",
           "author": "chello1975",
+          "date": "2022-04-14T20:13:11Z",
           "url": "https://github.com/jmrodev/cheatsheet/tree/master",
           "is_default": true,
           "is_merged": true,
@@ -28163,6 +28272,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-07T15:54:14Z",
           "url": "https://github.com/jmrodev/chrome-bookmarks/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -28246,6 +28356,7 @@
         {
           "name": "feat/atomic-front-auth-gate",
           "author": "jmrodev",
+          "date": "2026-09-18T03:51:41Z",
           "url": "https://github.com/jmrodev/daily-scrum-serverless/tree/feat/atomic-front-auth-gate",
           "is_default": false,
           "is_merged": true,
@@ -28496,6 +28607,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-18T22:16:04Z",
           "url": "https://github.com/jmrodev/daily-scrum-serverless/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -29062,6 +29174,7 @@
         {
           "name": "fix-pnpm-setup",
           "author": "google-labs-jules[bot]",
+          "date": "2025-10-02T20:39:27Z",
           "url": "https://github.com/jmrodev/dotfiles/tree/fix-pnpm-setup",
           "is_default": false,
           "is_merged": true,
@@ -29312,6 +29425,7 @@
         {
           "name": "i3wm",
           "author": "jmrodev",
+          "date": "2026-06-05T19:29:46Z",
           "url": "https://github.com/jmrodev/dotfiles/tree/i3wm",
           "is_default": false,
           "is_merged": false,
@@ -29562,6 +29676,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-10-01T20:36:44Z",
           "url": "https://github.com/jmrodev/dotfiles/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -29812,6 +29927,7 @@
         {
           "name": "sway",
           "author": "jmrodev",
+          "date": "2026-06-20T15:56:12Z",
           "url": "https://github.com/jmrodev/dotfiles/tree/sway",
           "is_default": false,
           "is_merged": false,
@@ -30062,6 +30178,7 @@
         {
           "name": "update-readme",
           "author": "google-labs-jules[bot]",
+          "date": "2025-10-02T19:37:12Z",
           "url": "https://github.com/jmrodev/dotfiles/tree/update-readme",
           "is_default": false,
           "is_merged": true,
@@ -30585,6 +30702,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-07-27T05:24:34Z",
           "url": "https://github.com/jmrodev/fgp-google-sheet-app/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -30740,6 +30858,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-29T10:07:47Z",
           "url": "https://github.com/jmrodev/jardin-zarini/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -31285,6 +31404,7 @@
         {
           "name": "copilot/corregir-problemas-en-repo",
           "author": "Copilot",
+          "date": "2026-03-28T03:38:13Z",
           "url": "https://github.com/jmrodev/jmro/tree/copilot/corregir-problemas-en-repo",
           "is_default": false,
           "is_merged": true,
@@ -31367,6 +31487,7 @@
         {
           "name": "copilot/update-cv-bio-for-development",
           "author": "Copilot",
+          "date": "2026-03-28T02:27:57Z",
           "url": "https://github.com/jmrodev/jmro/tree/copilot/update-cv-bio-for-development",
           "is_default": false,
           "is_merged": true,
@@ -31401,6 +31522,7 @@
         {
           "name": "copilot/update-resume-html",
           "author": "Copilot",
+          "date": "2026-03-28T02:27:33Z",
           "url": "https://github.com/jmrodev/jmro/tree/copilot/update-resume-html",
           "is_default": false,
           "is_merged": true,
@@ -31435,6 +31557,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-03-28T03:39:37Z",
           "url": "https://github.com/jmrodev/jmro/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -31703,6 +31826,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-03-28T02:52:05Z",
           "url": "https://github.com/jmrodev/jmrodev/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -32255,6 +32379,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-09T01:29:44Z",
           "url": "https://github.com/jmrodev/kindergarten_management/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -32505,6 +32630,7 @@
         {
           "name": "rescue-server-files",
           "author": "jmrodev",
+          "date": "2026-06-09T01:33:03Z",
           "url": "https://github.com/jmrodev/kindergarten_management/tree/rescue-server-files",
           "is_default": false,
           "is_merged": false,
@@ -33173,6 +33299,7 @@
         {
           "name": "fix/caddyfile-bind-mount",
           "author": "Pablo Fredrikson",
+          "date": "2026-07-30T17:22:18Z",
           "url": "https://github.com/jmrodev/media-stack/tree/fix/caddyfile-bind-mount",
           "is_default": false,
           "is_merged": true,
@@ -33263,6 +33390,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-08-05T14:40:57Z",
           "url": "https://github.com/jmrodev/media-stack/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -33554,6 +33682,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-07-17T12:41:07Z",
           "url": "https://github.com/jmrodev/mysqlconfig/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -33629,6 +33758,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2023-05-26T07:20:47Z",
           "url": "https://github.com/jmrodev/portafolio/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -33800,6 +33930,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-10-13T14:15:19Z",
           "url": "https://github.com/jmrodev/radio-logbook-app/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -33874,6 +34005,7 @@
         {
           "name": "copilot/add-scripts-for-archlinux",
           "author": "Copilot",
+          "date": "2026-05-19T13:28:51Z",
           "url": "https://github.com/jmrodev/scripts/tree/copilot/add-scripts-for-archlinux",
           "is_default": false,
           "is_merged": false,
@@ -34124,6 +34256,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-26T09:47:01Z",
           "url": "https://github.com/jmrodev/scripts/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -34374,6 +34507,7 @@
         {
           "name": "scripts_v2",
           "author": "jmrodev",
+          "date": "2026-06-20T15:28:09Z",
           "url": "https://github.com/jmrodev/scripts/tree/scripts_v2",
           "is_default": false,
           "is_merged": false,
@@ -35283,6 +35417,7 @@
         {
           "name": "dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.6",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:36:24Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.6",
           "is_default": false,
           "is_merged": false,
@@ -35533,6 +35668,7 @@
         {
           "name": "dependabot/npm_and_yarn/express-rate-limit-8.7.0",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:34:07Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/express-rate-limit-8.7.0",
           "is_default": false,
           "is_merged": false,
@@ -35783,6 +35919,7 @@
         {
           "name": "dependabot/npm_and_yarn/globals-17.12.0",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:35:47Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/globals-17.12.0",
           "is_default": false,
           "is_merged": false,
@@ -36033,6 +36170,7 @@
         {
           "name": "dependabot/npm_and_yarn/jest-30.5.1",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:34:46Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/jest-30.5.1",
           "is_default": false,
           "is_merged": false,
@@ -36283,6 +36421,7 @@
         {
           "name": "dependabot/npm_and_yarn/mariadb-3.5.4",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:36:07Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/mariadb-3.5.4",
           "is_default": false,
           "is_merged": false,
@@ -36533,6 +36672,7 @@
         {
           "name": "dependabot/npm_and_yarn/mobile/npm_and_yarn-8b1833f05c",
           "author": "dependabot[bot]",
+          "date": "2026-09-03T06:39:22Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/mobile/npm_and_yarn-8b1833f05c",
           "is_default": false,
           "is_merged": false,
@@ -36783,6 +36923,7 @@
         {
           "name": "dependabot/npm_and_yarn/morgan-1.12.0",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:33:49Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/morgan-1.12.0",
           "is_default": false,
           "is_merged": false,
@@ -37033,6 +37174,7 @@
         {
           "name": "dependabot/npm_and_yarn/mysql2-3.24.3",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:35:29Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/mysql2-3.24.3",
           "is_default": false,
           "is_merged": false,
@@ -37283,6 +37425,7 @@
         {
           "name": "dependabot/npm_and_yarn/npm_and_yarn-c500e3dd85",
           "author": "dependabot[bot]",
+          "date": "2026-09-09T00:49:45Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/npm_and_yarn-c500e3dd85",
           "is_default": false,
           "is_merged": false,
@@ -37533,6 +37676,7 @@
         {
           "name": "dependabot/npm_and_yarn/oxlint-1.81.0",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:35:10Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/oxlint-1.81.0",
           "is_default": false,
           "is_merged": false,
@@ -37783,6 +37927,7 @@
         {
           "name": "dependabot/npm_and_yarn/vitejs/plugin-react-6.1.1",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:34:26Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/vitejs/plugin-react-6.1.1",
           "is_default": false,
           "is_merged": false,
@@ -38033,6 +38178,7 @@
         {
           "name": "dependabot/npm_and_yarn/wrangler-4.128.0",
           "author": "dependabot[bot]",
+          "date": "2026-09-06T00:33:29Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/dependabot/npm_and_yarn/wrangler-4.128.0",
           "is_default": false,
           "is_merged": false,
@@ -38283,6 +38429,7 @@
         {
           "name": "development",
           "author": "jmrodev",
+          "date": "2026-09-15T23:10:35Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/development",
           "is_default": true,
           "is_merged": true,
@@ -38533,6 +38680,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-15T23:14:36Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/main",
           "is_default": false,
           "is_merged": false,
@@ -38783,6 +38931,7 @@
         {
           "name": "release-v1.0-cima",
           "author": "jmrodev",
+          "date": "2026-04-01T00:35:38Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/release-v1.0-cima",
           "is_default": false,
           "is_merged": true,
@@ -39033,6 +39182,7 @@
         {
           "name": "staging",
           "author": "jmrodev",
+          "date": "2026-09-15T23:12:53Z",
           "url": "https://github.com/jmrodev/secretary-app/tree/staging",
           "is_default": false,
           "is_merged": false,
@@ -39857,6 +40007,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-06T23:44:07Z",
           "url": "https://github.com/jmrodev/tandillabs/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -40220,6 +40371,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-09-06T21:13:54Z",
           "url": "https://github.com/jmrodev/tandillabs-brand/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -40279,6 +40431,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-07-21T02:39:08Z",
           "url": "https://github.com/jmrodev/testia/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -40338,6 +40491,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-07-25T12:34:05Z",
           "url": "https://github.com/jmrodev/thinkPython/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -40429,6 +40583,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-03-19T13:20:52Z",
           "url": "https://github.com/jmrodev/timetracker-unicen-zarini/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -40504,6 +40659,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2024-01-26T17:20:14Z",
           "url": "https://github.com/jmrodev/unknown-collation-utf8mb4_0900_ai_ci/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -40663,6 +40819,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2025-11-20T15:23:01Z",
           "url": "https://github.com/jmrodev/web1/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -41186,6 +41343,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-25T01:52:43Z",
           "url": "https://github.com/tecda-maniqui-factory/.github/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -41365,6 +41523,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-05-27T21:44:45Z",
           "url": "https://github.com/tecda-maniqui-factory/demo-repository/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -41688,6 +41847,7 @@
         {
           "name": "dependabot/github_actions/actions/checkout-7",
           "author": "dependabot[bot]",
+          "date": "2026-06-23T01:13:35Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/github_actions/actions/checkout-7",
           "is_default": false,
           "is_merged": false,
@@ -41938,6 +42098,7 @@
         {
           "name": "dependabot/github_actions/actions/setup-node-7",
           "author": "dependabot[bot]",
+          "date": "2026-07-21T01:13:33Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/github_actions/actions/setup-node-7",
           "is_default": false,
           "is_merged": false,
@@ -42188,6 +42349,7 @@
         {
           "name": "dependabot/github_actions/pnpm/action-setup-6.0.9",
           "author": "dependabot[bot]",
+          "date": "2026-08-04T01:13:37Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/github_actions/pnpm/action-setup-6.0.9",
           "is_default": false,
           "is_merged": false,
@@ -42438,6 +42600,7 @@
         {
           "name": "dependabot/npm_and_yarn/body-parser-2.3.0",
           "author": "dependabot[bot]",
+          "date": "2026-06-16T11:39:25Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/body-parser-2.3.0",
           "is_default": false,
           "is_merged": false,
@@ -42640,6 +42803,7 @@
         {
           "name": "dependabot/npm_and_yarn/eslint-10.7.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:16:10Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/eslint-10.7.0",
           "is_default": false,
           "is_merged": false,
@@ -42890,6 +43054,7 @@
         {
           "name": "dependabot/npm_and_yarn/prettier-3.9.5",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:17:21Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/prettier-3.9.5",
           "is_default": false,
           "is_merged": false,
@@ -43140,6 +43305,7 @@
         {
           "name": "dependabot/npm_and_yarn/redocly/cli-2.39.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:15:37Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/redocly/cli-2.39.0",
           "is_default": false,
           "is_merged": false,
@@ -43390,6 +43556,7 @@
         {
           "name": "dependabot/npm_and_yarn/tsx-4.23.1",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:16:48Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/tsx-4.23.1",
           "is_default": false,
           "is_merged": false,
@@ -43640,6 +43807,7 @@
         {
           "name": "dependabot/npm_and_yarn/typedoc-0.28.20",
           "author": "dependabot[bot]",
+          "date": "2026-07-07T01:15:21Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typedoc-0.28.20",
           "is_default": false,
           "is_merged": false,
@@ -43890,6 +44058,7 @@
         {
           "name": "dependabot/npm_and_yarn/types/node-26.1.1",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:16:30Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/types/node-26.1.1",
           "is_default": false,
           "is_merged": false,
@@ -44140,6 +44309,7 @@
         {
           "name": "dependabot/npm_and_yarn/typescript-7.0.2",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:15:19Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typescript-7.0.2",
           "is_default": false,
           "is_merged": false,
@@ -44390,6 +44560,7 @@
         {
           "name": "dependabot/npm_and_yarn/typescript-eslint/eslint-plugin-8.64.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:14:39Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typescript-eslint/eslint-plugin-8.64.0",
           "is_default": false,
           "is_merged": false,
@@ -44640,6 +44811,7 @@
         {
           "name": "dependabot/npm_and_yarn/typescript-eslint/parser-8.64.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T01:14:59Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/dependabot/npm_and_yarn/typescript-eslint/parser-8.64.0",
           "is_default": false,
           "is_merged": false,
@@ -44890,6 +45062,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-25T02:03:25Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-backend/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -45442,6 +45615,7 @@
         {
           "name": "dependabot/github_actions/actions/checkout-7",
           "author": "dependabot[bot]",
+          "date": "2026-06-23T19:44:13Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/tree/dependabot/github_actions/actions/checkout-7",
           "is_default": false,
           "is_merged": false,
@@ -45636,6 +45810,7 @@
         {
           "name": "dependabot/github_actions/actions/setup-node-7",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T19:43:51Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/tree/dependabot/github_actions/actions/setup-node-7",
           "is_default": false,
           "is_merged": false,
@@ -45886,6 +46061,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-25T02:03:15Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-db/tree/main",
           "is_default": true,
           "is_merged": true,
@@ -46522,6 +46698,7 @@
         {
           "name": "dependabot/github_actions/actions/checkout-7",
           "author": "dependabot[bot]",
+          "date": "2026-06-23T10:13:50Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/github_actions/actions/checkout-7",
           "is_default": false,
           "is_merged": false,
@@ -46772,6 +46949,7 @@
         {
           "name": "dependabot/github_actions/actions/setup-node-7",
           "author": "dependabot[bot]",
+          "date": "2026-07-14T10:14:05Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/github_actions/actions/setup-node-7",
           "is_default": false,
           "is_merged": false,
@@ -47022,6 +47200,7 @@
         {
           "name": "dependabot/github_actions/pnpm/action-setup-6.0.9",
           "author": "dependabot[bot]",
+          "date": "2026-08-04T10:13:52Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/github_actions/pnpm/action-setup-6.0.9",
           "is_default": false,
           "is_merged": false,
@@ -47272,6 +47451,7 @@
         {
           "name": "dependabot/npm_and_yarn/eslint-10.6.0",
           "author": "dependabot[bot]",
+          "date": "2026-06-30T10:14:23Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/eslint-10.6.0",
           "is_default": false,
           "is_merged": false,
@@ -47522,6 +47702,7 @@
         {
           "name": "dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.3",
           "author": "dependabot[bot]",
+          "date": "2026-06-16T12:02:56Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/eslint-plugin-react-refresh-0.5.3",
           "is_default": false,
           "is_merged": false,
@@ -47708,6 +47889,7 @@
         {
           "name": "dependabot/npm_and_yarn/globals-17.7.0",
           "author": "dependabot[bot]",
+          "date": "2026-06-30T10:14:57Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/globals-17.7.0",
           "is_default": false,
           "is_merged": false,
@@ -47958,6 +48140,7 @@
         {
           "name": "dependabot/npm_and_yarn/lucide-react-1.23.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-07T10:16:05Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/lucide-react-1.23.0",
           "is_default": false,
           "is_merged": false,
@@ -48208,6 +48391,7 @@
         {
           "name": "dependabot/npm_and_yarn/react-router-dom-7.18.1",
           "author": "dependabot[bot]",
+          "date": "2026-06-30T10:15:49Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/react-router-dom-7.18.1",
           "is_default": false,
           "is_merged": false,
@@ -48458,6 +48642,7 @@
         {
           "name": "dependabot/npm_and_yarn/typedoc-0.28.20",
           "author": "dependabot[bot]",
+          "date": "2026-07-07T10:16:13Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/typedoc-0.28.20",
           "is_default": false,
           "is_merged": false,
@@ -48708,6 +48893,7 @@
         {
           "name": "dependabot/npm_and_yarn/types/node-26.1.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-07T10:15:36Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/types/node-26.1.0",
           "is_default": false,
           "is_merged": false,
@@ -48958,6 +49144,7 @@
         {
           "name": "dependabot/npm_and_yarn/typescript-eslint-8.63.0",
           "author": "dependabot[bot]",
+          "date": "2026-07-07T10:15:15Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/typescript-eslint-8.63.0",
           "is_default": false,
           "is_merged": false,
@@ -49208,6 +49395,7 @@
         {
           "name": "dependabot/npm_and_yarn/vite-8.1.3",
           "author": "dependabot[bot]",
+          "date": "2026-07-07T10:15:55Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/vite-8.1.3",
           "is_default": false,
           "is_merged": false,
@@ -49458,6 +49646,7 @@
         {
           "name": "dependabot/npm_and_yarn/vitejs/plugin-react-6.0.3",
           "author": "dependabot[bot]",
+          "date": "2026-06-30T10:15:14Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/dependabot/npm_and_yarn/vitejs/plugin-react-6.0.3",
           "is_default": false,
           "is_merged": false,
@@ -49708,6 +49897,7 @@
         {
           "name": "main",
           "author": "jmrodev",
+          "date": "2026-06-25T01:50:49Z",
           "url": "https://github.com/tecda-maniqui-factory/tp-maniqui-frontend/tree/main",
           "is_default": true,
           "is_merged": true,
