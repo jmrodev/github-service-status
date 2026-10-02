@@ -22,8 +22,8 @@ TARGETS = json.loads(TARGETS_FILE.read_text())
 LIMITS = TARGETS.get("limits", {})
 EXCLUDE_ARCHIVED = TARGETS.get("excludeArchived", True)
 
-def run(*args):
-    """Executes a subprocess command and parses JSON output if possible."""
+def run_json(*args):
+    """Executes a subprocess command and parses JSON output cleanly."""
     p = subprocess.run(args, capture_output=True, text=True)
     if p.returncode != 0:
         return None
@@ -31,9 +31,13 @@ def run(*args):
     if not out:
         return None
     try:
-        return json.loads(out)
+        data = json.loads(out)
+        # If output was wrapped in a raw string due to gh CLI multiline, extract first json object/array
+        if isinstance(data, dict) and "raw" in data:
+            return None
+        return data
     except Exception:
-        return {"raw": out}
+        return None
 
 def discover_repositories(test_slice_only=False):
     """Discovers repository names for configured users and orgs."""
@@ -44,7 +48,7 @@ def discover_repositories(test_slice_only=False):
     
     # 1. Discover user repos
     for user in TARGETS.get("users", []):
-        data = run("gh", "repo", "list", user, "--limit", "100", "--json", "nameWithOwner,isArchived")
+        data = run_json("gh", "repo", "list", user, "--limit", "100", "--json", "nameWithOwner,isArchived")
         if isinstance(data, list):
             for r in data:
                 if EXCLUDE_ARCHIVED and r.get("isArchived"):
@@ -53,7 +57,7 @@ def discover_repositories(test_slice_only=False):
 
     # 2. Discover org repos
     for org in TARGETS.get("orgs", []):
-        data = run("gh", "repo", "list", org, "--limit", "100", "--json", "nameWithOwner,isArchived")
+        data = run_json("gh", "repo", "list", org, "--limit", "100", "--json", "nameWithOwner,isArchived")
         if isinstance(data, list):
             for r in data:
                 if EXCLUDE_ARCHIVED and r.get("isArchived"):
@@ -64,18 +68,28 @@ def discover_repositories(test_slice_only=False):
 
 def repo_snapshot(repo):
     """Fetches details for a single repository."""
-    issues = run("gh", "issue", "list", "--repo", repo, "--limit", str(LIMITS.get("issues", 10)),
-                 "--json", "number,title,url,state") or []
+    issues = run_json("gh", "issue", "list", "--repo", repo, "--limit", str(LIMITS.get("issues", 10)),
+                      "--json", "number,title,url,state") or []
     
-    prs = run("gh", "pr", "list", "--repo", repo, "--limit", str(LIMITS.get("prs", 10)),
-               "--json", "number,title,url,state") or []
+    prs = run_json("gh", "pr", "list", "--repo", repo, "--limit", str(LIMITS.get("prs", 10)),
+                    "--json", "number,title,url,state") or []
     
-    branches = run("gh", "api", f"repos/{repo}/branches", "--paginate", "--jq",
-                    f"[.[0:{LIMITS.get('branches', 30)}][] | {{name: .name, url: \"https://github.com/{repo}/tree/\" + .name}}]") or []
+    # Branches query using per_page parameter
+    branch_limit = LIMITS.get("branches", 30)
+    branches = run_json("gh", "api", f"repos/{repo}/branches?per_page={branch_limit}", "--jq",
+                         f"[.[0:{branch_limit}][] | {{name: .name, url: \"https://github.com/{repo}/tree/\" + .name}}]") or []
     
-    commits = run("gh", "api", f"repos/{repo}/commits", "--paginate", "--jq",
-                   f"[.[0:{LIMITS.get('commits', 5)}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), html_url: .html_url}}]") or []
+    # Commits query using per_page parameter
+    commit_limit = LIMITS.get("commits", 5)
+    commits = run_json("gh", "api", f"repos/{repo}/commits?per_page={commit_limit}", "--jq",
+                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), html_url: .html_url}}]") or []
     
+    # Ensure lists are strictly lists
+    if not isinstance(issues, list): issues = []
+    if not isinstance(prs, list): prs = []
+    if not isinstance(branches, list): branches = []
+    if not isinstance(commits, list): commits = []
+
     return {
         "repo": repo,
         "url": f"https://github.com/{repo}",
