@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Vista Completa y Detallada</title>
+  <title>GitHub Service Status — Estado de Incorporación y Fusión</title>
   <style>
     :root {
       color-scheme: dark;
@@ -15,8 +15,10 @@
       --accent: #58a6ff;
       --btn-active: #1f6feb;
       --badge-open: #238636;
-      --badge-closed: #da3633;
+      --badge-closed: #8b949e;
       --badge-merged: #8957e5;
+      --badge-pending: #d97706;
+      --badge-default: #1f6feb;
     }
     * { box-sizing: border-box; }
     body {
@@ -112,6 +114,7 @@
     .item-title { color: var(--text); word-break: break-word; white-space: normal; flex: 1; }
     .author-tag { color: var(--text-muted); font-size: 12px; font-weight: 500; }
     .branches-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
+    
     .branch-btn {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -128,9 +131,24 @@
     }
     .branch-btn:hover { background: #21262d; border-color: var(--accent); }
     .branch-btn.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
+    .branch-btn.is-merged { border-color: #238636; }
+    .branch-btn.is-pending { border-color: #d97706; }
+    
+    .branch-status-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .branch-status-default { background: var(--badge-default); color: #fff; }
+    .branch-status-merged { background: var(--badge-open); color: #fff; }
+    .branch-status-pending { background: var(--badge-pending); color: #fff; }
+
     .branch-author { opacity: 0.85; font-size: 12px; font-weight: normal; margin-left: 2px; }
     .branch-ext { color: var(--text-muted); font-size: 12px; text-decoration: none; margin-left: 4px; }
     .branch-ext:hover { color: var(--accent); }
+    
     .badge {
       display: inline-block;
       padding: 2px 8px;
@@ -143,6 +161,8 @@
     .badge-open { background: var(--badge-open); }
     .badge-closed { background: var(--badge-closed); }
     .badge-merged { background: var(--badge-merged); }
+    .badge-pending { background: var(--badge-pending); }
+
     .empty-state { color: var(--text-muted); font-style: italic; font-size: 13px; padding: 4px 0; }
     code { font-family: monospace; font-size: 13px; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
     .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 13px; word-break: break-word; white-space: normal; line-height: 1.5; margin-bottom: 6px; }
@@ -153,7 +173,7 @@
 <body>
   <header>
     <div>
-      <span class="brand">GitHub Service Status — Vista Completa y Detallada</span>
+      <span class="brand">GitHub Service Status — Incorporación y Fusión</span>
     </div>
     <div class="meta" id="meta-info">Cargando...</div>
   </header>
@@ -265,6 +285,7 @@
       return commits.map(c => `
         <div class="list-item">
           <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
+          ${c.is_incorporated ? '<span class="badge badge-open">INCORPORADO</span>' : '<span class="badge badge-pending">PENDIENTE DE MERGE</span>'}
           ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
           <span class="item-title">${escapeHtml(c.msg || '')}</span>
         </div>
@@ -329,17 +350,31 @@
             <span class="counter-pill ${issues.length ? 'has-items' : ''}">Issues (${issues.length})</span>
           </div>
 
-          <!-- SECCIÓN: RAMAS ACTIVAS -->
+          <!-- SECCIÓN: RAMAS ACTIVAS E INCORPORADAS -->
           <div class="section">
-            <div class="section-title">Ramas Activas (${branches.length})</div>
+            <div class="section-title">Ramas (${branches.length})</div>
             ${branches.length ? `
               <div class="branches-wrap">
-                ${branches.map(b => `
-                  <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
-                    <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
-                    <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
-                  </button>
-                `).join('')}
+                ${branches.map(b => {
+                  let statusBadge = '<span class="branch-status-badge branch-status-pending">PENDIENTE</span>';
+                  if (b.is_default) {
+                    statusBadge = '<span class="branch-status-badge branch-status-default">PRINCIPAL</span>';
+                  } else if (b.is_merged) {
+                    statusBadge = '<span class="branch-status-badge branch-status-merged">INCORPORADA</span>';
+                  } else if (b.ahead_by > 0) {
+                    statusBadge = `<span class="branch-status-badge branch-status-pending">+${b.ahead_by} COMMITS</span>`;
+                  }
+                  
+                  const branchClass = b.is_merged ? 'is-merged' : 'is-pending';
+
+                  return `
+                    <button class="branch-btn ${branchClass} ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
+                      <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
+                      ${statusBadge}
+                      <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
+                    </button>
+                  `;
+                }).join('')}
               </div>
             ` : '<div class="empty-state">Sin ramas secundarias</div>'}
           </div>

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 GitHub Service Status Generator
-Fetches ALL issues, PRs (open/closed/merged), branches (with per-branch commits and author),
-and PR comments across configured user and org repositories using gh CLI.
-Outputs materialized status.json ordered newest-first.
+Fetches ALL issues, PRs (open/closed/merged), branches (with merge status, ahead_by count, branch author),
+and PR commits/comments across configured user and org repositories using gh CLI.
+Outputs materialized status.json with clear incorporation/merge tracking.
 """
 import sys
 import json
@@ -39,6 +39,13 @@ def run_json(*args):
     except Exception:
         return None
 
+def get_default_branch(repo):
+    """Retrieves default branch name for repository."""
+    data = run_json("gh", "repo", "view", repo, "--json", "defaultBranchRef")
+    if isinstance(data, dict) and data.get("defaultBranchRef"):
+        return data["defaultBranchRef"].get("name", "main")
+    return "main"
+
 def discover_repositories(test_slice_only=False):
     """Discovers repository names for configured users and orgs."""
     if test_slice_only and "testSlice" in TARGETS:
@@ -66,15 +73,23 @@ def discover_repositories(test_slice_only=False):
 
     return sorted(list(repos))
 
-def fetch_branch_commits(repo, branch_name):
+def fetch_branch_commits(repo, branch_name, is_incorporated):
     """Fetches latest commits for a specific branch sorted newest first."""
     commit_limit = LIMITS.get("commits", 30)
-    commits = run_json("gh", "api", f"repos/{repo}/commits?sha={branch_name}&per_page={commit_limit}", "--jq",
-                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), date: .commit.author.date, html_url: .html_url}}]") or []
-    return commits if isinstance(commits, list) else []
+    raw_commits = run_json("gh", "api", f"repos/{repo}/commits?sha={branch_name}&per_page={commit_limit}", "--jq",
+                            f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), date: .commit.author.date, html_url: .html_url}}]") or []
+    
+    commits = []
+    if isinstance(raw_commits, list):
+        for c in raw_commits:
+            c["is_incorporated"] = is_incorporated
+            commits.append(c)
+    return commits
 
 def repo_snapshot(repo):
-    """Fetches details for a single repository, capturing both open and closed states."""
+    """Fetches details for a single repository, capturing both open and closed states and merge status."""
+    default_branch = get_default_branch(repo)
+
     # Issues: ALL states (OPEN / CLOSED)
     issues = run_json("gh", "issue", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("issues", 50)),
                       "--json", "number,title,url,state,createdAt") or []
@@ -93,12 +108,29 @@ def repo_snapshot(repo):
     branches = []
     for b in raw_branches:
         b_name = b.get("name")
-        b_commits = fetch_branch_commits(repo, b_name) if b_name else []
+        if not b_name:
+            continue
+
+        is_default = (b_name == default_branch)
+        is_merged = is_default
+        ahead_by = 0
+
+        if not is_default:
+            compare_data = run_json("gh", "api", f"repos/{repo}/compare/{default_branch}...{b_name}")
+            if isinstance(compare_data, dict):
+                ahead_by = compare_data.get("ahead_by", 0)
+                is_merged = (ahead_by == 0)
+
+        b_commits = fetch_branch_commits(repo, b_name, is_incorporated=is_merged)
         b_author = b_commits[0].get("author") if (b_commits and len(b_commits) > 0) else None
+
         branches.append({
             "name": b_name,
             "author": b_author,
             "url": b.get("url"),
+            "is_default": is_default,
+            "is_merged": is_merged,
+            "ahead_by": ahead_by,
             "commits": b_commits
         })
 
@@ -117,6 +149,7 @@ def repo_snapshot(repo):
 
     return {
         "repo": repo,
+        "default_branch": default_branch,
         "url": f"https://github.com/{repo}",
         "issues": issues,
         "prs": prs,
