@@ -83,24 +83,30 @@
       color: var(--text-muted);
     }
     .pill.has-items { color: #f0f6fc; border-color: #484f58; }
-    .section-title { font-weight: 600; font-size: 12px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .section-title { font-weight: 600; font-size: 12px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; }
     .list-item { font-size: 13px; padding: 3px 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
     .list-item a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .list-item a:hover { text-decoration: underline; }
     .item-title { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px; }
     .author-tag { color: var(--text-muted); font-size: 11px; font-weight: 500; }
     .branches-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
-    .branch-link {
+    .branch-btn {
       background: var(--bg);
       border: 1px solid var(--border);
-      color: var(--accent);
-      padding: 2px 8px;
+      color: var(--text);
+      padding: 3px 10px;
       border-radius: 6px;
       font-size: 12px;
       font-family: monospace;
-      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
-    .branch-link:hover { border-color: var(--accent); text-decoration: underline; }
+    .branch-btn:hover { background: #21262d; border-color: var(--accent); }
+    .branch-btn.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
+    .branch-ext { color: var(--text-muted); font-size: 11px; text-decoration: none; margin-left: 2px; }
+    .branch-ext:hover { color: var(--accent); }
     .badge {
       display: inline-block;
       padding: 1px 6px;
@@ -134,6 +140,8 @@
   <script>
     let rawData = null;
     let activeFilter = 'all';
+    // Map repo -> selected branch name
+    const activeBranchMap = {};
 
     fetch('./status.json')
       .then(res => res.json())
@@ -193,9 +201,17 @@
 
         const openIssues = (r.issues || []).filter(i => i.state && i.state.toUpperCase() === 'OPEN');
         const openPRs = (r.prs || []).filter(p => p.state && p.state.toUpperCase() === 'OPEN');
-        const commits = (r.commits && Array.isArray(r.commits)) ? r.commits.filter(c => c && c.sha) : [];
         const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
         const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
+
+        // Determine active branch for this card
+        if (!activeBranchMap[r.repo] && branches.length > 0) {
+          activeBranchMap[r.repo] = branches[0].name;
+        }
+        const currentBranchName = activeBranchMap[r.repo] || (branches[0] ? branches[0].name : '');
+        const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
+
+        const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
 
         card.innerHTML = `
           <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
@@ -208,12 +224,14 @@
           </div>
 
           ${branches.length ? `
-            <div class="section-title">Ramas Activas (${branches.length})</div>
+            <div class="section-title">Seleccionar Rama (${branches.length})</div>
             <div class="branches-wrap">
-              ${branches.slice(0, 10).map(b => `
-                <a href="${b.url}" target="_blank" rel="noopener" class="branch-link">🌿 ${escapeHtml(b.name)}</a>
+              ${branches.map(b => `
+                <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-repo="${escapeHtml(r.repo)}" data-branch="${escapeHtml(b.name)}">
+                  🌿 ${escapeHtml(b.name)}
+                  <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
+                </button>
               `).join('')}
-              ${branches.length > 10 ? `<span class="empty-state">+${branches.length - 10} más</span>` : ''}
             </div>
           ` : ''}
 
@@ -247,8 +265,10 @@
             `).join('')}
           ` : ''}
 
+          <div class="section-title">
+            Commits <span>[${escapeHtml(currentBranchName)}]</span>
+          </div>
           ${commits.length ? `
-            <div class="section-title">Últimos Commits</div>
             ${commits.slice(0, 5).map(c => `
               <div class="list-item">
                 <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
@@ -256,8 +276,18 @@
                 <span class="item-title">${escapeHtml(c.msg || '')}</span>
               </div>
             `).join('')}
-          ` : ''}
+          ` : '<div class="empty-state">Sin commits en esta rama</div>'}
         `;
+
+        // Attach click handlers to branch buttons
+        card.querySelectorAll('.branch-btn').forEach(btn => {
+          btn.onclick = (e) => {
+            const repo = btn.dataset.repo;
+            const branch = btn.dataset.branch;
+            activeBranchMap[repo] = branch;
+            render();
+          };
+        });
 
         main.appendChild(card);
       });

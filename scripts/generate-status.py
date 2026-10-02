@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 GitHub Service Status Generator
-Fetches issues, PRs, branches, commits, and PR comments across configured user and org repositories using gh CLI.
+Fetches issues, PRs, branches (with per-branch commits), and PR comments across configured user and org repositories using gh CLI.
 Outputs materialized status.json for the static SPA.
 """
 import sys
@@ -65,6 +65,13 @@ def discover_repositories(test_slice_only=False):
 
     return sorted(list(repos))
 
+def fetch_branch_commits(repo, branch_name):
+    """Fetches latest commits for a specific branch."""
+    commit_limit = LIMITS.get("commits", 5)
+    commits = run_json("gh", "api", f"repos/{repo}/commits?sha={branch_name}&per_page={commit_limit}", "--jq",
+                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), html_url: .html_url}}]") or []
+    return commits if isinstance(commits, list) else []
+
 def repo_snapshot(repo):
     """Fetches details for a single repository."""
     issues = run_json("gh", "issue", "list", "--repo", repo, "--limit", str(LIMITS.get("issues", 10)),
@@ -73,13 +80,25 @@ def repo_snapshot(repo):
     prs = run_json("gh", "pr", "list", "--repo", repo, "--limit", str(LIMITS.get("prs", 10)),
                     "--json", "number,title,url,state") or []
     
-    branch_limit = LIMITS.get("branches", 30)
-    branches = run_json("gh", "api", f"repos/{repo}/branches?per_page={branch_limit}", "--jq",
-                         f"[.[0:{branch_limit}][] | {{name: .name, url: \"https://github.com/{repo}/tree/\" + .name}}]") or []
+    branch_limit = LIMITS.get("branches", 10)
+    raw_branches = run_json("gh", "api", f"repos/{repo}/branches?per_page={branch_limit}", "--jq",
+                            f"[.[0:{branch_limit}][] | {{name: .name, url: \"https://github.com/{repo}/tree/\" + .name}}]") or []
     
-    commit_limit = LIMITS.get("commits", 5)
-    commits = run_json("gh", "api", f"repos/{repo}/commits?per_page={commit_limit}", "--jq",
-                        f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), html_url: .html_url}}]") or []
+    if not isinstance(raw_branches, list):
+        raw_branches = []
+
+    branches = []
+    for b in raw_branches:
+        b_name = b.get("name")
+        b_commits = fetch_branch_commits(repo, b_name) if b_name else []
+        branches.append({
+            "name": b_name,
+            "url": b.get("url"),
+            "commits": b_commits
+        })
+
+    # Default commits (first branch or default)
+    default_commits = branches[0]["commits"] if branches else []
     
     comment_limit = LIMITS.get("comments", 5)
     comments = run_json("gh", "api", f"repos/{repo}/pulls/comments?per_page={comment_limit}", "--jq",
@@ -87,8 +106,6 @@ def repo_snapshot(repo):
 
     if not isinstance(issues, list): issues = []
     if not isinstance(prs, list): prs = []
-    if not isinstance(branches, list): branches = []
-    if not isinstance(commits, list): commits = []
     if not isinstance(comments, list): comments = []
 
     return {
@@ -97,7 +114,7 @@ def repo_snapshot(repo):
         "issues": issues,
         "prs": prs,
         "branches": branches,
-        "commits": commits,
+        "commits": default_commits,
         "comments": comments
     }
 
