@@ -94,7 +94,7 @@
       background: var(--bg);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 6px;
       font-size: 12px;
       font-family: monospace;
@@ -102,6 +102,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      user-select: none;
     }
     .branch-btn:hover { background: #21262d; border-color: var(--accent); }
     .branch-btn.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
@@ -140,7 +141,6 @@
   <script>
     let rawData = null;
     let activeFilter = 'all';
-    // Map repo -> selected branch name
     const activeBranchMap = {};
 
     fetch('./status.json')
@@ -184,6 +184,19 @@
       });
     }
 
+    function renderCommitsList(commits) {
+      if (!commits || !commits.length) {
+        return '<div class="empty-state">Sin commits en esta rama</div>';
+      }
+      return commits.slice(0, 5).map(c => `
+        <div class="list-item">
+          <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
+          ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
+          <span class="item-title">${escapeHtml(c.msg || '')}</span>
+        </div>
+      `).join('');
+    }
+
     function render() {
       const main = document.getElementById('main-content');
       main.innerHTML = '';
@@ -198,6 +211,7 @@
       filtered.forEach(r => {
         const card = document.createElement('div');
         card.className = 'card';
+        card.dataset.repo = r.repo;
 
         const openIssues = (r.issues || []).filter(i => i.state && i.state.toUpperCase() === 'OPEN');
         const openPRs = (r.prs || []).filter(p => p.state && p.state.toUpperCase() === 'OPEN');
@@ -210,7 +224,6 @@
         }
         const currentBranchName = activeBranchMap[r.repo] || (branches[0] ? branches[0].name : '');
         const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
-
         const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
 
         card.innerHTML = `
@@ -227,8 +240,8 @@
             <div class="section-title">Seleccionar Rama (${branches.length})</div>
             <div class="branches-wrap">
               ${branches.map(b => `
-                <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-repo="${escapeHtml(r.repo)}" data-branch="${escapeHtml(b.name)}">
-                  🌿 ${escapeHtml(b.name)}
+                <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
+                  <span>🌿 ${escapeHtml(b.name)}</span>
                   <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
                 </button>
               `).join('')}
@@ -266,27 +279,37 @@
           ` : ''}
 
           <div class="section-title">
-            Commits <span>[${escapeHtml(currentBranchName)}]</span>
+            Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
           </div>
-          ${commits.length ? `
-            ${commits.slice(0, 5).map(c => `
-              <div class="list-item">
-                <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
-                ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
-                <span class="item-title">${escapeHtml(c.msg || '')}</span>
-              </div>
-            `).join('')}
-          ` : '<div class="empty-state">Sin commits en esta rama</div>'}
+          <div class="commits-container">
+            ${renderCommitsList(commits)}
+          </div>
         `;
 
-        // Attach click handlers to branch buttons
+        // Event delegation for branch switching within card
         card.querySelectorAll('.branch-btn').forEach(btn => {
-          btn.onclick = (e) => {
-            const repo = btn.dataset.repo;
-            const branch = btn.dataset.branch;
-            activeBranchMap[repo] = branch;
-            render();
-          };
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetBtn = e.currentTarget;
+            const branchName = targetBtn.dataset.branch;
+            if (!branchName) return;
+
+            activeBranchMap[r.repo] = branchName;
+
+            // Highlight active button
+            card.querySelectorAll('.branch-btn').forEach(b => b.classList.toggle('active', b === targetBtn));
+
+            // Find new branch object
+            const bObj = branches.find(b => b.name === branchName);
+            const bCommits = (bObj && bObj.commits) ? bObj.commits : [];
+
+            // Update branch label and commits container directly
+            const labelEl = card.querySelector('.branch-label');
+            if (labelEl) labelEl.textContent = `[${branchName}]`;
+
+            const containerEl = card.querySelector('.commits-container');
+            if (containerEl) containerEl.innerHTML = renderCommitsList(bCommits);
+          });
         });
 
         main.appendChild(card);
