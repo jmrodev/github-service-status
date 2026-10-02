@@ -2,6 +2,8 @@ import { state } from './state.js';
 import { updateTokenBadgeUI, openTokenModal, closeTokenModal, saveUserToken, clearUserToken, startDeviceFlow, validateTokenWithGitHub } from './auth.js';
 import { initFilters, renderUI } from './render.js';
 
+import { openUrl } from '@tauri-apps/plugin-opener';
+
 document.addEventListener('DOMContentLoaded', () => {
   // Bind UI Events
   document.getElementById('token-badge')?.addEventListener('click', openTokenModal);
@@ -11,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-start-oauth')?.addEventListener('click', () => startDeviceFlow(renderUI));
 
   // Handle external link clicks (works in both desktop Tauri app and browser)
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const anchor = e.target.closest('a[href]');
     if (anchor && anchor.href && (anchor.href.startsWith('http://') || anchor.href.startsWith('https://'))) {
       e.preventDefault();
-      if (window.__TAURI__ && window.__TAURI__.opener) {
-        window.__TAURI__.opener.openUrl(anchor.href);
-      } else {
+      try {
+        await openUrl(anchor.href);
+      } catch (err) {
         window.open(anchor.href, '_blank', 'noopener,noreferrer');
       }
     }
