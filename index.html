@@ -398,9 +398,9 @@
         const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
         const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
 
-        // Active category filter (default 'all')
-        if (!activeCategoryMap[r.repo]) {
-          activeCategoryMap[r.repo] = 'all';
+        // Default active category (default 'branches')
+        if (!activeCategoryMap[r.repo] || activeCategoryMap[r.repo] === 'all') {
+          activeCategoryMap[r.repo] = 'branches';
         }
         const activeCategory = activeCategoryMap[r.repo];
 
@@ -471,9 +471,8 @@
             </div>
           </div>
 
-          <!-- PASTILLAS INTERACTIVAS (CONMUTADOR DE VISTA) -->
+          <!-- PASTILLAS INTERACTIVAS (CONMUTADOR DE VISTA EXCLUSIVO) -->
           <div class="counters-row">
-            <span class="counter-pill ${activeCategory === 'all' ? 'active' : ''}" data-cat="all">Ver Todo</span>
             <span class="counter-pill ${activeCategory === 'branches' ? 'active' : ''} ${branches.length ? 'has-items' : ''}" data-cat="branches">Ramas (${branches.length})</span>
             <span class="counter-pill ${activeCategory === 'commits' ? 'active' : ''} ${commits.length ? 'has-items' : ''}" data-cat="commits">Commits (${commits.length})</span>
             <span class="counter-pill ${activeCategory === 'prs' ? 'active' : ''} ${prs.length ? 'has-items' : ''}" data-cat="prs">PRs (${prs.length})</span>
@@ -483,7 +482,7 @@
 
           <div class="sections-grid">
             <!-- RAMAS -->
-            <div class="section ${activeCategory !== 'all' && activeCategory !== 'branches' ? 'hidden' : ''}" data-cat-section="branches">
+            <div class="section ${activeCategory !== 'branches' ? 'hidden' : ''}" data-cat-section="branches">
               <div class="section-title">Ramas del Repositorio (${branches.length}) — Seleccioná una rama para ver sus commits</div>
               ${branches.length ? `
                 <div class="branches-wrap">
@@ -512,7 +511,7 @@
             </div>
 
             <!-- COMMITS -->
-            <div class="section ${activeCategory !== 'all' && activeCategory !== 'commits' ? 'hidden' : ''}" data-cat-section="commits">
+            <div class="section ${activeCategory !== 'commits' ? 'hidden' : ''}" data-cat-section="commits">
               <div class="section-title">
                 Historial de Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
               </div>
@@ -522,7 +521,7 @@
             </div>
 
             <!-- PULL REQUESTS -->
-            <div class="section ${activeCategory !== 'all' && activeCategory !== 'prs' ? 'hidden' : ''}" data-cat-section="prs">
+            <div class="section ${activeCategory !== 'prs' ? 'hidden' : ''}" data-cat-section="prs">
               <div class="section-title">Todos los Pull Requests (${prs.length})</div>
               ${prs.length ? prs.map(p => `
                 <div class="list-item">
@@ -534,7 +533,7 @@
             </div>
 
             <!-- COMENTARIOS -->
-            <div class="section ${activeCategory !== 'all' && activeCategory !== 'comments' ? 'hidden' : ''}" data-cat-section="comments">
+            <div class="section ${activeCategory !== 'comments' ? 'hidden' : ''}" data-cat-section="comments">
               <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
               ${comments.length ? comments.map(c => `
                 <div class="comment-box">
@@ -548,7 +547,7 @@
             </div>
 
             <!-- ISSUES -->
-            <div class="section ${activeCategory !== 'all' && activeCategory !== 'issues' ? 'hidden' : ''}" data-cat-section="issues">
+            <div class="section ${activeCategory !== 'issues' ? 'hidden' : ''}" data-cat-section="issues">
               <div class="section-title">Todos los Issues (${issues.length})</div>
               ${issues.length ? issues.map(i => `
                 <div class="list-item">
@@ -561,7 +560,7 @@
           </div>
         `;
 
-        // Pill category view toggle handler (shows selected view, hides others)
+        // Pill category view toggle handler
         card.querySelectorAll('.counter-pill').forEach(pill => {
           pill.addEventListener('click', () => {
             const cat = pill.dataset.cat;
@@ -573,7 +572,7 @@
 
             card.querySelectorAll('[data-cat-section]').forEach(sec => {
               const secCat = sec.dataset.catSection;
-              if (cat === 'all' || secCat === cat) {
+              if (secCat === cat) {
                 sec.classList.remove('hidden');
               } else {
                 sec.classList.add('hidden');
