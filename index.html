@@ -311,12 +311,8 @@
       <!-- SECCIÓN OAUTH DEVICE FLOW -->
       <div id="oauth-flow-section" style="background: var(--bg); border: 1px dashed var(--accent); border-radius: 8px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 12px;">
         <div style="font-weight: 600; font-size: 15px; color: #f0f6fc;">Opción 1: Logueo Fácil con GitHub (Device Flow)</div>
-        <div style="display: flex; flex-direction: column; gap: 6px; text-align: left;">
-          <label style="font-size: 12px; color: var(--text-muted);">OAuth Client ID (opcional / configurable):</label>
-          <input type="text" id="input-client-id" value="Ov23lisDXfhvBkCaiVYF" placeholder="Copiá tu Client ID de GitHub OAuth App" style="font-size: 13px; padding: 6px 10px;" />
-        </div>
         <button id="btn-start-oauth" onclick="startDeviceFlow()" style="background: #238636; border-color: #238636; color: #fff; font-weight: 700; padding: 10px 18px; font-size: 14px;">
-          🚀 Generar Código de Inicio de Sesión
+          🚀 Iniciar Sesión con Código
         </button>
         <div id="oauth-step2" style="display: none; flex-direction: column; gap: 10px; align-items: center;">
           <div style="font-size: 13px; color: var(--text-muted);">Ingresá este código en GitHub:</div>
@@ -425,21 +421,11 @@
     let pollInterval = null;
 
     function startDeviceFlow() {
-      const customClientId = document.getElementById('input-client-id').value.trim();
-      const DEFAULT_CLIENT_ID = 'Ov23lisDXfhvBkCaiVYF';
-      const CLIENT_ID = customClientId || localStorage.getItem('gh_oauth_client_id') || DEFAULT_CLIENT_ID;
+      const CLIENT_ID = 'Ov23lisDXfhvBkCaiVYF';
       
       const step2 = document.getElementById('oauth-step2');
       const btnStart = document.getElementById('btn-start-oauth');
       const statusText = document.getElementById('oauth-status-text');
-
-      if (!CLIENT_ID) {
-        statusText.textContent = '⚠️ Ingresá tu OAuth App Client ID para usar Device Flow, o usá la Opción 2 (PAT).';
-        statusText.style.color = 'var(--badge-pending)';
-        return;
-      }
-
-      localStorage.setItem('gh_oauth_client_id', CLIENT_ID);
 
       btnStart.disabled = true;
       btnStart.textContent = '⏳ Generando código...';
