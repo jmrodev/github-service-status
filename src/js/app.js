@@ -13,15 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-start-oauth')?.addEventListener('click', () => startDeviceFlow(renderUI));
 
   // Handle external link clicks (works in both desktop Tauri app and browser)
-  document.addEventListener('click', async (e) => {
+  document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a[href]');
     if (anchor && anchor.href && (anchor.href.startsWith('http://') || anchor.href.startsWith('https://'))) {
       e.preventDefault();
-      try {
-        await openUrl(anchor.href);
-      } catch (err) {
-        window.open(anchor.href, '_blank', 'noopener,noreferrer');
-      }
+      const url = anchor.href;
+      openUrl(url).catch(() => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
     }
   });
 
