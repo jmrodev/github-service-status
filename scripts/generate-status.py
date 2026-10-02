@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 GitHub Service Status Generator
-Fetches issues, PRs, branches (with per-branch commits), and PR comments across configured user and org repositories using gh CLI.
+Fetches issues, PRs, branches (with per-branch commits and branch author), and PR comments across configured user and org repositories using gh CLI.
 Outputs materialized status.json for the static SPA.
 """
 import sys
@@ -91,13 +91,14 @@ def repo_snapshot(repo):
     for b in raw_branches:
         b_name = b.get("name")
         b_commits = fetch_branch_commits(repo, b_name) if b_name else []
+        b_author = b_commits[0].get("author") if (b_commits and len(b_commits) > 0) else None
         branches.append({
             "name": b_name,
+            "author": b_author,
             "url": b.get("url"),
             "commits": b_commits
         })
 
-    # Default commits (first branch or default)
     default_commits = branches[0]["commits"] if branches else []
     
     comment_limit = LIMITS.get("comments", 5)

@@ -106,7 +106,8 @@
     }
     .branch-btn:hover { background: #21262d; border-color: var(--accent); }
     .branch-btn.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
-    .branch-ext { color: var(--text-muted); font-size: 11px; text-decoration: none; margin-left: 2px; }
+    .branch-author { opacity: 0.8; font-size: 11px; font-weight: normal; margin-left: 2px; }
+    .branch-ext { color: var(--text-muted); font-size: 11px; text-decoration: none; margin-left: 4px; }
     .branch-ext:hover { color: var(--accent); }
     .badge {
       display: inline-block;
@@ -241,7 +242,7 @@
             <div class="branches-wrap">
               ${branches.map(b => `
                 <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
-                  <span>🌿 ${escapeHtml(b.name)}</span>
+                  <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
                   <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
                 </button>
               `).join('')}
