@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Con Fecha y Hora Completa</title>
+  <title>GitHub Service Status — Orden de Prioridad y Fechas</title>
   <style>
     :root {
       color-scheme: dark;
@@ -334,11 +334,60 @@
       });
     }
 
+    function parseTime(dateStr) {
+      if (!dateStr) return 0;
+      const t = new Date(dateStr).getTime();
+      return isNaN(t) ? 0 : t;
+    }
+
+    // Priority sorting: Pending / Open items FIRST (newest date top), then Resolved / Merged items (newest date top)
+    function sortPRsByPriority(prs) {
+      if (!prs) return [];
+      return [...prs].sort((a, b) => {
+        const aOpen = String(a.state).toUpperCase() === 'OPEN';
+        const bOpen = String(b.state).toUpperCase() === 'OPEN';
+        if (aOpen !== bOpen) return aOpen ? -1 : 1;
+        return parseTime(b.createdAt) - parseTime(a.createdAt);
+      });
+    }
+
+    function sortIssuesByPriority(issues) {
+      if (!issues) return [];
+      return [...issues].sort((a, b) => {
+        const aOpen = String(a.state).toUpperCase() === 'OPEN';
+        const bOpen = String(b.state).toUpperCase() === 'OPEN';
+        if (aOpen !== bOpen) return aOpen ? -1 : 1;
+        return parseTime(b.createdAt) - parseTime(a.createdAt);
+      });
+    }
+
+    function sortBranchesByPriority(branches) {
+      if (!branches) return [];
+      return [...branches].sort((a, b) => {
+        // Unmerged branches come first (priority)
+        const aPending = !a.is_merged && !a.is_default;
+        const bPending = !b.is_merged && !b.is_default;
+        if (aPending !== bPending) return aPending ? -1 : 1;
+        return parseTime(b.date) - parseTime(a.date);
+      });
+    }
+
+    function sortCommitsByPriority(commits) {
+      if (!commits) return [];
+      return [...commits].sort((a, b) => {
+        const aPending = !a.is_incorporated;
+        const bPending = !b.is_incorporated;
+        if (aPending !== bPending) return aPending ? -1 : 1;
+        return parseTime(b.date) - parseTime(a.date);
+      });
+    }
+
     function renderCommitsList(commits) {
       if (!commits || !commits.length) {
         return '<div class="empty-state">Sin commits registrados</div>';
       }
-      return commits.map(c => `
+      const sorted = sortCommitsByPriority(commits);
+      return sorted.map(c => `
         <div class="list-item">
           <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
           ${c.is_incorporated ? '<span class="badge badge-open">INCORPORADO</span>' : '<span class="badge badge-pending">PENDIENTE DE MERGE</span>'}
@@ -387,11 +436,15 @@
         card.className = 'full-card';
         card.dataset.repo = r.repo;
 
-        const issues = (r.issues || []);
-        const prs = (r.prs || []);
-        const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
+        const rawIssues = (r.issues || []);
+        const rawPrs = (r.prs || []);
+        const rawBranches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
         const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
         const commits = (r.commits || []);
+
+        const prs = sortPRsByPriority(rawPrs);
+        const issues = sortIssuesByPriority(rawIssues);
+        const branches = sortBranchesByPriority(rawBranches);
 
         // Default active category ('branches')
         if (!activeCategoryMap[r.repo] || activeCategoryMap[r.repo] === 'all') {
@@ -476,9 +529,9 @@
           </div>
 
           <div class="sections-grid">
-            <!-- RAMAS (CADA RAMA ENLAZA DIRECTAMENTE A GITHUB) -->
+            <!-- RAMAS (PRIORIDAD: PENDIENTES PRIMERO, MÁS RECIENTES ARRIBA) -->
             <div class="section ${activeCategory !== 'branches' ? 'hidden' : ''}" data-cat-section="branches">
-              <div class="section-title">Ramas del Repositorio (${branches.length}) — Tocar para ir a la rama en GitHub</div>
+              <div class="section-title">Ramas del Repositorio (${branches.length}) — Prioridad: Pendientes arriba (más recientes primero)</div>
               ${branches.length ? `
                 <div class="branches-wrap">
                   ${branches.map(b => {
@@ -505,19 +558,19 @@
               ` : '<div class="empty-state">Sin ramas secundarias</div>'}
             </div>
 
-            <!-- COMMITS -->
+            <!-- COMMITS (PRIORIDAD: PENDIENTES PRIMERO, MÁS RECIENTES ARRIBA) -->
             <div class="section ${activeCategory !== 'commits' ? 'hidden' : ''}" data-cat-section="commits">
               <div class="section-title">
-                Historial de Commits (${commits.length}) — Tocar para ir al commit en GitHub
+                Historial de Commits (${commits.length}) — Prioridad: Pendientes arriba (más recientes primero)
               </div>
               <div class="commits-container">
                 ${renderCommitsList(commits)}
               </div>
             </div>
 
-            <!-- PULL REQUESTS -->
+            <!-- PULL REQUESTS (PRIORIDAD: ABIERTOS PRIMERO, MÁS RECIENTES ARRIBA) -->
             <div class="section ${activeCategory !== 'prs' ? 'hidden' : ''}" data-cat-section="prs">
-              <div class="section-title">Todos los Pull Requests (${prs.length}) — Tocar para abrir el PR en GitHub</div>
+              <div class="section-title">Todos los Pull Requests (${prs.length}) — Prioridad: Abiertos arriba (más recientes primero)</div>
               ${prs.length ? prs.map(p => `
                 <div class="list-item">
                   ${getBadge(p.state)}
@@ -527,9 +580,9 @@
               `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
             </div>
 
-            <!-- COMENTARIOS -->
+            <!-- COMENTARIOS (MÁS RECIENTES ARRIBA) -->
             <div class="section ${activeCategory !== 'comments' ? 'hidden' : ''}" data-cat-section="comments">
-              <div class="section-title">Todos los Comentarios en PRs (${comments.length}) — Tocar para ir al comentario en GitHub</div>
+              <div class="section-title">Todos los Comentarios en PRs (${comments.length}) — Más recientes arriba</div>
               ${comments.length ? comments.map(c => `
                 <div class="comment-box">
                   <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
@@ -541,9 +594,9 @@
               `).join('') : '<div class="empty-state">Sin comentarios registrados</div>'}
             </div>
 
-            <!-- ISSUES -->
+            <!-- ISSUES (PRIORIDAD: ABIERTOS PRIMERO, MÁS RECIENTES ARRIBA) -->
             <div class="section ${activeCategory !== 'issues' ? 'hidden' : ''}" data-cat-section="issues">
-              <div class="section-title">Todos los Issues (${issues.length}) — Tocar para abrir el issue en GitHub</div>
+              <div class="section-title">Todos los Issues (${issues.length}) — Prioridad: Abiertos arriba (más recientes primero)</div>
               ${issues.length ? issues.map(i => `
                 <div class="list-item">
                   ${getBadge(i.state)}
