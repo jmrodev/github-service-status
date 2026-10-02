@@ -2,12 +2,9 @@
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "github-service-status",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.jmrodev.githubservicestatus",
   "build": {
-    "frontendDist": "..",
-    "devUrl": "http://localhost:8000",
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build"
+    "frontendDist": "../dist"
   },
   "app": {
     "windows": [
