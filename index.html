@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Vista Gráfica e Historial Completo</title>
+  <title>GitHub Service Status — Vista por Sección</title>
   <style>
     :root {
       color-scheme: dark;
@@ -21,7 +21,6 @@
       --badge-default: #1f6feb;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
@@ -155,8 +154,8 @@
     .counter-pill.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 700; }
 
     .sections-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 24px;
     }
 
@@ -168,8 +167,8 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      scroll-margin-top: 180px;
     }
+    .section.hidden { display: none !important; }
     .section-title { font-weight: 700; font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
     
     .list-item { font-size: 14px; padding: 10px 0; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px dashed #21262d; }
@@ -239,7 +238,7 @@
 <body>
   <header>
     <div>
-      <span class="brand">GitHub Service Status — Vista Gráfica e Historial Completo</span>
+      <span class="brand">GitHub Service Status</span>
     </div>
     <div class="meta" id="meta-info">Cargando...</div>
   </header>
@@ -261,6 +260,7 @@
     let selectedOrg = 'all';
     let selectedRepo = 'all';
     const activeBranchMap = {};
+    const activeCategoryMap = {};
 
     fetch('./status.json')
       .then(res => res.json())
@@ -367,13 +367,6 @@
       }
     }
 
-    function scrollToSection(card, sectionClass) {
-      const targetEl = card.querySelector('.' + sectionClass);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
     function render() {
       const main = document.getElementById('main-content');
       main.innerHTML = '';
@@ -404,6 +397,12 @@
         const currentBranchName = activeBranchMap[r.repo] || (branches[0] ? branches[0].name : '');
         const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
         const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
+
+        // Active category filter (default 'all')
+        if (!activeCategoryMap[r.repo]) {
+          activeCategoryMap[r.repo] = 'all';
+        }
+        const activeCategory = activeCategoryMap[r.repo];
 
         // Compute graphical metrics percentages
         const totalPrs = prs.length || 1;
@@ -472,110 +471,114 @@
             </div>
           </div>
 
-          <!-- PASTILLAS INTERACTIVAS (NAVEGACIÓN DIRECTA A SECCIÓN) -->
+          <!-- PASTILLAS INTERACTIVAS (CONMUTADOR DE VISTA) -->
           <div class="counters-row">
-            <span class="counter-pill ${branches.length ? 'has-items' : ''}" data-nav="sec-branches">Ramas (${branches.length})</span>
-            <span class="counter-pill ${commits.length ? 'has-items' : ''}" data-nav="sec-commits">Commits (${commits.length})</span>
-            <span class="counter-pill ${prs.length ? 'has-items' : ''}" data-nav="sec-prs">PRs (${prs.length})</span>
-            <span class="counter-pill ${comments.length ? 'has-items' : ''}" data-nav="sec-comments">Comentarios (${comments.length})</span>
-            <span class="counter-pill ${issues.length ? 'has-items' : ''}" data-nav="sec-issues">Issues (${issues.length})</span>
+            <span class="counter-pill ${activeCategory === 'all' ? 'active' : ''}" data-cat="all">Ver Todo</span>
+            <span class="counter-pill ${activeCategory === 'branches' ? 'active' : ''} ${branches.length ? 'has-items' : ''}" data-cat="branches">Ramas (${branches.length})</span>
+            <span class="counter-pill ${activeCategory === 'commits' ? 'active' : ''} ${commits.length ? 'has-items' : ''}" data-cat="commits">Commits (${commits.length})</span>
+            <span class="counter-pill ${activeCategory === 'prs' ? 'active' : ''} ${prs.length ? 'has-items' : ''}" data-cat="prs">PRs (${prs.length})</span>
+            <span class="counter-pill ${activeCategory === 'comments' ? 'active' : ''} ${comments.length ? 'has-items' : ''}" data-cat="comments">Comentarios (${comments.length})</span>
+            <span class="counter-pill ${activeCategory === 'issues' ? 'active' : ''} ${issues.length ? 'has-items' : ''}" data-cat="issues">Issues (${issues.length})</span>
           </div>
 
-          <!-- SECCIÓN DE RAMAS -->
-          <div class="section sec-branches">
-            <div class="section-title">Ramas del Repositorio (${branches.length}) — Seleccioná una para explorar sus commits</div>
-            ${branches.length ? `
-              <div class="branches-wrap">
-                ${branches.map(b => {
-                  let statusBadge = '<span class="branch-status-badge branch-status-pending">PENDIENTE</span>';
-                  if (b.is_default) {
-                    statusBadge = '<span class="branch-status-badge branch-status-default">PRINCIPAL</span>';
-                  } else if (b.is_merged) {
-                    statusBadge = '<span class="branch-status-badge branch-status-merged">INCORPORADA</span>';
-                  } else if (b.ahead_by > 0) {
-                    statusBadge = `<span class="branch-status-badge branch-status-pending">+${b.ahead_by} COMMITS</span>`;
-                  }
-                  
-                  const branchClass = b.is_merged ? 'is-merged' : 'is-pending';
-
-                  return `
-                    <button class="branch-btn ${branchClass} ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
-                      <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
-                      ${statusBadge}
-                      <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
-                    </button>
-                  `;
-                }).join('')}
-              </div>
-            ` : '<div class="empty-state">Sin ramas secundarias</div>'}
-          </div>
-
-          <!-- GRID DE SECCIONES A DOS COLUMNAS ANCHAS -->
           <div class="sections-grid">
-            <!-- COLUMNA IZQUIERDA: COMMITS & PRS -->
-            <div style="display: flex; flex-direction: column; gap: 24px;">
-              <!-- COMMITS -->
-              <div class="section sec-commits">
-                <div class="section-title">
-                  Historial de Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
-                </div>
-                <div class="commits-container">
-                  ${renderCommitsList(commits)}
-                </div>
-              </div>
+            <!-- RAMAS -->
+            <div class="section ${activeCategory !== 'all' && activeCategory !== 'branches' ? 'hidden' : ''}" data-cat-section="branches">
+              <div class="section-title">Ramas del Repositorio (${branches.length}) — Seleccioná una rama para ver sus commits</div>
+              ${branches.length ? `
+                <div class="branches-wrap">
+                  ${branches.map(b => {
+                    let statusBadge = '<span class="branch-status-badge branch-status-pending">PENDIENTE</span>';
+                    if (b.is_default) {
+                      statusBadge = '<span class="branch-status-badge branch-status-default">PRINCIPAL</span>';
+                    } else if (b.is_merged) {
+                      statusBadge = '<span class="branch-status-badge branch-status-merged">INCORPORADA</span>';
+                    } else if (b.ahead_by > 0) {
+                      statusBadge = `<span class="branch-status-badge branch-status-pending">+${b.ahead_by} COMMITS</span>`;
+                    }
+                    
+                    const branchClass = b.is_merged ? 'is-merged' : 'is-pending';
 
-              <!-- PULL REQUESTS -->
-              <div class="section sec-prs">
-                <div class="section-title">Historial de Pull Requests (${prs.length})</div>
-                ${prs.length ? prs.map(p => `
-                  <div class="list-item">
-                    ${getBadge(p.state)}
-                    <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
-                    ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
-                  </div>
-                `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
+                    return `
+                      <button class="branch-btn ${branchClass} ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
+                        <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
+                        ${statusBadge}
+                        <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              ` : '<div class="empty-state">Sin ramas secundarias</div>'}
+            </div>
+
+            <!-- COMMITS -->
+            <div class="section ${activeCategory !== 'all' && activeCategory !== 'commits' ? 'hidden' : ''}" data-cat-section="commits">
+              <div class="section-title">
+                Historial de Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
+              </div>
+              <div class="commits-container">
+                ${renderCommitsList(commits)}
               </div>
             </div>
 
-            <!-- COLUMNA DERECHA: COMENTARIOS & ISSUES -->
-            <div style="display: flex; flex-direction: column; gap: 24px;">
-              <!-- COMENTARIOS -->
-              <div class="section sec-comments">
-                <div class="section-title">Historial de Comentarios en PRs (${comments.length})</div>
-                ${comments.length ? comments.map(c => `
-                  <div class="comment-box">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                      <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>
-                      ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
-                    </div>
-                    <div>"${escapeHtml(c.body || '')}"</div>
-                  </div>
-                `).join('') : '<div class="empty-state">Sin comentarios registrados</div>'}
-              </div>
+            <!-- PULL REQUESTS -->
+            <div class="section ${activeCategory !== 'all' && activeCategory !== 'prs' ? 'hidden' : ''}" data-cat-section="prs">
+              <div class="section-title">Todos los Pull Requests (${prs.length})</div>
+              ${prs.length ? prs.map(p => `
+                <div class="list-item">
+                  ${getBadge(p.state)}
+                  <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
+                  ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
+                </div>
+              `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
+            </div>
 
-              <!-- ISSUES -->
-              <div class="section sec-issues">
-                <div class="section-title">Historial de Issues (${issues.length})</div>
-                ${issues.length ? issues.map(i => `
-                  <div class="list-item">
-                    ${getBadge(i.state)}
-                    <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
-                    ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
+            <!-- COMENTARIOS -->
+            <div class="section ${activeCategory !== 'all' && activeCategory !== 'comments' ? 'hidden' : ''}" data-cat-section="comments">
+              <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
+              ${comments.length ? comments.map(c => `
+                <div class="comment-box">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                    <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>
+                    ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
                   </div>
-                `).join('') : '<div class="empty-state">Sin issues registrados</div>'}
-              </div>
+                  <div>"${escapeHtml(c.body || '')}"</div>
+                </div>
+              `).join('') : '<div class="empty-state">Sin comentarios registrados</div>'}
+            </div>
+
+            <!-- ISSUES -->
+            <div class="section ${activeCategory !== 'all' && activeCategory !== 'issues' ? 'hidden' : ''}" data-cat-section="issues">
+              <div class="section-title">Todos los Issues (${issues.length})</div>
+              ${issues.length ? issues.map(i => `
+                <div class="list-item">
+                  ${getBadge(i.state)}
+                  <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
+                  ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
+                </div>
+              `).join('') : '<div class="empty-state">Sin issues registrados</div>'}
             </div>
           </div>
         `;
 
-        // Interactive counter pills click navigation
+        // Pill category view toggle handler (shows selected view, hides others)
         card.querySelectorAll('.counter-pill').forEach(pill => {
           pill.addEventListener('click', () => {
-            const secNav = pill.dataset.nav;
-            if (secNav) {
-              card.querySelectorAll('.counter-pill').forEach(p => p.classList.toggle('active', p === pill));
-              scrollToSection(card, secNav);
-            }
+            const cat = pill.dataset.cat;
+            if (!cat) return;
+
+            activeCategoryMap[r.repo] = cat;
+
+            card.querySelectorAll('.counter-pill').forEach(p => p.classList.toggle('active', p === pill));
+
+            card.querySelectorAll('[data-cat-section]').forEach(sec => {
+              const secCat = sec.dataset.catSection;
+              if (cat === 'all' || secCat === cat) {
+                sec.classList.remove('hidden');
+              } else {
+                sec.classList.add('hidden');
+              }
+            });
           });
         });
 
