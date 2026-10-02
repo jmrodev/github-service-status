@@ -73,23 +73,28 @@
     .card h2 { margin: 0; font-size: 16px; word-break: break-all; }
     .card h2 a { color: var(--accent); text-decoration: none; }
     .card h2 a:hover { text-decoration: underline; }
-    .stats-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .pill {
+    .pills-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tab-pill {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2px 10px;
+      border-radius: 14px;
+      padding: 3px 12px;
       font-size: 12px;
       color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
     }
-    .pill.has-items { color: #f0f6fc; border-color: #484f58; }
+    .tab-pill:hover { border-color: var(--accent); color: var(--text); }
+    .tab-pill.active { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
+    .tab-pill.has-items { color: #f0f6fc; }
     .section-title { font-weight: 600; font-size: 12px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; }
-    .list-item { font-size: 13px; padding: 3px 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+    .list-item { font-size: 13px; padding: 4px 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
     .list-item a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .list-item a:hover { text-decoration: underline; }
     .item-title { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px; }
     .author-tag { color: var(--text-muted); font-size: 11px; font-weight: 500; }
-    .branches-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
+    .branches-wrap { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
     .branch-btn {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -121,8 +126,10 @@
     .badge-pr { background: var(--badge-pr); }
     .empty-state { color: var(--text-muted); font-style: italic; font-size: 12px; }
     code { font-family: monospace; font-size: 12px; background: var(--bg); padding: 1px 4px; border-radius: 4px; }
-    .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 12px; margin-top: 2px; }
+    .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 12px; margin-top: 4px; }
     .comment-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
   </style>
 </head>
 <body>
@@ -143,6 +150,7 @@
     let rawData = null;
     let activeFilter = 'all';
     const activeBranchMap = {};
+    const activeTabMap = {};
 
     fetch('./status.json')
       .then(res => res.json())
@@ -219,7 +227,7 @@
         const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
         const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
 
-        // Determine active branch for this card
+        // Active branch
         if (!activeBranchMap[r.repo] && branches.length > 0) {
           activeBranchMap[r.repo] = branches[0].name;
         }
@@ -227,67 +235,98 @@
         const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
         const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
 
+        // Active tab pill for card (default: 'branches')
+        if (!activeTabMap[r.repo]) {
+          activeTabMap[r.repo] = 'branches';
+        }
+        const activeTab = activeTabMap[r.repo];
+
         card.innerHTML = `
           <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
-          <div class="stats-row">
-            <span class="pill ${openPRs.length ? 'has-items' : ''}">PRs ${openPRs.length}</span>
-            <span class="pill ${openIssues.length ? 'has-items' : ''}">Issues ${openIssues.length}</span>
-            <span class="pill ${branches.length ? 'has-items' : ''}">Ramas ${branches.length}</span>
-            <span class="pill">Commits ${commits.length}</span>
-            <span class="pill ${comments.length ? 'has-items' : ''}">Comentarios PR ${comments.length}</span>
+          
+          <div class="pills-row">
+            <span class="tab-pill ${activeTab === 'branches' ? 'active' : ''} ${branches.length ? 'has-items' : ''}" data-tab="branches">Ramas (${branches.length})</span>
+            <span class="tab-pill ${activeTab === 'commits' ? 'active' : ''} ${commits.length ? 'has-items' : ''}" data-tab="commits">Commits (${commits.length})</span>
+            <span class="tab-pill ${activeTab === 'prs' ? 'active' : ''} ${openPRs.length ? 'has-items' : ''}" data-tab="prs">PRs (${openPRs.length})</span>
+            <span class="tab-pill ${activeTab === 'comments' ? 'active' : ''} ${comments.length ? 'has-items' : ''}" data-tab="comments">Comentarios (${comments.length})</span>
+            <span class="tab-pill ${activeTab === 'issues' ? 'active' : ''} ${openIssues.length ? 'has-items' : ''}" data-tab="issues">Issues (${openIssues.length})</span>
           </div>
 
-          ${branches.length ? `
-            <div class="section-title">Seleccionar Rama (${branches.length})</div>
-            <div class="branches-wrap">
-              ${branches.map(b => `
-                <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
-                  <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
-                  <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
-                </button>
-              `).join('')}
-            </div>
-          ` : ''}
+          <!-- BRANCHES & COMMITS TAB CONTENT -->
+          <div class="tab-content ${activeTab === 'branches' || activeTab === 'commits' ? 'active' : ''}" data-content="branches">
+            ${branches.length ? `
+              <div class="section-title">Seleccionar Rama</div>
+              <div class="branches-wrap">
+                ${branches.map(b => `
+                  <button class="branch-btn ${b.name === currentBranchName ? 'active' : ''}" data-branch="${escapeHtml(b.name)}">
+                    <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
+                    <a href="${b.url}" target="_blank" rel="noopener" class="branch-ext" title="Abrir en GitHub" onclick="event.stopPropagation()">↗</a>
+                  </button>
+                `).join('')}
+              </div>
+            ` : ''}
 
-          ${openPRs.length ? `
-            <div class="section-title">Pull Requests</div>
-            ${openPRs.map(p => `
+            <div class="section-title">
+              Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
+            </div>
+            <div class="commits-container">
+              ${renderCommitsList(commits)}
+            </div>
+          </div>
+
+          <!-- PRS TAB CONTENT -->
+          <div class="tab-content ${activeTab === 'prs' ? 'active' : ''}" data-content="prs">
+            <div class="section-title">Pull Requests Abiertos (${openPRs.length})</div>
+            ${openPRs.length ? openPRs.map(p => `
               <div class="list-item">
                 <span class="badge badge-pr">PR #${p.number}</span>
                 <a href="${p.url}" target="_blank" rel="noopener" class="item-title">${escapeHtml(p.title || '')}</a>
               </div>
-            `).join('')}
-          ` : ''}
+            `).join('') : '<div class="empty-state">Sin pull requests abiertos</div>'}
+          </div>
 
-          ${comments.length ? `
-            <div class="section-title">Últimos Comentarios en PRs</div>
-            ${comments.slice(0, 3).map(c => `
+          <!-- COMMENTS TAB CONTENT -->
+          <div class="tab-content ${activeTab === 'comments' ? 'active' : ''}" data-content="comments">
+            <div class="section-title">Últimos Comentarios en PRs (${comments.length})</div>
+            ${comments.length ? comments.slice(0, 5).map(c => `
               <div class="comment-box">
                 <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>: 
                 <span>"${escapeHtml(c.body || '')}"</span>
               </div>
-            `).join('')}
-          ` : ''}
+            `).join('') : '<div class="empty-state">Sin comentarios recientes</div>'}
+          </div>
 
-          ${openIssues.length ? `
-            <div class="section-title">Issues Abiertos</div>
-            ${openIssues.map(i => `
+          <!-- ISSUES TAB CONTENT -->
+          <div class="tab-content ${activeTab === 'issues' ? 'active' : ''}" data-content="issues">
+            <div class="section-title">Issues Abiertos (${openIssues.length})</div>
+            ${openIssues.length ? openIssues.map(i => `
               <div class="list-item">
                 <span class="badge badge-open">#${i.number}</span>
                 <a href="${i.url}" target="_blank" rel="noopener" class="item-title">${escapeHtml(i.title || '')}</a>
               </div>
-            `).join('')}
-          ` : ''}
-
-          <div class="section-title">
-            Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span>
-          </div>
-          <div class="commits-container">
-            ${renderCommitsList(commits)}
+            `).join('') : '<div class="empty-state">Sin issues abiertos</div>'}
           </div>
         `;
 
-        // Event delegation for branch switching within card
+        // Pill tab click handler
+        card.querySelectorAll('.tab-pill').forEach(pill => {
+          pill.addEventListener('click', (e) => {
+            const targetTab = pill.dataset.tab;
+            activeTabMap[r.repo] = targetTab;
+
+            card.querySelectorAll('.tab-pill').forEach(p => p.classList.toggle('active', p === pill));
+
+            card.querySelectorAll('.tab-content').forEach(content => {
+              if (targetTab === 'branches' || targetTab === 'commits') {
+                content.classList.toggle('active', content.dataset.content === 'branches');
+              } else {
+                content.classList.toggle('active', content.dataset.content === targetTab);
+              }
+            });
+          });
+        });
+
+        // Branch button click handler
         card.querySelectorAll('.branch-btn').forEach(btn => {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -297,14 +336,11 @@
 
             activeBranchMap[r.repo] = branchName;
 
-            // Highlight active button
             card.querySelectorAll('.branch-btn').forEach(b => b.classList.toggle('active', b === targetBtn));
 
-            // Find new branch object
             const bObj = branches.find(b => b.name === branchName);
             const bCommits = (bObj && bObj.commits) ? bObj.commits : [];
 
-            // Update branch label and commits container directly
             const labelEl = card.querySelector('.branch-label');
             if (labelEl) labelEl.textContent = `[${branchName}]`;
 
