@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Orden de Prioridad y Fechas</title>
+  <title>GitHub Service Status — Token Propio</title>
   <style>
     :root {
       color-scheme: dark;
@@ -39,6 +39,7 @@
       gap: 14px;
     }
     .brand { font-size: 22px; font-weight: 700; color: #f0f6fc; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
     .meta { color: var(--text-muted); font-size: 13px; }
     
     .filter-container {
@@ -106,6 +107,58 @@
     .full-card h2 { margin: 0; font-size: 24px; word-break: break-word; }
     .full-card h2 a { color: var(--accent); text-decoration: none; }
     .full-card h2 a:hover { text-decoration: underline; }
+
+    /* MODAL DE CONFIGURACIÓN DE TOKEN */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .modal-title { font-size: 18px; font-weight: 700; color: #f0f6fc; margin: 0; }
+    .modal-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    input[type="password"], input[type="text"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px 14px;
+      font-size: 14px;
+      width: 100%;
+      font-family: monospace;
+    }
+    input:focus { outline: none; border-color: var(--accent); }
+    .modal-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+
+    .token-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .token-active { background: rgba(35, 134, 54, 0.2); color: #3fb950; border: 1px solid #238636; }
+    .token-missing { background: rgba(218, 54, 51, 0.2); color: #f85149; border: 1px solid #da3633; }
 
     /* DASHBOARD GRÁFICO VISUAL */
     .graphic-dashboard {
@@ -239,8 +292,55 @@
     <div>
       <span class="brand">GitHub Service Status</span>
     </div>
-    <div class="meta" id="meta-info">Cargando...</div>
+    <div class="header-actions">
+      <div id="token-badge" class="token-status-badge token-missing" onclick="openTokenModal()">
+        <span>🔑 Configurar Mi Token</span>
+      </div>
+      <div class="meta" id="meta-info">Cargando...</div>
+    </div>
   </header>
+
+  <!-- MODAL DE CONFIGURACIÓN DE TOKEN PROPIO DE GITHUB -->
+  <div class="modal-overlay" id="token-modal">
+    <div class="modal-box">
+      <h3 class="modal-title">🔑 Iniciar Sesión o Configurar Token</h3>
+      <p class="modal-desc">
+        Autenticate con tu propia cuenta de GitHub para realizar las consultas directamente con tus permisos. No usamos ningún token centralizado.
+      </p>
+
+      <!-- SECCIÓN OAUTH DEVICE FLOW -->
+      <div id="oauth-flow-section" style="background: var(--bg); border: 1px dashed var(--accent); border-radius: 8px; padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-weight: 600; font-size: 15px; color: #f0f6fc;">Opción 1: Logueo Fácil con GitHub</div>
+        <button id="btn-start-oauth" onclick="startDeviceFlow()" style="background: #238636; border-color: #238636; color: #fff; font-weight: 700; padding: 10px 18px; font-size: 15px;">
+          🚀 Iniciar Sesión con Código (Device Flow)
+        </button>
+        <div id="oauth-step2" style="display: none; flex-direction: column; gap: 10px; align-items: center;">
+          <div style="font-size: 13px; color: var(--text-muted);">Ingresá este código en GitHub:</div>
+          <div id="oauth-user-code" style="font-size: 24px; font-weight: 800; letter-spacing: 4px; color: var(--accent); background: var(--card-bg); padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border); user-select: all;">----</div>
+          <a id="oauth-verify-link" href="#" target="_blank" rel="noopener" style="background: var(--btn-active); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+            🔗 Abrir GitHub para autorizar ↗
+          </a>
+          <div id="oauth-status-text" style="font-size: 12px; color: var(--badge-pending); font-weight: 600; margin-top: 4px;">
+            Esperando autorización...
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; color: var(--text-muted); font-size: 12px; font-weight: 600;">— O —</div>
+
+      <!-- SECCIÓN PAT MANUAL -->
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-size: 13px; font-weight: 600; color: var(--text-muted);">Opción 2: Pegar Personal Access Token (PAT) manualmente</label>
+        <input type="password" id="input-pat-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
+      </div>
+
+      <div class="modal-buttons">
+        <button onclick="clearUserToken()" style="background: rgba(218, 54, 51, 0.2); border-color: #da3633; color: #f85149;">Borrar Sesión / Token</button>
+        <button onclick="closeTokenModal()" style="background: var(--bg);">Cancelar</button>
+        <button onclick="saveUserToken()" class="on">Guardar PAT</button>
+      </div>
+    </div>
+  </div>
 
   <div class="filter-container">
     <div class="filters-row" id="org-filter-row">
@@ -258,7 +358,11 @@
     let rawData = null;
     let selectedOrg = 'all';
     let selectedRepo = 'all';
+    let userGitHubToken = localStorage.getItem('gh_user_pat') || '';
+    let authenticatedUser = null;
     const activeCategoryMap = {};
+
+    updateTokenBadgeUI();
 
     fetch('./status.json')
       .then(res => res.json())
@@ -266,11 +370,161 @@
         rawData = data;
         initFilters();
         render();
+        if (userGitHubToken) {
+          validateTokenWithGitHub(userGitHubToken);
+        }
       })
       .catch(err => {
         document.getElementById('meta-info').textContent = 'Error al cargar status.json';
         console.error(err);
       });
+
+    function updateTokenBadgeUI() {
+      const badge = document.getElementById('token-badge');
+      if (userGitHubToken) {
+        badge.className = 'token-status-badge token-active';
+        badge.innerHTML = `🔑 Token Configurado ${authenticatedUser ? '(@' + authenticatedUser + ')' : ''}`;
+      } else {
+        badge.className = 'token-status-badge token-missing';
+        badge.innerHTML = '🔑 Configurar Mi Token';
+      }
+    }
+
+    function openTokenModal() {
+      document.getElementById('input-pat-token').value = userGitHubToken;
+      document.getElementById('token-modal').classList.add('open');
+    }
+
+    function closeTokenModal() {
+      document.getElementById('token-modal').classList.remove('open');
+    }
+
+    function saveUserToken() {
+      const inputVal = document.getElementById('input-pat-token').value.trim();
+      if (!inputVal) {
+        alert('Por favor ingresá un token válido.');
+        return;
+      }
+      userGitHubToken = inputVal;
+      localStorage.setItem('gh_user_pat', userGitHubToken);
+      validateTokenWithGitHub(userGitHubToken);
+      closeTokenModal();
+    }
+
+    function clearUserToken() {
+      userGitHubToken = '';
+      authenticatedUser = null;
+      localStorage.removeItem('gh_user_pat');
+      updateTokenBadgeUI();
+      closeTokenModal();
+      render();
+    }
+
+    let pollInterval = null;
+
+    function startDeviceFlow() {
+      const CLIENT_ID = '0123456789abcdef0123'; // Standard OAuth Client ID placeholder
+      const step2 = document.getElementById('oauth-step2');
+      const btnStart = document.getElementById('btn-start-oauth');
+      const statusText = document.getElementById('oauth-status-text');
+
+      btnStart.disabled = true;
+      btnStart.textContent = '⏳ Generando código...';
+
+      fetch('https://github.com/login/device/code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
+        },
+        body: new URLSearchParams({
+          client_id: CLIENT_ID,
+          scope: 'repo read:org'
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.device_code) {
+          throw new Error(data.error_description || 'No se pudo iniciar Device Flow');
+        }
+
+        btnStart.style.display = 'none';
+        step2.style.display = 'flex';
+        document.getElementById('oauth-user-code').textContent = data.user_code;
+        document.getElementById('oauth-verify-link').href = data.verification_uri;
+
+        const intervalSec = (data.interval || 5) * 1000;
+        pollDeviceToken(CLIENT_ID, data.device_code, intervalSec);
+      })
+      .catch(err => {
+        btnStart.disabled = false;
+        btnStart.textContent = '🚀 Iniciar Sesión con Código (Device Flow)';
+        statusText.textContent = 'Error: ' + err.message;
+        statusText.style.color = '#da3633';
+      });
+    }
+
+    function pollDeviceToken(clientId, deviceCode, intervalMs) {
+      if (pollInterval) clearInterval(pollInterval);
+
+      pollInterval = setInterval(() => {
+        fetch('https://github.com/login/oauth/access_token', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          },
+          body: new URLSearchParams({
+            client_id: clientId,
+            device_code: deviceCode,
+            grant_type: 'urn:ietf:params:oauth:grant-type:device_code'
+          })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.access_token) {
+            clearInterval(pollInterval);
+            userGitHubToken = data.access_token;
+            localStorage.setItem('gh_user_pat', userGitHubToken);
+            validateTokenWithGitHub(userGitHubToken);
+            closeTokenModal();
+          } else if (data.error === 'authorization_pending') {
+            // Normal wait state
+          } else if (data.error === 'slow_down') {
+            // Polling too fast
+          } else {
+            clearInterval(pollInterval);
+            document.getElementById('oauth-status-text').textContent = 'Expiró o falló la autorización. Reintentá.';
+            document.getElementById('btn-start-oauth').style.display = 'inline-block';
+            document.getElementById('btn-start-oauth').disabled = false;
+            document.getElementById('btn-start-oauth').textContent = '🚀 Reintentar Iniciar Sesión';
+          }
+        })
+        .catch(err => console.error('Poll device token error:', err));
+      }, intervalMs);
+    }
+
+    function validateTokenWithGitHub(token) {
+      fetch('https://api.github.com/user', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      })
+      .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Token inválido o expirado');
+      })
+      .then(user => {
+        authenticatedUser = user.login;
+        updateTokenBadgeUI();
+      })
+      .catch(err => {
+        console.warn('Falló la validación del token personal:', err);
+        authenticatedUser = null;
+        updateTokenBadgeUI();
+      });
+    }
 
     function initFilters() {
       const orgRow = document.getElementById('org-filter-row');
@@ -334,60 +588,11 @@
       });
     }
 
-    function parseTime(dateStr) {
-      if (!dateStr) return 0;
-      const t = new Date(dateStr).getTime();
-      return isNaN(t) ? 0 : t;
-    }
-
-    // Priority sorting: Pending / Open items FIRST (newest date top), then Resolved / Merged items (newest date top)
-    function sortPRsByPriority(prs) {
-      if (!prs) return [];
-      return [...prs].sort((a, b) => {
-        const aOpen = String(a.state).toUpperCase() === 'OPEN';
-        const bOpen = String(b.state).toUpperCase() === 'OPEN';
-        if (aOpen !== bOpen) return aOpen ? -1 : 1;
-        return parseTime(b.createdAt) - parseTime(a.createdAt);
-      });
-    }
-
-    function sortIssuesByPriority(issues) {
-      if (!issues) return [];
-      return [...issues].sort((a, b) => {
-        const aOpen = String(a.state).toUpperCase() === 'OPEN';
-        const bOpen = String(b.state).toUpperCase() === 'OPEN';
-        if (aOpen !== bOpen) return aOpen ? -1 : 1;
-        return parseTime(b.createdAt) - parseTime(a.createdAt);
-      });
-    }
-
-    function sortBranchesByPriority(branches) {
-      if (!branches) return [];
-      return [...branches].sort((a, b) => {
-        // Unmerged branches come first (priority)
-        const aPending = !a.is_merged && !a.is_default;
-        const bPending = !b.is_merged && !b.is_default;
-        if (aPending !== bPending) return aPending ? -1 : 1;
-        return parseTime(b.date) - parseTime(a.date);
-      });
-    }
-
-    function sortCommitsByPriority(commits) {
-      if (!commits) return [];
-      return [...commits].sort((a, b) => {
-        const aPending = !a.is_incorporated;
-        const bPending = !b.is_incorporated;
-        if (aPending !== bPending) return aPending ? -1 : 1;
-        return parseTime(b.date) - parseTime(a.date);
-      });
-    }
-
     function renderCommitsList(commits) {
       if (!commits || !commits.length) {
         return '<div class="empty-state">Sin commits registrados</div>';
       }
-      const sorted = sortCommitsByPriority(commits);
-      return sorted.map(c => `
+      return commits.map(c => `
         <div class="list-item">
           <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>
           ${c.is_incorporated ? '<span class="badge badge-open">INCORPORADO</span>' : '<span class="badge badge-pending">PENDIENTE DE MERGE</span>'}
@@ -436,15 +641,11 @@
         card.className = 'full-card';
         card.dataset.repo = r.repo;
 
-        const rawIssues = (r.issues || []);
-        const rawPrs = (r.prs || []);
-        const rawBranches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
+        const issues = (r.issues || []);
+        const prs = (r.prs || []);
+        const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
         const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
         const commits = (r.commits || []);
-
-        const prs = sortPRsByPriority(rawPrs);
-        const issues = sortIssuesByPriority(rawIssues);
-        const branches = sortBranchesByPriority(rawBranches);
 
         // Default active category ('branches')
         if (!activeCategoryMap[r.repo] || activeCategoryMap[r.repo] === 'all') {
@@ -529,9 +730,9 @@
           </div>
 
           <div class="sections-grid">
-            <!-- RAMAS (PRIORIDAD: PENDIENTES PRIMERO, MÁS RECIENTES ARRIBA) -->
+            <!-- RAMAS -->
             <div class="section ${activeCategory !== 'branches' ? 'hidden' : ''}" data-cat-section="branches">
-              <div class="section-title">Ramas del Repositorio (${branches.length}) — Prioridad: Pendientes arriba (más recientes primero)</div>
+              <div class="section-title">Ramas del Repositorio (${branches.length}) — Tocar para ir a la rama en GitHub</div>
               ${branches.length ? `
                 <div class="branches-wrap">
                   ${branches.map(b => {
@@ -558,19 +759,19 @@
               ` : '<div class="empty-state">Sin ramas secundarias</div>'}
             </div>
 
-            <!-- COMMITS (PRIORIDAD: PENDIENTES PRIMERO, MÁS RECIENTES ARRIBA) -->
+            <!-- COMMITS -->
             <div class="section ${activeCategory !== 'commits' ? 'hidden' : ''}" data-cat-section="commits">
               <div class="section-title">
-                Historial de Commits (${commits.length}) — Prioridad: Pendientes arriba (más recientes primero)
+                Historial de Commits (${commits.length}) — Tocar para ir al commit en GitHub
               </div>
               <div class="commits-container">
                 ${renderCommitsList(commits)}
               </div>
             </div>
 
-            <!-- PULL REQUESTS (PRIORIDAD: ABIERTOS PRIMERO, MÁS RECIENTES ARRIBA) -->
+            <!-- PULL REQUESTS -->
             <div class="section ${activeCategory !== 'prs' ? 'hidden' : ''}" data-cat-section="prs">
-              <div class="section-title">Todos los Pull Requests (${prs.length}) — Prioridad: Abiertos arriba (más recientes primero)</div>
+              <div class="section-title">Todos los Pull Requests (${prs.length}) — Tocar para abrir el PR en GitHub</div>
               ${prs.length ? prs.map(p => `
                 <div class="list-item">
                   ${getBadge(p.state)}
@@ -580,9 +781,9 @@
               `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
             </div>
 
-            <!-- COMENTARIOS (MÁS RECIENTES ARRIBA) -->
+            <!-- COMENTARIOS -->
             <div class="section ${activeCategory !== 'comments' ? 'hidden' : ''}" data-cat-section="comments">
-              <div class="section-title">Todos los Comentarios en PRs (${comments.length}) — Más recientes arriba</div>
+              <div class="section-title">Todos los Comentarios en PRs (${comments.length}) — Tocar para ir al comentario en GitHub</div>
               ${comments.length ? comments.map(c => `
                 <div class="comment-box">
                   <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
@@ -594,9 +795,9 @@
               `).join('') : '<div class="empty-state">Sin comentarios registrados</div>'}
             </div>
 
-            <!-- ISSUES (PRIORIDAD: ABIERTOS PRIMERO, MÁS RECIENTES ARRIBA) -->
+            <!-- ISSUES -->
             <div class="section ${activeCategory !== 'issues' ? 'hidden' : ''}" data-cat-section="issues">
-              <div class="section-title">Todos los Issues (${issues.length}) — Prioridad: Abiertos arriba (más recientes primero)</div>
+              <div class="section-title">Todos los Issues (${issues.length}) — Tocar para abrir el issue en GitHub</div>
               ${issues.length ? issues.map(i => `
                 <div class="list-item">
                   ${getBadge(i.state)}
