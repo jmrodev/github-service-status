@@ -118,7 +118,6 @@
     }
     .counter-pill.has-items { color: #f0f6fc; border-color: #484f58; font-weight: 600; }
 
-    /* Grid for side-by-side sections in full-width view */
     .sections-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -134,7 +133,7 @@
       flex-direction: column;
       gap: 12px;
     }
-    .section-title { font-weight: 700; font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); pb: 10px; padding-bottom: 8px; }
+    .section-title { font-weight: 700; font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
     
     .list-item { font-size: 14px; padding: 10px 0; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px dashed #21262d; }
     .list-item:last-child { border-bottom: none; }
@@ -251,7 +250,6 @@
         }
       });
 
-      // Default to first org if available
       const orgList = Array.from(orgs);
       if (orgList.length > 0) {
         selectedOrg = orgList[0];
@@ -277,7 +275,7 @@
       updateRepoPills(true);
     }
 
-    function updateRepoPills(resetToFirst = False) {
+    function updateRepoPills(resetToFirst = false) {
       const repoPillsContainer = document.getElementById('repo-pills');
       repoPillsContainer.innerHTML = '';
 
@@ -443,7 +441,7 @@
                     </div>
                     <div>"${escapeHtml(c.body || '')}"</div>
                   </div>
-                `).join('')} : '<div class="empty-state">Sin comentarios</div>'}
+                `).join('') : '<div class="empty-state">Sin comentarios</div>'}
               </div>
 
               <!-- ISSUES -->
