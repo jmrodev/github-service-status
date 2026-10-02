@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Enlaces Directos</title>
+  <title>GitHub Service Status — Con Fecha y Hora Completa</title>
   <style>
     :root {
       color-scheme: dark;
@@ -231,7 +231,7 @@
     .comment-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .comment-link { color: var(--text); text-decoration: none; display: block; margin-top: 4px; }
     .comment-link:hover { color: var(--accent); }
-    .date-tag { color: var(--text-muted); font-size: 12px; }
+    .date-tag { color: var(--text-muted); font-size: 12px; font-weight: 500; font-family: monospace; }
   </style>
 </head>
 <body>
@@ -274,7 +274,7 @@
 
     function initFilters() {
       const orgRow = document.getElementById('org-filter-row');
-      const formattedDate = new Date(rawData.generated_at).toLocaleString();
+      const formattedDate = formatDateTime(rawData.generated_at);
       document.getElementById('meta-info').textContent = `Generado: ${formattedDate} (${rawData.mode || 'live'}) · Repos: ${rawData.total_repos || rawData.repos.length}`;
 
       const orgs = new Set();
@@ -344,6 +344,7 @@
           ${c.is_incorporated ? '<span class="badge badge-open">INCORPORADO</span>' : '<span class="badge badge-pending">PENDIENTE DE MERGE</span>'}
           ${c.author ? `<span class="author-tag">@${escapeHtml(c.author)}</span>` : ''}
           <a href="${c.html_url || '#'}" target="_blank" rel="noopener" class="item-title">${escapeHtml(c.msg || '')}</a>
+          ${c.date ? `<span class="date-tag">📅 ${formatDateTime(c.date)}</span>` : ''}
         </div>
       `).join('');
     }
@@ -356,12 +357,15 @@
       return '<span class="badge badge-open">ABIERTO</span>';
     }
 
-    function formatDate(dateStr) {
+    function formatDateTime(dateStr) {
       if (!dateStr) return '';
       try {
-        return new Date(dateStr).toLocaleDateString();
+        const d = new Date(dateStr);
+        const date = d.toLocaleDateString();
+        const time = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        return `${date} ${time}`;
       } catch (e) {
-        return '';
+        return dateStr;
       }
     }
 
@@ -492,7 +496,8 @@
                     return `
                       <a href="${b.url}" target="_blank" rel="noopener" class="branch-card ${branchClass}">
                         <span>🌿 ${escapeHtml(b.name)} ${b.author ? `<span class="branch-author">(@${escapeHtml(b.author)})</span>` : ''}</span>
-                        ${statusBadge} ↗
+                        ${statusBadge}
+                        ${b.date ? `<span class="date-tag">📅 ${formatDateTime(b.date)}</span>` : ''} ↗
                       </a>
                     `;
                   }).join('')}
@@ -517,7 +522,7 @@
                 <div class="list-item">
                   ${getBadge(p.state)}
                   <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')} ↗</a>
-                  ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
+                  ${p.createdAt ? `<span class="date-tag">📅 ${formatDateTime(p.createdAt)}</span>` : ''}
                 </div>
               `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
             </div>
@@ -529,7 +534,7 @@
                 <div class="comment-box">
                   <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
                     <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')} ↗</a>
-                    ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
+                    ${c.created_at ? `<span class="date-tag">📅 ${formatDateTime(c.created_at)}</span>` : ''}
                   </div>
                   <a href="${c.html_url || '#'}" target="_blank" rel="noopener" class="comment-link">"${escapeHtml(c.body || '')}"</a>
                 </div>
@@ -543,7 +548,7 @@
                 <div class="list-item">
                   ${getBadge(i.state)}
                   <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')} ↗</a>
-                  ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
+                  ${i.createdAt ? `<span class="date-tag">📅 ${formatDateTime(i.createdAt)}</span>` : ''}
                 </div>
               `).join('') : '<div class="empty-state">Sin issues registrados</div>'}
             </div>

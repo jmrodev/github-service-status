@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 GitHub Service Status Generator
-Fetches ALL issues, PRs (open/closed/merged), branches (with merge status, ahead_by count, branch author),
-and PR commits/comments across configured user and org repositories using gh CLI.
-Outputs materialized status.json with complete history and graphical metrics.
+Fetches ALL issues, PRs (open/closed/merged), branches (with per-branch commits, author, date),
+and PR comments across configured user and org repositories using gh CLI.
+Outputs materialized status.json with complete date and time metadata for every element.
 """
 import sys
 import json
@@ -87,7 +87,7 @@ def fetch_branch_commits(repo, branch_name, is_incorporated):
     return commits
 
 def repo_snapshot(repo):
-    """Fetches full history details and calculates graphical metrics for a single repository."""
+    """Fetches full history details with date and time metadata."""
     default_branch = get_default_branch(repo)
 
     # Issues: ALL states (OPEN / CLOSED)
@@ -131,10 +131,12 @@ def repo_snapshot(repo):
 
         b_commits = fetch_branch_commits(repo, b_name, is_incorporated=is_merged)
         b_author = b_commits[0].get("author") if (b_commits and len(b_commits) > 0) else None
+        b_date = b_commits[0].get("date") if (b_commits and len(b_commits) > 0) else None
 
         branches.append({
             "name": b_name,
             "author": b_author,
+            "date": b_date,
             "url": b.get("url"),
             "is_default": is_default,
             "is_merged": is_merged,
@@ -152,10 +154,8 @@ def repo_snapshot(repo):
     if not isinstance(prs, list): prs = []
     if not isinstance(comments, list): comments = []
 
-    # Sort comments newest first
     comments.sort(key=lambda c: c.get("created_at", ""), reverse=True)
 
-    # Compute metrics for visual graphics
     open_prs = sum(1 for p in prs if String(p.get("state")).upper() == "OPEN") if prs else 0
     merged_prs = sum(1 for p in prs if String(p.get("state")).upper() == "MERGED") if prs else 0
     closed_prs = sum(1 for p in prs if String(p.get("state")).upper() == "CLOSED") if prs else 0
