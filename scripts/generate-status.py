@@ -3,7 +3,7 @@
 GitHub Service Status Generator
 Fetches ALL issues, PRs (open/closed/merged), branches (with merge status, ahead_by count, branch author),
 and PR commits/comments across configured user and org repositories using gh CLI.
-Outputs materialized status.json with clear incorporation/merge tracking.
+Outputs materialized status.json with complete history and graphical metrics.
 """
 import sys
 import json
@@ -75,7 +75,7 @@ def discover_repositories(test_slice_only=False):
 
 def fetch_branch_commits(repo, branch_name, is_incorporated):
     """Fetches latest commits for a specific branch sorted newest first."""
-    commit_limit = LIMITS.get("commits", 30)
+    commit_limit = LIMITS.get("commits", 50)
     raw_commits = run_json("gh", "api", f"repos/{repo}/commits?sha={branch_name}&per_page={commit_limit}", "--jq",
                             f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), date: .commit.author.date, html_url: .html_url}}]") or []
     
@@ -87,15 +87,15 @@ def fetch_branch_commits(repo, branch_name, is_incorporated):
     return commits
 
 def repo_snapshot(repo):
-    """Fetches details for a single repository, capturing both open and closed states and merge status."""
+    """Fetches full history details and calculates graphical metrics for a single repository."""
     default_branch = get_default_branch(repo)
 
     # Issues: ALL states (OPEN / CLOSED)
-    issues = run_json("gh", "issue", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("issues", 50)),
+    issues = run_json("gh", "issue", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("issues", 100)),
                       "--json", "number,title,url,state,createdAt") or []
     
     # PRs: ALL states (OPEN / CLOSED / MERGED)
-    prs = run_json("gh", "pr", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("prs", 50)),
+    prs = run_json("gh", "pr", "list", "--repo", repo, "--state", "all", "--limit", str(LIMITS.get("prs", 100)),
                     "--json", "number,title,url,state,createdAt") or []
     
     branch_limit = LIMITS.get("branches", 50)
@@ -106,6 +106,9 @@ def repo_snapshot(repo):
         raw_branches = []
 
     branches = []
+    merged_branches_count = 0
+    pending_branches_count = 0
+
     for b in raw_branches:
         b_name = b.get("name")
         if not b_name:
@@ -120,6 +123,11 @@ def repo_snapshot(repo):
             if isinstance(compare_data, dict):
                 ahead_by = compare_data.get("ahead_by", 0)
                 is_merged = (ahead_by == 0)
+
+        if is_merged:
+            merged_branches_count += 1
+        else:
+            pending_branches_count += 1
 
         b_commits = fetch_branch_commits(repo, b_name, is_incorporated=is_merged)
         b_author = b_commits[0].get("author") if (b_commits and len(b_commits) > 0) else None
@@ -136,7 +144,7 @@ def repo_snapshot(repo):
 
     default_commits = branches[0]["commits"] if branches else []
     
-    comment_limit = LIMITS.get("comments", 50)
+    comment_limit = LIMITS.get("comments", 100)
     comments = run_json("gh", "api", f"repos/{repo}/pulls/comments?per_page={comment_limit}", "--jq",
                          f"[.[0:{comment_limit}][] | {{user: .user.login, body: (.body | split(\"\\n\")[0]), html_url: .html_url, created_at: .created_at}}]") or []
 
@@ -147,16 +155,35 @@ def repo_snapshot(repo):
     # Sort comments newest first
     comments.sort(key=lambda c: c.get("created_at", ""), reverse=True)
 
+    # Compute metrics for visual graphics
+    open_prs = sum(1 for p in prs if String(p.get("state")).upper() == "OPEN") if prs else 0
+    merged_prs = sum(1 for p in prs if String(p.get("state")).upper() == "MERGED") if prs else 0
+    closed_prs = sum(1 for p in prs if String(p.get("state")).upper() == "CLOSED") if prs else 0
+
+    open_issues = sum(1 for i in issues if String(i.get("state")).upper() == "OPEN") if issues else 0
+    closed_issues = sum(1 for i in issues if String(i.get("state")).upper() == "CLOSED") if issues else 0
+
+    metrics = {
+        "prs": {"total": len(prs), "open": open_prs, "merged": merged_prs, "closed": closed_prs},
+        "issues": {"total": len(issues), "open": open_issues, "closed": closed_issues},
+        "branches": {"total": len(branches), "merged": merged_branches_count, "pending": pending_branches_count},
+        "comments": {"total": len(comments)}
+    }
+
     return {
         "repo": repo,
         "default_branch": default_branch,
         "url": f"https://github.com/{repo}",
+        "metrics": metrics,
         "issues": issues,
         "prs": prs,
         "branches": branches,
         "commits": default_commits,
         "comments": comments
     }
+
+def String(val):
+    return str(val) if val is not None else ""
 
 def main():
     parser = argparse.ArgumentParser(description="Generate status.json for GitHub Service Status")

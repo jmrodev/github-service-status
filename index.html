@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Vista por Repositorio en Ancho Completo</title>
+  <title>GitHub Service Status — Vista Gráfica e Historial Completo</title>
   <style>
     :root {
       color-scheme: dark;
@@ -15,7 +15,7 @@
       --accent: #58a6ff;
       --btn-active: #1f6feb;
       --badge-open: #238636;
-      --badge-closed: #8b949e;
+      --badge-closed: #da3633;
       --badge-merged: #8957e5;
       --badge-pending: #d97706;
       --badge-default: #1f6feb;
@@ -107,16 +107,35 @@
     .full-card h2 a { color: var(--accent); text-decoration: none; }
     .full-card h2 a:hover { text-decoration: underline; }
 
-    .counters-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .counter-pill {
+    /* DASHBOARD GRÁFICO VISUAL */
+    .graphic-dashboard {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 6px 16px;
-      font-size: 13px;
-      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
-    .counter-pill.has-items { color: #f0f6fc; border-color: #484f58; font-weight: 600; }
+    .chart-box { display: flex; flex-direction: column; gap: 8px; }
+    .chart-title { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; }
+    
+    .progress-bar-wrap {
+      height: 14px;
+      background: #21262d;
+      border-radius: 7px;
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+    }
+    .progress-segment { height: 100%; transition: width 0.3s ease; }
+    .segment-open { background: var(--badge-open); }
+    .segment-merged { background: var(--badge-merged); }
+    .segment-closed { background: var(--badge-closed); }
+    .segment-pending { background: var(--badge-pending); }
+
+    .chart-legend { display: flex; gap: 12px; font-size: 12px; flex-wrap: wrap; color: var(--text-muted); }
+    .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
 
     .sections-grid {
       display: grid;
@@ -202,7 +221,7 @@
 <body>
   <header>
     <div>
-      <span class="brand">GitHub Service Status</span>
+      <span class="brand">GitHub Service Status — Vista Gráfica e Historial Completo</span>
     </div>
     <div class="meta" id="meta-info">Cargando...</div>
   </header>
@@ -361,15 +380,74 @@
         const currentBranchObj = branches.find(b => b.name === currentBranchName) || branches[0];
         const commits = (currentBranchObj && currentBranchObj.commits) ? currentBranchObj.commits : (r.commits || []);
 
+        // Compute graphical metrics percentages
+        const totalPrs = prs.length || 1;
+        const prOpenPct = Math.round(((prs.filter(p => String(p.state).toUpperCase() === 'OPEN').length) / totalPrs) * 100);
+        const prMergedPct = Math.round(((prs.filter(p => String(p.state).toUpperCase() === 'MERGED').length) / totalPrs) * 100);
+        const prClosedPct = Math.max(0, 100 - prOpenPct - prMergedPct);
+
+        const totalIssues = issues.length || 1;
+        const issueOpenPct = Math.round(((issues.filter(i => String(i.state).toUpperCase() === 'OPEN').length) / totalIssues) * 100);
+        const issueClosedPct = Math.max(0, 100 - issueOpenPct);
+
+        const totalBranches = branches.length || 1;
+        const branchMergedPct = Math.round(((branches.filter(b => b.is_merged).length) / totalBranches) * 100);
+        const branchPendingPct = Math.max(0, 100 - branchMergedPct);
+
         card.innerHTML = `
           <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
           
-          <div class="counters-row">
-            <span class="counter-pill ${branches.length ? 'has-items' : ''}">Ramas (${branches.length})</span>
-            <span class="counter-pill ${commits.length ? 'has-items' : ''}">Commits (${commits.length})</span>
-            <span class="counter-pill ${prs.length ? 'has-items' : ''}">PRs (${prs.length})</span>
-            <span class="counter-pill ${comments.length ? 'has-items' : ''}">Comentarios (${comments.length})</span>
-            <span class="counter-pill ${issues.length ? 'has-items' : ''}">Issues (${issues.length})</span>
+          <!-- DASHBOARD GRÁFICO DE BARRAS DE PROGRESO -->
+          <div class="graphic-dashboard">
+            <!-- GRÁFICO PRs -->
+            <div class="chart-box">
+              <div class="chart-title">
+                <span>Pull Requests (${prs.length})</span>
+                <span>${prMergedPct}% Fusionados</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-segment segment-merged" style="width: ${prMergedPct}%" title="${prMergedPct}% Fusionados"></div>
+                <div class="progress-segment segment-open" style="width: ${prOpenPct}%" title="${prOpenPct}% Abiertos"></div>
+                <div class="progress-segment segment-closed" style="width: ${prClosedPct}%" title="${prClosedPct}% Cerrados"></div>
+              </div>
+              <div class="chart-legend">
+                <span><span class="legend-dot" style="background: var(--badge-merged);"></span>Fusionados (${prs.filter(p => String(p.state).toUpperCase() === 'MERGED').length})</span>
+                <span><span class="legend-dot" style="background: var(--badge-open);"></span>Abiertos (${prs.filter(p => String(p.state).toUpperCase() === 'OPEN').length})</span>
+                <span><span class="legend-dot" style="background: var(--badge-closed);"></span>Cerrados (${prs.filter(p => String(p.state).toUpperCase() === 'CLOSED').length})</span>
+              </div>
+            </div>
+
+            <!-- GRÁFICO ISSUES -->
+            <div class="chart-box">
+              <div class="chart-title">
+                <span>Issues (${issues.length})</span>
+                <span>${issueClosedPct}% Resueltos</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-segment segment-open" style="width: ${issueClosedPct}%" title="${issueClosedPct}% Resueltos"></div>
+                <div class="progress-segment segment-closed" style="width: ${issueOpenPct}%" title="${issueOpenPct}% Abiertos"></div>
+              </div>
+              <div class="chart-legend">
+                <span><span class="legend-dot" style="background: var(--badge-open);"></span>Resueltos (${issues.filter(i => String(i.state).toUpperCase() === 'CLOSED').length})</span>
+                <span><span class="legend-dot" style="background: var(--badge-closed);"></span>Abiertos (${issues.filter(i => String(i.state).toUpperCase() === 'OPEN').length})</span>
+              </div>
+            </div>
+
+            <!-- GRÁFICO RAMAS -->
+            <div class="chart-box">
+              <div class="chart-title">
+                <span>Ramas (${branches.length})</span>
+                <span>${branchMergedPct}% Incorporadas</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-segment segment-open" style="width: ${branchMergedPct}%" title="${branchMergedPct}% Incorporadas"></div>
+                <div class="progress-segment segment-pending" style="width: ${branchPendingPct}%" title="${branchPendingPct}% Pendientes"></div>
+              </div>
+              <div class="chart-legend">
+                <span><span class="legend-dot" style="background: var(--badge-open);"></span>Incorporadas (${branches.filter(b => b.is_merged).length})</span>
+                <span><span class="legend-dot" style="background: var(--badge-pending);"></span>Pendientes (${branches.filter(b => !b.is_merged).length})</span>
+              </div>
+            </div>
           </div>
 
           <!-- SECCIÓN DE RAMAS (ANCHO COMPLETO) -->
@@ -408,7 +486,7 @@
               <!-- COMMITS -->
               <div class="section">
                 <div class="section-title">
-                  Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
+                  Historial de Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
                 </div>
                 <div class="commits-container">
                   ${renderCommitsList(commits)}
@@ -417,14 +495,14 @@
 
               <!-- PULL REQUESTS -->
               <div class="section">
-                <div class="section-title">Todos los Pull Requests (${prs.length})</div>
+                <div class="section-title">Historial de Pull Requests (${prs.length})</div>
                 ${prs.length ? prs.map(p => `
                   <div class="list-item">
                     ${getBadge(p.state)}
                     <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
                     ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
                   </div>
-                `).join('') : '<div class="empty-state">Sin pull requests</div>'}
+                `).join('') : '<div class="empty-state">Sin pull requests registrados</div>'}
               </div>
             </div>
 
@@ -432,7 +510,7 @@
             <div style="display: flex; flex-direction: column; gap: 24px;">
               <!-- COMENTARIOS -->
               <div class="section">
-                <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
+                <div class="section-title">Historial de Comentarios en PRs (${comments.length})</div>
                 ${comments.length ? comments.map(c => `
                   <div class="comment-box">
                     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
@@ -441,19 +519,19 @@
                     </div>
                     <div>"${escapeHtml(c.body || '')}"</div>
                   </div>
-                `).join('') : '<div class="empty-state">Sin comentarios</div>'}
+                `).join('') : '<div class="empty-state">Sin comentarios registrados</div>'}
               </div>
 
               <!-- ISSUES -->
               <div class="section">
-                <div class="section-title">Todos los Issues (${issues.length})</div>
+                <div class="section-title">Historial de Issues (${issues.length})</div>
                 ${issues.length ? issues.map(i => `
                   <div class="list-item">
                     ${getBadge(i.state)}
                     <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
                     ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
                   </div>
-                `).join('') : '<div class="empty-state">Sin issues</div>'}
+                `).join('') : '<div class="empty-state">Sin issues registrados</div>'}
               </div>
             </div>
           </div>
