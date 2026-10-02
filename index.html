@@ -16,7 +16,6 @@
       --btn-active: #1f6feb;
       --badge-open: #238636;
       --badge-pr: #8957e5;
-      --badge-branch: #1f6feb;
     }
     * { box-sizing: border-box; }
     body {
@@ -114,6 +113,8 @@
     .badge-pr { background: var(--badge-pr); }
     .empty-state { color: var(--text-muted); font-style: italic; font-size: 12px; }
     code { font-family: monospace; font-size: 12px; background: var(--bg); padding: 1px 4px; border-radius: 4px; }
+    .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 12px; margin-top: 2px; }
+    .comment-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -194,6 +195,7 @@
         const openPRs = (r.prs || []).filter(p => p.state && p.state.toUpperCase() === 'OPEN');
         const commits = (r.commits && Array.isArray(r.commits)) ? r.commits.filter(c => c && c.sha) : [];
         const branches = (r.branches && Array.isArray(r.branches)) ? r.branches : [];
+        const comments = (r.comments && Array.isArray(r.comments)) ? r.comments : [];
 
         card.innerHTML = `
           <h2><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.repo)}</a></h2>
@@ -202,6 +204,7 @@
             <span class="pill ${openIssues.length ? 'has-items' : ''}">Issues ${openIssues.length}</span>
             <span class="pill ${branches.length ? 'has-items' : ''}">Ramas ${branches.length}</span>
             <span class="pill">Commits ${commits.length}</span>
+            <span class="pill ${comments.length ? 'has-items' : ''}">Comentarios PR ${comments.length}</span>
           </div>
 
           ${branches.length ? `
@@ -224,6 +227,16 @@
             `).join('')}
           ` : ''}
 
+          ${comments.length ? `
+            <div class="section-title">Últimos Comentarios en PRs</div>
+            ${comments.slice(0, 3).map(c => `
+              <div class="comment-box">
+                <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>: 
+                <span>"${escapeHtml(c.body || '')}"</span>
+              </div>
+            `).join('')}
+          ` : ''}
+
           ${openIssues.length ? `
             <div class="section-title">Issues Abiertos</div>
             ${openIssues.map(i => `
@@ -235,7 +248,7 @@
           ` : ''}
 
           ${commits.length ? `
-            <div class="section-title">Últimos Commits (Rama por defecto)</div>
+            <div class="section-title">Últimos Commits</div>
             ${commits.slice(0, 5).map(c => `
               <div class="list-item">
                 <a href="${c.html_url || '#'}" target="_blank" rel="noopener"><code>${escapeHtml(c.sha || '')}</code></a>

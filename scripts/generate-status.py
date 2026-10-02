@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 GitHub Service Status Generator
-Fetches issues, PRs, branches, and commits across configured user and org repositories using gh CLI.
+Fetches issues, PRs, branches, commits, and PR comments across configured user and org repositories using gh CLI.
 Outputs materialized status.json for the static SPA.
 """
 import sys
@@ -81,10 +81,15 @@ def repo_snapshot(repo):
     commits = run_json("gh", "api", f"repos/{repo}/commits?per_page={commit_limit}", "--jq",
                         f"[.[0:{commit_limit}][] | {{sha: .sha[0:7], msg: (.commit.message | split(\"\\n\")[0]), author: (.author.login // .commit.author.name), html_url: .html_url}}]") or []
     
+    comment_limit = LIMITS.get("comments", 5)
+    comments = run_json("gh", "api", f"repos/{repo}/pulls/comments?per_page={comment_limit}", "--jq",
+                         f"[.[0:{comment_limit}][] | {{user: .user.login, body: (.body | split(\"\\n\")[0]), html_url: .html_url, created_at: .created_at}}]") or []
+
     if not isinstance(issues, list): issues = []
     if not isinstance(prs, list): prs = []
     if not isinstance(branches, list): branches = []
     if not isinstance(commits, list): commits = []
+    if not isinstance(comments, list): comments = []
 
     return {
         "repo": repo,
@@ -92,7 +97,8 @@ def repo_snapshot(repo):
         "issues": issues,
         "prs": prs,
         "branches": branches,
-        "commits": commits
+        "commits": commits,
+        "comments": comments
     }
 
 def main():
