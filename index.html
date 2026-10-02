@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Service Status — Estado de Incorporación y Fusión</title>
+  <title>GitHub Service Status — Vista por Repositorio en Ancho Completo</title>
   <style>
     :root {
       color-scheme: dark;
@@ -30,7 +30,7 @@
       line-height: 1.6;
     }
     header {
-      padding: 20px 28px;
+      padding: 20px 32px;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -38,95 +38,125 @@
       flex-wrap: wrap;
       gap: 14px;
     }
-    .brand { font-size: 20px; font-weight: 700; color: #f0f6fc; }
+    .brand { font-size: 22px; font-weight: 700; color: #f0f6fc; }
     .meta { color: var(--text-muted); font-size: 13px; }
+    
     .filter-container {
-      padding: 18px 28px;
+      padding: 20px 32px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       border-bottom: 1px solid var(--border);
       background: #161b22;
     }
     .filters-row {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
       align-items: center;
     }
-    .filter-label { font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-right: 4px; }
+    .filter-label { font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-right: 6px; }
+    
     button {
       background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 7px 14px;
-      font-size: 13px;
+      padding: 8px 16px;
+      font-size: 14px;
       cursor: pointer;
       transition: background 0.15s, border-color 0.15s;
     }
-    button:hover { background: #21262d; }
+    button:hover { background: #21262d; border-color: var(--accent); }
     button.on { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
+    
     .repo-pill {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 5px 12px;
-      font-size: 12px;
+      border-radius: 16px;
+      padding: 6px 16px;
+      font-size: 13px;
       color: var(--text);
       cursor: pointer;
+      transition: all 0.15s ease;
     }
+    .repo-pill:hover { border-color: var(--accent); color: #fff; }
     .repo-pill.on { background: var(--btn-active); border-color: var(--btn-active); color: #fff; font-weight: 600; }
+    
     main {
-      padding: 28px 28px 50px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
-      gap: 24px;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px;
+      padding: 32px;
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 32px;
     }
-    .card h2 { margin: 0; font-size: 19px; word-break: break-word; }
-    .card h2 a { color: var(--accent); text-decoration: none; }
-    .card h2 a:hover { text-decoration: underline; }
-    .counters-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .full-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+    }
+    .full-card h2 { margin: 0; font-size: 24px; word-break: break-word; }
+    .full-card h2 a { color: var(--accent); text-decoration: none; }
+    .full-card h2 a:hover { text-decoration: underline; }
+
+    .counters-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .counter-pill {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 4px 12px;
-      font-size: 12px;
+      border-radius: 18px;
+      padding: 6px 16px;
+      font-size: 13px;
       color: var(--text-muted);
     }
-    .counter-pill.has-items { color: #f0f6fc; border-color: #484f58; }
-    .section { border-top: 1px solid #21262d; pt: 14px; margin-top: 2px; display: flex; flex-direction: column; gap: 10px; }
-    .section-title { font-weight: 700; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; }
-    .list-item { font-size: 14px; padding: 8px 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px dashed #21262d; }
+    .counter-pill.has-items { color: #f0f6fc; border-color: #484f58; font-weight: 600; }
+
+    /* Grid for side-by-side sections in full-width view */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 24px;
+    }
+
+    .section {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .section-title { font-weight: 700; font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); pb: 10px; padding-bottom: 8px; }
+    
+    .list-item { font-size: 14px; padding: 10px 0; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px dashed #21262d; }
     .list-item:last-child { border-bottom: none; }
     .list-item a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .list-item a:hover { text-decoration: underline; }
     .item-title { color: var(--text); word-break: break-word; white-space: normal; flex: 1; }
-    .author-tag { color: var(--text-muted); font-size: 12px; font-weight: 500; }
+    .author-tag { color: var(--text-muted); font-size: 13px; font-weight: 500; }
+    
     .branches-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
     
     .branch-btn {
-      background: var(--bg);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 6px 12px;
-      border-radius: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
       font-size: 13px;
       font-family: monospace;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       user-select: none;
     }
     .branch-btn:hover { background: #21262d; border-color: var(--accent); }
@@ -135,9 +165,9 @@
     .branch-btn.is-pending { border-color: #d97706; }
     
     .branch-status-badge {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
-      padding: 1px 5px;
+      padding: 2px 6px;
       border-radius: 4px;
       text-transform: uppercase;
     }
@@ -146,14 +176,14 @@
     .branch-status-pending { background: var(--badge-pending); color: #fff; }
 
     .branch-author { opacity: 0.85; font-size: 12px; font-weight: normal; margin-left: 2px; }
-    .branch-ext { color: var(--text-muted); font-size: 12px; text-decoration: none; margin-left: 4px; }
+    .branch-ext { color: var(--text-muted); font-size: 13px; text-decoration: none; margin-left: 4px; }
     .branch-ext:hover { color: var(--accent); }
     
     .badge {
       display: inline-block;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 12px;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: #fff;
       text-transform: uppercase;
@@ -163,17 +193,17 @@
     .badge-merged { background: var(--badge-merged); }
     .badge-pending { background: var(--badge-pending); }
 
-    .empty-state { color: var(--text-muted); font-style: italic; font-size: 13px; padding: 4px 0; }
-    code { font-family: monospace; font-size: 13px; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
-    .comment-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 13px; word-break: break-word; white-space: normal; line-height: 1.5; margin-bottom: 6px; }
+    .empty-state { color: var(--text-muted); font-style: italic; font-size: 14px; padding: 6px 0; }
+    code { font-family: monospace; font-size: 13px; background: var(--card-bg); padding: 3px 8px; border-radius: 4px; }
+    .comment-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; word-break: break-word; white-space: normal; line-height: 1.6; margin-bottom: 8px; }
     .comment-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .date-tag { color: var(--text-muted); font-size: 11px; }
+    .date-tag { color: var(--text-muted); font-size: 12px; }
   </style>
 </head>
 <body>
   <header>
     <div>
-      <span class="brand">GitHub Service Status — Incorporación y Fusión</span>
+      <span class="brand">GitHub Service Status</span>
     </div>
     <div class="meta" id="meta-info">Cargando...</div>
   </header>
@@ -181,11 +211,10 @@
   <div class="filter-container">
     <div class="filters-row" id="org-filter-row">
       <span class="filter-label">Organización / Usuario:</span>
-      <button data-org="all" class="on">Todos</button>
     </div>
-    <div class="filters-row" id="repo-filter-row" style="display: none;">
+    <div class="filters-row" id="repo-filter-row">
       <span class="filter-label">Repositorios:</span>
-      <div id="repo-pills" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+      <div id="repo-pills" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
     </div>
   </div>
 
@@ -222,9 +251,16 @@
         }
       });
 
-      orgs.forEach(org => {
+      // Default to first org if available
+      const orgList = Array.from(orgs);
+      if (orgList.length > 0) {
+        selectedOrg = orgList[0];
+      }
+
+      orgList.forEach(org => {
         const btn = document.createElement('button');
         btn.dataset.org = org;
+        btn.className = (selectedOrg === org ? 'on' : '');
         btn.textContent = org;
         orgRow.appendChild(btn);
       });
@@ -232,37 +268,24 @@
       orgRow.querySelectorAll('button').forEach(btn => {
         btn.onclick = () => {
           selectedOrg = btn.dataset.org;
-          selectedRepo = 'all';
           orgRow.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === btn));
-          updateRepoPills();
+          updateRepoPills(true);
           render();
         };
       });
+
+      updateRepoPills(true);
     }
 
-    function updateRepoPills() {
-      const repoRow = document.getElementById('repo-filter-row');
+    function updateRepoPills(resetToFirst = False) {
       const repoPillsContainer = document.getElementById('repo-pills');
       repoPillsContainer.innerHTML = '';
 
-      if (selectedOrg === 'all') {
-        repoRow.style.display = 'none';
-        return;
-      }
-
-      repoRow.style.display = 'flex';
-
       const availableRepos = (rawData.repos || []).filter(r => r.repo.startsWith(selectedOrg + '/'));
 
-      const allBtn = document.createElement('button');
-      allBtn.className = 'repo-pill ' + (selectedRepo === 'all' ? 'on' : '');
-      allBtn.textContent = `Todos en ${selectedOrg} (${availableRepos.length})`;
-      allBtn.onclick = () => {
-        selectedRepo = 'all';
-        repoPillsContainer.querySelectorAll('.repo-pill').forEach(p => p.classList.toggle('on', p === allBtn));
-        render();
-      };
-      repoPillsContainer.appendChild(allBtn);
+      if (resetToFirst && availableRepos.length > 0) {
+        selectedRepo = availableRepos[0].repo;
+      }
 
       availableRepos.forEach(r => {
         const repoName = r.repo.split('/')[1];
@@ -315,15 +338,16 @@
 
       if (!rawData || !rawData.repos) return;
 
-      const filtered = rawData.repos.filter(r => {
-        if (selectedOrg !== 'all' && !r.repo.startsWith(selectedOrg + '/')) return false;
-        if (selectedRepo !== 'all' && r.repo !== selectedRepo) return false;
-        return true;
-      });
+      const filtered = rawData.repos.filter(r => r.repo === selectedRepo);
+
+      if (filtered.length === 0) {
+        main.innerHTML = '<div class="empty-state">Seleccioná un repositorio en las pastillas superiores.</div>';
+        return;
+      }
 
       filtered.forEach(r => {
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = 'full-card';
         card.dataset.repo = r.repo;
 
         const issues = (r.issues || []);
@@ -350,9 +374,9 @@
             <span class="counter-pill ${issues.length ? 'has-items' : ''}">Issues (${issues.length})</span>
           </div>
 
-          <!-- SECCIÓN: RAMAS ACTIVAS E INCORPORADAS -->
+          <!-- SECCIÓN DE RAMAS (ANCHO COMPLETO) -->
           <div class="section">
-            <div class="section-title">Ramas (${branches.length})</div>
+            <div class="section-title">Ramas del Repositorio (${branches.length}) — Seleccioná una para explorar sus commits</div>
             ${branches.length ? `
               <div class="branches-wrap">
                 ${branches.map(b => {
@@ -379,52 +403,61 @@
             ` : '<div class="empty-state">Sin ramas secundarias</div>'}
           </div>
 
-          <!-- SECCIÓN: COMMITS -->
-          <div class="section">
-            <div class="section-title">
-              Commits <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
-            </div>
-            <div class="commits-container">
-              ${renderCommitsList(commits)}
-            </div>
-          </div>
-
-          <!-- SECCIÓN: PULL REQUESTS (TODOS) -->
-          <div class="section">
-            <div class="section-title">Todos los Pull Requests (${prs.length})</div>
-            ${prs.length ? prs.map(p => `
-              <div class="list-item">
-                ${getBadge(p.state)}
-                <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
-                ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
-              </div>
-            `).join('') : '<div class="empty-state">Sin pull requests</div>'}
-          </div>
-
-          <!-- SECCIÓN: COMENTARIOS (TODOS) -->
-          <div class="section">
-            <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
-            ${comments.length ? comments.map(c => `
-              <div class="comment-box">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                  <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>
-                  ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
+          <!-- GRID DE SECCIONES A DOS COLUMNAS ANCHAS -->
+          <div class="sections-grid">
+            <!-- COLUMNA IZQUIERDA: COMMITS & PRS -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <!-- COMMITS -->
+              <div class="section">
+                <div class="section-title">
+                  Commits en <span class="branch-label">[${escapeHtml(currentBranchName)}]</span> (${commits.length})
                 </div>
-                <div>"${escapeHtml(c.body || '')}"</div>
+                <div class="commits-container">
+                  ${renderCommitsList(commits)}
+                </div>
               </div>
-            `).join('') : '<div class="empty-state">Sin comentarios</div>'}
-          </div>
 
-          <!-- SECCIÓN: ISSUES (TODOS) -->
-          <div class="section">
-            <div class="section-title">Todos los Issues (${issues.length})</div>
-            ${issues.length ? issues.map(i => `
-              <div class="list-item">
-                ${getBadge(i.state)}
-                <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
-                ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
+              <!-- PULL REQUESTS -->
+              <div class="section">
+                <div class="section-title">Todos los Pull Requests (${prs.length})</div>
+                ${prs.length ? prs.map(p => `
+                  <div class="list-item">
+                    ${getBadge(p.state)}
+                    <a href="${p.url}" target="_blank" rel="noopener" class="item-title">PR #${p.number} — ${escapeHtml(p.title || '')}</a>
+                    ${p.createdAt ? `<span class="date-tag">${formatDate(p.createdAt)}</span>` : ''}
+                  </div>
+                `).join('') : '<div class="empty-state">Sin pull requests</div>'}
               </div>
-            `).join('') : '<div class="empty-state">Sin issues</div>'}
+            </div>
+
+            <!-- COLUMNA DERECHA: COMENTARIOS & ISSUES -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <!-- COMENTARIOS -->
+              <div class="section">
+                <div class="section-title">Todos los Comentarios en PRs (${comments.length})</div>
+                ${comments.length ? comments.map(c => `
+                  <div class="comment-box">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                      <a href="${c.html_url || '#'}" target="_blank" rel="noopener">@${escapeHtml(c.user || 'usuario')}</a>
+                      ${c.created_at ? `<span class="date-tag">${formatDate(c.created_at)}</span>` : ''}
+                    </div>
+                    <div>"${escapeHtml(c.body || '')}"</div>
+                  </div>
+                `).join('')} : '<div class="empty-state">Sin comentarios</div>'}
+              </div>
+
+              <!-- ISSUES -->
+              <div class="section">
+                <div class="section-title">Todos los Issues (${issues.length})</div>
+                ${issues.length ? issues.map(i => `
+                  <div class="list-item">
+                    ${getBadge(i.state)}
+                    <a href="${i.url}" target="_blank" rel="noopener" class="item-title">#${i.number} — ${escapeHtml(i.title || '')}</a>
+                    ${i.createdAt ? `<span class="date-tag">${formatDate(i.createdAt)}</span>` : ''}
+                  </div>
+                `).join('') : '<div class="empty-state">Sin issues</div>'}
+              </div>
+            </div>
           </div>
         `;
 
