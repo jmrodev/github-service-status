@@ -115,3 +115,10 @@ Configure user profiles, organization lists, test slices, and query caps in `tar
 - **No Client-Side Token Exposure**: The browser never handles GitHub Personal Access Tokens (PATs).
 - **Rate Limit Safety**: Materialized JSON generation prevents client-side N+1 query API exhaustion.
 - **Direct Deep Linking**: Every issue, PR, commit sha, and branch links directly to its origin URL on GitHub.
+
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT License**.
+
+Copyright (c) 2026 **Juan Marcelo Rodríguez** ([@jmrodev](https://github.com/jmrodev)).
